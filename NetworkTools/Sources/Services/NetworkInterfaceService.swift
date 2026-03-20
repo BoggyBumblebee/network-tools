@@ -34,13 +34,24 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         let records = readInterfaceRecords().filter { $0.name == interfaceName }
         guard !records.isEmpty else { return nil }
 
+        var hardwareAddress: String?
         var ipAddress: String?
+        var linkSpeedBitsPerSecond: UInt64?
         var linkStatus: LinkStatus = .unknown
         var stats: InterfaceStatistics?
 
         for record in records {
+            if let macAddress = record.hardwareAddress, hardwareAddress == nil {
+                hardwareAddress = macAddress
+            }
             if let ipv4 = record.ipv4Address, ipAddress == nil {
                 ipAddress = ipv4
+            }
+            if
+                let speed = record.linkSpeedBitsPerSecond,
+                linkSpeedBitsPerSecond == nil || speed > linkSpeedBitsPerSecond!
+            {
+                linkSpeedBitsPerSecond = speed
             }
             if record.isUp != nil {
                 linkStatus = record.isUp == true ? .up : .down
@@ -60,12 +71,14 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             collisions: nil
         )
 
+        let speedText = Formatters.bitsPerSecondString(linkSpeedBitsPerSecond)
+
         return InterfaceSnapshot(
             name: interfaceName,
-            hardwareAddress: nil,
+            hardwareAddress: hardwareAddress,
             ipAddress: ipAddress,
-            linkSpeed: nil,
-            transportSpeed: nil,
+            linkSpeed: speedText,
+            transportSpeed: speedText,
             linkStatus: linkStatus,
             vendor: nil,
             model: nil,
@@ -76,7 +89,9 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
     private struct InterfaceRecord {
         let name: String
         let hardwareType: String?
+        let hardwareAddress: String?
         let ipv4Address: String?
+        let linkSpeedBitsPerSecond: UInt64?
         let isUp: Bool?
         let isActive: Bool
         let statistics: InterfaceStatistics?
@@ -102,15 +117,18 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             let isActive = isUp && isRunning
 
             var hardwareType: String?
+            var hardwareAddress: String?
             if
                 let address = interface.pointee.ifa_addr,
                 address.pointee.sa_family == UInt8(AF_LINK)
             {
                 let linkAddress = UnsafeRawPointer(address).assumingMemoryBound(to: sockaddr_dl.self).pointee
                 hardwareType = mapHardwareType(linkAddress.sdl_type)
+                hardwareAddress = mapHardwareAddress(linkAddress)
             }
 
             var ipv4Address: String?
+            var linkSpeedBitsPerSecond: UInt64?
             if let addr = interface.pointee.ifa_addr, addr.pointee.sa_family == UInt8(AF_INET) {
                 var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
                 let result = getnameinfo(
@@ -130,6 +148,10 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             var stats: InterfaceStatistics?
             if let data = interface.pointee.ifa_data {
                 let ifData = data.assumingMemoryBound(to: if_data.self).pointee
+                let speed = UInt64(ifData.ifi_baudrate)
+                if speed > 0 {
+                    linkSpeedBitsPerSecond = speed
+                }
                 stats = InterfaceStatistics(
                     sentPackets: UInt64(ifData.ifi_opackets),
                     sentBytes: UInt64(ifData.ifi_obytes),
@@ -145,7 +167,9 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
                 InterfaceRecord(
                     name: name,
                     hardwareType: hardwareType,
+                    hardwareAddress: hardwareAddress,
                     ipv4Address: ipv4Address,
+                    linkSpeedBitsPerSecond: linkSpeedBitsPerSecond,
                     isUp: isUp,
                     isActive: isActive,
                     statistics: stats
@@ -166,5 +190,20 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         default:
             return nil
         }
+    }
+
+    private func mapHardwareAddress(_ linkAddress: sockaddr_dl) -> String? {
+        let length = Int(linkAddress.sdl_alen)
+        guard length > 0 else {
+            return nil
+        }
+
+        let dataPointer = withUnsafePointer(to: linkAddress.sdl_data) {
+            UnsafeRawPointer($0).assumingMemoryBound(to: UInt8.self)
+        }
+
+        let macPointer = dataPointer.advanced(by: Int(linkAddress.sdl_nlen))
+        let bytes = UnsafeBufferPointer(start: macPointer, count: length)
+        return bytes.map { String(format: "%02x", $0) }.joined(separator: ":")
     }
 }
