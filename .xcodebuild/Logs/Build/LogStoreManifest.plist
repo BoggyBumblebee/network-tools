@@ -6,7 +6,7 @@
 	<integer>12</integer>
 	<key>logs</key>
 	<dict>
-		<key>DE43BD42-30B5-40A3-9164-BB2E836B814B</key>
+		<key>99B06FE7-82C7-45DE-A44B-9BC1EE598BE1</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>DE43BD42-30B5-40A3-9164-BB2E836B814B.xcactivitylog</string>
+			<string>99B06FE7-82C7-45DE-A44B-9BC1EE598BE1.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -40,13 +40,55 @@
 			<key>signature</key>
 			<string>Testing project NetworkTools with scheme NetworkTools</string>
 			<key>timeStartedRecording</key>
-			<real>795715824.11859906</real>
+			<real>795716547.58405197</real>
 			<key>timeStoppedRecording</key>
-			<real>795715825.97957897</real>
+			<real>795716549.11554396</real>
 			<key>title</key>
 			<string>Testing project NetworkTools with scheme NetworkTools</string>
 			<key>uniqueIdentifier</key>
-			<string>DE43BD42-30B5-40A3-9164-BB2E836B814B</string>
+			<string>99B06FE7-82C7-45DE-A44B-9BC1EE598BE1</string>
+		</dict>
+		<key>E1EB0FD4-4B95-4292-B801-69FA9690DA11</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E1EB0FD4-4B95-4292-B801-69FA9690DA11.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>NetworkTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>NetworkTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Testing project NetworkTools with scheme NetworkTools</string>
+			<key>timeStartedRecording</key>
+			<real>795716627.97410595</real>
+			<key>timeStoppedRecording</key>
+			<real>795716630.617167</real>
+			<key>title</key>
+			<string>Testing project NetworkTools with scheme NetworkTools</string>
+			<key>uniqueIdentifier</key>
+			<string>E1EB0FD4-4B95-4292-B801-69FA9690DA11</string>
 		</dict>
 	</dict>
 </dict>

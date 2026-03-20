@@ -3,6 +3,8 @@ import Foundation
 
 @MainActor
 final class InfoViewModel: ObservableObject {
+    private static let preferredDefaultInterfaceName = "en0"
+
     @Published private(set) var interfaces: [NetworkInterfaceSummary] = []
     @Published private(set) var selectedInterfaceName = ""
     @Published private(set) var interfaceRows: [DisplayRow] = []
@@ -65,7 +67,7 @@ final class InfoViewModel: ObservableObject {
         }
 
         if !interfaces.contains(where: { $0.name == selectedInterfaceName }) {
-            selectedInterfaceName = interfaces[0].name
+            selectedInterfaceName = defaultInterfaceName(from: interfaces)
         }
 
         emptyMessage = nil
@@ -116,6 +118,15 @@ final class InfoViewModel: ObservableObject {
 
     func refreshForTesting() {
         refreshNow()
+    }
+
+    private func defaultInterfaceName(from interfaces: [NetworkInterfaceSummary]) -> String {
+        if let preferred = interfaces.first(where: {
+            $0.name.caseInsensitiveCompare(Self.preferredDefaultInterfaceName) == .orderedSame
+        }) {
+            return preferred.name
+        }
+        return interfaces[0].name
     }
 
     private static func formatHexID(_ value: String?) -> String? {
