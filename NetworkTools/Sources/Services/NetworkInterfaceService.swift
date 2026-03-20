@@ -1,5 +1,6 @@
 import Darwin
 import Foundation
+import IOKit
 
 protocol NetworkInterfaceService {
     func listInterfaces() -> [NetworkInterfaceSummary]
@@ -7,6 +8,8 @@ protocol NetworkInterfaceService {
 }
 
 final class SystemNetworkInterfaceService: NetworkInterfaceService {
+    private var interfaceDetailsCache: [String: (vendor: String?, model: String?)] = [:]
+
     func listInterfaces() -> [NetworkInterfaceSummary] {
         var names = Set<String>()
         var hardwareTypeByName: [String: String] = [:]
@@ -49,7 +52,7 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             }
             if
                 let speed = record.linkSpeedBitsPerSecond,
-                linkSpeedBitsPerSecond == nil || speed > linkSpeedBitsPerSecond!
+                speed > (linkSpeedBitsPerSecond ?? 0)
             {
                 linkSpeedBitsPerSecond = speed
             }
@@ -72,6 +75,7 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         )
 
         let speedText = Formatters.bitsPerSecondString(linkSpeedBitsPerSecond)
+        let interfaceDetails = vendorAndModel(for: interfaceName)
 
         return InterfaceSnapshot(
             name: interfaceName,
@@ -80,8 +84,8 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             linkSpeed: speedText,
             transportSpeed: speedText,
             linkStatus: linkStatus,
-            vendor: nil,
-            model: nil,
+            vendor: interfaceDetails.vendor,
+            model: interfaceDetails.model,
             statistics: fallbackStats
         )
     }
@@ -205,5 +209,135 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         let macPointer = dataPointer.advanced(by: Int(linkAddress.sdl_nlen))
         let bytes = UnsafeBufferPointer(start: macPointer, count: length)
         return bytes.map { String(format: "%02x", $0) }.joined(separator: ":")
+    }
+
+    private func vendorAndModel(for interfaceName: String) -> (vendor: String?, model: String?) {
+        if let cached = interfaceDetailsCache[interfaceName] {
+            return cached
+        }
+
+        let resolved = resolveVendorAndModel(for: interfaceName)
+        interfaceDetailsCache[interfaceName] = resolved
+        return resolved
+    }
+
+    private func resolveVendorAndModel(for interfaceName: String) -> (vendor: String?, model: String?) {
+        guard let matching = IOServiceMatching("IONetworkInterface") else {
+            return (nil, nil)
+        }
+        let matchingDictionary = matching as NSMutableDictionary
+
+        matchingDictionary[kIOPropertyMatchKey] = ["BSD Name": interfaceName]
+
+        var iterator: io_iterator_t = 0
+        guard IOServiceGetMatchingServices(kIOMainPortDefault, matchingDictionary, &iterator) == KERN_SUCCESS else {
+            return (nil, nil)
+        }
+        defer { IOObjectRelease(iterator) }
+
+        var vendor: String?
+        var model: String?
+        var service = IOIteratorNext(iterator)
+
+        while service != 0 {
+            if model == nil {
+                model = firstRegistryString(
+                    for: service,
+                    keys: ["model", "product-name", "device-model", "IOName"]
+                )
+                if model == nil, let deviceID = firstRegistryHexID(for: service, keys: ["device-id"]) {
+                    model = "0x\(deviceID)"
+                }
+            }
+
+            if vendor == nil {
+                vendor = firstRegistryString(
+                    for: service,
+                    keys: ["vendor-name", "manufacturer", "vendor", "subsystem-vendor-name"]
+                )
+                if vendor == nil, let vendorID = firstRegistryHexID(for: service, keys: ["vendor-id"]) {
+                    vendor = "0x\(vendorID)"
+                }
+            }
+
+            let next = IOIteratorNext(iterator)
+            IOObjectRelease(service)
+            service = next
+        }
+
+        return (vendor, model)
+    }
+
+    private func firstRegistryString(for service: io_registry_entry_t, keys: [String]) -> String? {
+        for key in keys {
+            guard let value = registryProperty(for: service, key: key) else {
+                continue
+            }
+            if let string = registryString(from: value) {
+                return string
+            }
+        }
+        return nil
+    }
+
+    private func firstRegistryHexID(for service: io_registry_entry_t, keys: [String]) -> String? {
+        for key in keys {
+            guard let value = registryProperty(for: service, key: key) else {
+                continue
+            }
+            if let hexID = registryHexID(from: value) {
+                return hexID
+            }
+        }
+        return nil
+    }
+
+    private func registryProperty(for service: io_registry_entry_t, key: String) -> AnyObject? {
+        let options = IOOptionBits(kIORegistryIterateRecursively | kIORegistryIterateParents)
+        return IORegistryEntrySearchCFProperty(
+            service,
+            kIOServicePlane,
+            key as CFString,
+            kCFAllocatorDefault,
+            options
+        )
+    }
+
+    private func registryString(from value: AnyObject) -> String? {
+        if let text = value as? String {
+            return normalized(text)
+        }
+
+        if let data = value as? Data {
+            if let decoded = String(data: data, encoding: .utf8) ?? String(data: data, encoding: .ascii) {
+                let trimmedNulls = decoded.replacingOccurrences(of: "\0", with: "")
+                return normalized(trimmedNulls)
+            }
+            return nil
+        }
+
+        return nil
+    }
+
+    private func registryHexID(from value: AnyObject) -> String? {
+        if let number = value as? NSNumber {
+            return String(format: "%04x", number.uint64Value & 0xffff)
+        }
+
+        if let data = value as? Data, data.count >= 2 {
+            var value: UInt32 = 0
+            for (index, byte) in data.prefix(4).enumerated() {
+                let shift = UInt32(index * 8)
+                value |= UInt32(byte) << shift
+            }
+            return String(format: "%04x", value & 0xffff)
+        }
+
+        return nil
+    }
+
+    private func normalized(_ text: String) -> String? {
+        let cleaned = text.trimmingCharacters(in: .whitespacesAndNewlines.union(.controlCharacters))
+        return cleaned.isEmpty ? nil : cleaned
     }
 }
