@@ -37,11 +37,16 @@ struct InfoTabView: View {
             } else {
                 HStack(alignment: .top, spacing: 12) {
                     GroupBox("Interface Information") {
-                        KeyValueListView(rows: viewModel.interfaceRows)
+                        KeyValueListView(
+                            rows: viewModel.interfaceRows,
+                            canShowCopyButton: { row in
+                                !["Link Speed", "Transport Speed", "Link Status"].contains(row.label)
+                            }
+                        )
                     }
 
                     GroupBox("Transfer Statistics") {
-                        KeyValueListView(rows: viewModel.statisticsRows)
+                        KeyValueListView(rows: viewModel.statisticsRows, canShowCopyButton: { _ in false })
                     }
                 }
                 .frame(maxHeight: .infinity)
@@ -53,6 +58,7 @@ struct InfoTabView: View {
 
 private struct KeyValueListView: View {
     let rows: [DisplayRow]
+    let canShowCopyButton: (DisplayRow) -> Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -61,9 +67,14 @@ private struct KeyValueListView: View {
                     Text(row.label)
                         .foregroundStyle(.secondary)
                     Spacer()
-                    valueView(for: row)
+                    HStack(spacing: 8) {
+                        valueView(for: row)
+                        if canShowCopyButton(row) {
+                            copyValueButton(for: row)
+                        }
+                    }
                 }
-                .accessibilityElement(children: .combine)
+                .accessibilityElement(children: .contain)
                 .contextMenu {
                     Button("Copy Value") {
                         copyToPasteboard(displayValueText(for: row))
@@ -131,6 +142,19 @@ private struct KeyValueListView: View {
             return "Inactive"
         }
         return row.value
+    }
+
+    private func copyValueButton(for row: DisplayRow) -> some View {
+        Button {
+            copyToPasteboard(displayValueText(for: row))
+        } label: {
+            Image(systemName: "doc.on.doc")
+                .foregroundStyle(.secondary)
+        }
+        .buttonStyle(.plain)
+        .help("Copy \(row.label)")
+        .accessibilityLabel("Copy \(row.label) value")
+        .accessibilityHint("Copies this value to the clipboard.")
     }
 
     private func copyToPasteboard(_ value: String) {
