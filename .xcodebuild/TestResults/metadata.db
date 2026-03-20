@@ -13,17 +13,22 @@
 				<key>testDefaultsToEn0WhenAvailable</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00067198276519775391</real>
+					<real>0.00069797039031982422</real>
 				</dict>
 				<key>testIdentifiersAreShownWithoutDebugToggle</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00045502185821533203</real>
+					<real>0.00053298473358154297</real>
 				</dict>
 				<key>testUnavailableFallbackFormatting</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00063002109527587891</real>
+					<real>0.00050401687622070312</real>
+				</dict>
+				<key>testWiFiShowsLinkSpeedAndNotApplicableTransportSpeed</key>
+				<dict>
+					<key>mrnet</key>
+					<real>0.00046300888061523438</real>
 				</dict>
 			</dict>
 			<key>OutputBufferTests</key>
@@ -31,7 +36,7 @@
 				<key>testOutputBufferTruncatesByLineLimit</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.0050929784774780273</real>
+					<real>0.0048940181732177734</real>
 				</dict>
 			</dict>
 			<key>ValidationTests</key>
@@ -39,22 +44,22 @@
 				<key>testInvalidHostnames</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00046896934509277344</real>
+					<real>0.00056302547454833984</real>
 				</dict>
 				<key>testPingCountValidationRange</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00042498111724853516</real>
+					<real>0.00047004222869873047</real>
 				</dict>
 				<key>testPortRangeValidation</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00038003921508789062</real>
+					<real>0.00046002864837646484</real>
 				</dict>
 				<key>testValidIPv4AndHostname</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00041496753692626953</real>
+					<real>0.00049602985382080078</real>
 				</dict>
 			</dict>
 			<key>ViewModelStateTests</key>
@@ -62,12 +67,12 @@
 				<key>testPingViewModelStartStopStateTransitions</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.21506607532501221</real>
+					<real>0.31219601631164551</real>
 				</dict>
 				<key>testPortScanViewModelStartStopStateTransitions</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.21573400497436523</real>
+					<real>0.21500396728515625</real>
 				</dict>
 			</dict>
 		</dict>

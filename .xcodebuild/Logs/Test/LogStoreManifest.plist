@@ -6,22 +6,22 @@
 	<integer>12</integer>
 	<key>logs</key>
 	<dict>
-		<key>8C7821E1-74FA-425C-9356-988021ED4525</key>
+		<key>52F62869-B441-47A0-97D3-D8001D8461DA</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>9CBE0504-95E9-4DCE-9051-15B413580C3B</string>
+			<string>FBD9DE94-B8F4-4F40-A324-E2AC7CF0C13F</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>E</string>
+				<string>S</string>
 				<key>totalNumberOfAnalyzerIssues</key>
 				<integer>0</integer>
 				<key>totalNumberOfErrors</key>
-				<integer>14</integer>
+				<integer>0</integer>
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>14</integer>
+				<integer>0</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -30,7 +30,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.unit.cocoaUnitTest</string>
 			<key>fileName</key>
-			<string>Test-NetworkTools-2026.03.20_17-31-43-+0000.xcresult</string>
+			<string>Test-NetworkTools-2026.03.20_17-47-22-+0000.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasPrimaryLog</key>
@@ -38,15 +38,15 @@
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>E</string>
+				<string>S</string>
 				<key>totalNumberOfAnalyzerIssues</key>
 				<integer>0</integer>
 				<key>totalNumberOfErrors</key>
-				<integer>15</integer>
+				<integer>0</integer>
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>14</integer>
+				<integer>0</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>NetworkTools project</string>
@@ -57,13 +57,13 @@
 			<key>signature</key>
 			<string>Test NetworkTools</string>
 			<key>timeStartedRecording</key>
-			<real>795720703.37106597</real>
+			<real>795721642.231408</real>
 			<key>timeStoppedRecording</key>
-			<real>795720704.77100003</real>
+			<real>795721646.12444103</real>
 			<key>title</key>
 			<string>Test NetworkTools</string>
 			<key>uniqueIdentifier</key>
-			<string>8C7821E1-74FA-425C-9356-988021ED4525</string>
+			<string>52F62869-B441-47A0-97D3-D8001D8461DA</string>
 		</dict>
 		<key>BFA0C463-9916-4CC7-94ED-C7727546B679</key>
 		<dict>

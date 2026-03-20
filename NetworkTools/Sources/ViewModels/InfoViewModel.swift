@@ -4,6 +4,7 @@ import Foundation
 @MainActor
 final class InfoViewModel: ObservableObject {
     private static let preferredDefaultInterfaceName = "en0"
+    private static let notApplicableValue = "N/A"
 
     @Published private(set) var interfaces: [NetworkInterfaceSummary] = []
     @Published private(set) var selectedInterfaceName = ""
@@ -88,11 +89,13 @@ final class InfoViewModel: ObservableObject {
             return
         }
 
+        let speedValues = speedDisplayValues(snapshot: snapshot)
+
         let rows = [
             DisplayRow(label: "Hardware Address", value: Formatters.stringOrUnavailable(snapshot.hardwareAddress)),
             DisplayRow(label: "IP Address", value: Formatters.stringOrUnavailable(snapshot.ipAddress)),
-            DisplayRow(label: "Link Speed", value: Formatters.stringOrUnavailable(snapshot.linkSpeed)),
-            DisplayRow(label: "Transport Speed", value: Formatters.stringOrUnavailable(snapshot.transportSpeed)),
+            DisplayRow(label: "Link Speed", value: speedValues.linkSpeed),
+            DisplayRow(label: "Transport Speed", value: speedValues.transportSpeed),
             DisplayRow(label: "Link Status", value: snapshot.linkStatus.displayValue),
             DisplayRow(
                 label: "Vendor",
@@ -127,6 +130,34 @@ final class InfoViewModel: ObservableObject {
             return preferred.name
         }
         return interfaces[0].name
+    }
+
+    private func speedDisplayValues(snapshot: InterfaceSnapshot) -> (linkSpeed: String, transportSpeed: String) {
+        let hardwareType = interfaces.first(where: { $0.name == selectedInterfaceName })?.hardwareType
+        if Self.isWiFiHardwareType(hardwareType) {
+            return (
+                linkSpeed: Formatters.stringOrUnavailable(snapshot.linkSpeed),
+                transportSpeed: Self.notApplicableValue
+            )
+        }
+
+        return (
+            linkSpeed: Self.notApplicableValue,
+            transportSpeed: Formatters.stringOrUnavailable(snapshot.transportSpeed)
+        )
+    }
+
+    private static func isWiFiHardwareType(_ hardwareType: String?) -> Bool {
+        guard let hardwareType else {
+            return false
+        }
+
+        let normalized = hardwareType
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: "‑", with: "-")
+            .lowercased()
+
+        return normalized == "wi-fi" || normalized == "wifi"
     }
 
     private static func formatHexID(_ value: String?) -> String? {

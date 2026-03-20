@@ -11,7 +11,8 @@ final class InfoViewModelTests: XCTestCase {
 
         XCTAssertEqual(viewModel.interfaces.map(\.name), ["en0"])
         XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Hardware Address" })?.value, "Unavailable")
-        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Link Speed" })?.value, "Unavailable")
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Link Speed" })?.value, "N/A")
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Transport Speed" })?.value, "Unavailable")
         XCTAssertEqual(viewModel.statisticsRows.first(where: { $0.label == "Sent Data" })?.value, "Unavailable")
     }
 
@@ -34,11 +35,22 @@ final class InfoViewModelTests: XCTestCase {
 
         XCTAssertEqual(viewModel.selectedInterfaceName, "en0")
     }
+
+    @MainActor
+    func testWiFiShowsLinkSpeedAndNotApplicableTransportSpeed() {
+        let service = WiFiInterfaceService()
+        let viewModel = InfoViewModel(service: service)
+
+        viewModel.refreshForTesting()
+
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Link Speed" })?.value, "866 Mbps")
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Transport Speed" })?.value, "N/A")
+    }
 }
 
 private final class MockNetworkInterfaceService: NetworkInterfaceService {
     func listInterfaces() -> [NetworkInterfaceSummary] {
-        [NetworkInterfaceSummary(name: "en0")]
+        [NetworkInterfaceSummary(name: "en0", hardwareType: "Ethernet")]
     }
 
     func snapshot(for interfaceName: String) -> InterfaceSnapshot? {
@@ -53,6 +65,36 @@ private final class MockNetworkInterfaceService: NetworkInterfaceService {
             model: nil,
             vendorID: "14e4",
             deviceID: "4434",
+            statistics: InterfaceStatistics(
+                sentPackets: nil,
+                sentBytes: nil,
+                sendErrors: nil,
+                receivedPackets: nil,
+                receivedBytes: nil,
+                receivedErrors: nil,
+                collisions: nil
+            )
+        )
+    }
+}
+
+private final class WiFiInterfaceService: NetworkInterfaceService {
+    func listInterfaces() -> [NetworkInterfaceSummary] {
+        [NetworkInterfaceSummary(name: "en1", hardwareType: "Wi-Fi")]
+    }
+
+    func snapshot(for interfaceName: String) -> InterfaceSnapshot? {
+        InterfaceSnapshot(
+            name: interfaceName,
+            hardwareAddress: nil,
+            ipAddress: nil,
+            linkSpeed: "866 Mbps",
+            transportSpeed: "1.2 Gbps",
+            linkStatus: .up,
+            vendor: nil,
+            model: nil,
+            vendorID: nil,
+            deviceID: nil,
             statistics: InterfaceStatistics(
                 sentPackets: nil,
                 sentBytes: nil,
