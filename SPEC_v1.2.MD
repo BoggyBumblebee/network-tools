@@ -2,7 +2,7 @@
 
 ## 1. Document Control
 
-**Document Name:** SPEC.MD  
+**Document Name:** SPEC_v1.2.MD  
 **Document Version:** 1.2  
 **Last Updated:** 2026-03-20  
 **Target Artifact:** macOS SwiftUI application  
