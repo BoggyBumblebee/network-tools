@@ -18,7 +18,11 @@ enum Formatters {
 
     static func numberOrUnavailable(_ value: UInt64?) -> String {
         guard let value else { return unavailable }
-        return String(value)
+        return value.formatted(
+            .number
+                .grouping(.automatic)
+                .precision(.fractionLength(0))
+        )
     }
 
     static func bytesOrUnavailable(_ value: UInt64?) -> String {

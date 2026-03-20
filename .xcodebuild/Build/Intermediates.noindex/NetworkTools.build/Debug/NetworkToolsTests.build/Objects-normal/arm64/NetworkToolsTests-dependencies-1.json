@@ -450,6 +450,13 @@
     "moduleName" : "Symbols"
   },
   {
+    "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/SystemConfiguration.framework\/Modules\/module.modulemap",
+    "clangModulePath" : "\/Users\/cmb\/Workspace\/github.com\/boggybumblebee\/network-tools\/.xcodebuild\/ModuleCache.noindex\/SystemConfiguration-56J8JHL0VB4VVFUYPNALL3OL5.pcm",
+    "isBridgingHeaderDependency" : false,
+    "isFramework" : false,
+    "moduleName" : "SystemConfiguration"
+  },
+  {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/UniformTypeIdentifiers.framework\/Modules\/module.modulemap",
     "clangModulePath" : "\/Users\/cmb\/Workspace\/github.com\/boggybumblebee\/network-tools\/.xcodebuild\/ModuleCache.noindex\/UniformTypeIdentifiers-BSXFM4ECFD50MA5PVJMQPWKES.pcm",
     "isBridgingHeaderDependency" : false,

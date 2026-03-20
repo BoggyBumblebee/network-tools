@@ -1,6 +1,7 @@
 import Darwin
 import Foundation
 import IOKit
+import SystemConfiguration
 
 protocol NetworkInterfaceService {
     func listInterfaces() -> [NetworkInterfaceSummary]
@@ -104,6 +105,8 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
     }
 
     private func readInterfaceRecords() -> [InterfaceRecord] {
+        let systemHardwareTypesByName = readSystemHardwareTypesByName()
+
         var addressesPointer: UnsafeMutablePointer<ifaddrs>?
         guard getifaddrs(&addressesPointer) == 0, let first = addressesPointer else {
             AppLogger.info.error("Interface enumeration failed")
@@ -129,7 +132,7 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
                 address.pointee.sa_family == UInt8(AF_LINK)
             {
                 let linkAddress = UnsafeRawPointer(address).assumingMemoryBound(to: sockaddr_dl.self).pointee
-                hardwareType = mapHardwareType(linkAddress.sdl_type)
+                hardwareType = systemHardwareTypesByName[name] ?? mapHardwareType(linkAddress.sdl_type)
                 hardwareAddress = mapHardwareAddress(linkAddress)
             }
 
@@ -185,6 +188,71 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         }
 
         return records
+    }
+
+    private func readSystemHardwareTypesByName() -> [String: String] {
+        guard let interfaces = SCNetworkInterfaceCopyAll() as? [SCNetworkInterface] else {
+            return [:]
+        }
+
+        var result: [String: String] = [:]
+        for interface in interfaces {
+            populateSystemHardwareType(interface, into: &result)
+        }
+        return result
+    }
+
+    private func populateSystemHardwareType(_ interface: SCNetworkInterface, into result: inout [String: String]) {
+        if
+            let bsdName = SCNetworkInterfaceGetBSDName(interface) as String?,
+            !bsdName.isEmpty,
+            let interfaceType = SCNetworkInterfaceGetInterfaceType(interface),
+            let mapped = mapSystemHardwareType(interfaceType)
+        {
+            result[bsdName] = mapped
+        }
+
+        if let child = SCNetworkInterfaceGetInterface(interface) {
+            populateSystemHardwareType(child, into: &result)
+        }
+    }
+
+    private func mapSystemHardwareType(_ interfaceType: CFString) -> String? {
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypeIEEE80211) {
+            return "Wi-Fi"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypeEthernet) {
+            return "Ethernet"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypeBluetooth) {
+            return "Bluetooth"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypeWWAN) {
+            return "Cellular"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypeBond) {
+            return "Bond"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypeVLAN) {
+            return "VLAN"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypeFireWire) {
+            return "FireWire"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypeModem) {
+            return "Modem"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypePPP) {
+            return "PPP"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceType6to4) {
+            return "6to4"
+        }
+        if CFEqual(interfaceType, kSCNetworkInterfaceTypeIPSec) {
+            return "IPSec"
+        }
+
+        return nil
     }
 
     private func mapHardwareType(_ type: UInt8) -> String? {

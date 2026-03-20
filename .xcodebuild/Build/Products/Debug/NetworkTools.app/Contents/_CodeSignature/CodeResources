@@ -6,23 +6,113 @@
 	<dict/>
 	<key>files2</key>
 	<dict>
+		<key>Frameworks/Testing.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			EMJWSfCt+cM+Tlk/yonh2q8gSnM=
+			</data>
+			<key>requirement</key>
+			<string>identifier "com.apple.dt.swift-testing" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>Frameworks/XCTAutomationSupport.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			0euoy7DpyasT3VSrvII8rjrgVxE=
+			</data>
+			<key>requirement</key>
+			<string>identifier "com.apple.dt.XCTAutomationSupport" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>Frameworks/XCTest.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			JhFekaAGw5r11V4vRwc+D4FeyOg=
+			</data>
+			<key>requirement</key>
+			<string>identifier "com.apple.dt.XCTest" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>Frameworks/XCTestCore.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			WiqQ13iCstmqTcOuoVZUYJQruEw=
+			</data>
+			<key>requirement</key>
+			<string>identifier "com.apple.dt.XCTestCore" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>Frameworks/XCTestSupport.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			QKiYmULJ6bC4E3cygO7dkbafSLs=
+			</data>
+			<key>requirement</key>
+			<string>identifier "com.apple.dt.XCTestSupport" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>Frameworks/XCUIAutomation.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			oE+UfX2OJS4uCZljJvgQ7p0Wlvw=
+			</data>
+			<key>requirement</key>
+			<string>identifier "com.apple.dt.XCUIAutomation" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>Frameworks/XCUnit.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			XUF9OqNfI0rlyNxTR6/N197jG6I=
+			</data>
+			<key>requirement</key>
+			<string>identifier "com.apple.dt.XCUnit" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>Frameworks/libXCTestBundleInject.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			wvV9rSQZnKVlPysBmPKUkr+CL8w=
+			</data>
+			<key>requirement</key>
+			<string>identifier "libXCTestBundleInject-55554944fdc3c23f920e31af810f72ffb11a4a70" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>Frameworks/libXCTestSwiftSupport.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			sKX7o9lxyXCz84U2GGUvGx/D1HQ=
+			</data>
+			<key>requirement</key>
+			<string>identifier "libXCTestSwiftSupport-55554944e66cf086931635879e64b7cc08ebe3ba" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
 		<key>MacOS/NetworkTools.debug.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			jJkgXH51n/cMhxpjxHXrDpNh02o=
+			mNN/NTYHjWidwg49JFrEQvjgKE0=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"8c99205c7e759ff70c871a63c475eb0e9361d36a"</string>
+			<string>identifier "NetworkTools.debug" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>MacOS/__preview.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			+PzvyJzU4Fsrf2oXTc5fiuoau64=
+			vgGvQVipb+HCqldJMGnT1BoS6SU=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"f8fcefc89cd4e05b2b7f6a174dce5f8aea1abbae"</string>
+			<string>identifier "__preview" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>PlugIns/NetworkToolsTests.xctest</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			UJbx8c+HBUAVwf+qisyaUbAf0G4=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"5096f1f1cf87054015c1ffaa8acc9a51b01fd06e"</string>
 		</dict>
 	</dict>
 	<key>rules</key>

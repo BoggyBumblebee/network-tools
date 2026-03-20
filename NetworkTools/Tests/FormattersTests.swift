@@ -10,4 +10,13 @@ final class FormattersTests: XCTestCase {
         XCTAssertEqual(Formatters.bitsPerSecondString(1_500_000), "1.5 Mbps")
         XCTAssertEqual(Formatters.bitsPerSecondString(1_000_000_000), "1 Gbps")
     }
+
+    func testNumberOrUnavailableFormatsLocaleGroupedIntegersWithoutDecimals() {
+        XCTAssertEqual(Formatters.numberOrUnavailable(nil), "Unavailable")
+
+        let value: UInt64 = 1_234_567_890
+        let expected = NumberFormatter.localizedString(from: NSNumber(value: value), number: .decimal)
+
+        XCTAssertEqual(Formatters.numberOrUnavailable(value), expected)
+    }
 }
