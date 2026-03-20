@@ -15,6 +15,7 @@ struct InfoTabView: View {
                 ) {
                     ForEach(viewModel.interfaces) { interface in
                         Text("\(interface.isActive ? "🟢" : "🔴") \(interface.displayName)")
+                            .accessibilityLabel("\(interface.isActive ? "Active" : "Inactive"), \(interface.displayName)")
                         .tag(interface.name)
                     }
                 }

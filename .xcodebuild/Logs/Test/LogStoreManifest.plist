@@ -242,6 +242,65 @@
 			<key>uniqueIdentifier</key>
 			<string>97977AE0-98BE-4C9E-8E04-14CC2D0E0619</string>
 		</dict>
+		<key>C4F2E77E-99C9-471A-9ACF-8E8A62C8C0E7</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>970A7308-1252-4A97-8E53-D04DB4F8726D</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.unit.cocoaUnitTest</string>
+			<key>fileName</key>
+			<string>Test-NetworkTools-2026.03.20_18-13-31-+0000.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>NetworkTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>NetworkTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Test NetworkTools</string>
+			<key>timeStartedRecording</key>
+			<real>795723211.76693499</real>
+			<key>timeStoppedRecording</key>
+			<real>795723215.42549896</real>
+			<key>title</key>
+			<string>Test NetworkTools</string>
+			<key>uniqueIdentifier</key>
+			<string>C4F2E77E-99C9-471A-9ACF-8E8A62C8C0E7</string>
+		</dict>
 		<key>CEE72AA6-F451-4F8E-8741-F3E2CCA9B3A0</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
