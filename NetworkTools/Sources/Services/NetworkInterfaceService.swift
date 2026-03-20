@@ -41,7 +41,7 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         var hardwareAddress: String?
         var ipAddress: String?
         var linkSpeedBitsPerSecond: UInt64?
-        var linkStatus: LinkStatus = .unknown
+        var isAnyRecordActive = false
         var stats: InterfaceStatistics?
 
         for record in records {
@@ -57,9 +57,7 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             {
                 linkSpeedBitsPerSecond = speed
             }
-            if record.isUp != nil {
-                linkStatus = record.isUp == true ? .up : .down
-            }
+            isAnyRecordActive = isAnyRecordActive || record.isActive
             if let recordStats = record.statistics {
                 stats = recordStats
             }
@@ -84,7 +82,7 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             ipAddress: ipAddress,
             linkSpeed: speedText,
             transportSpeed: speedText,
-            linkStatus: linkStatus,
+            linkStatus: isAnyRecordActive ? .up : .down,
             vendor: interfaceDetails.vendor,
             model: interfaceDetails.model,
             vendorID: interfaceDetails.vendorID,
@@ -99,13 +97,13 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         let hardwareAddress: String?
         let ipv4Address: String?
         let linkSpeedBitsPerSecond: UInt64?
-        let isUp: Bool?
         let isActive: Bool
         let statistics: InterfaceStatistics?
     }
 
     private func readInterfaceRecords() -> [InterfaceRecord] {
         let systemHardwareTypesByName = readSystemHardwareTypesByName()
+        let systemLinkActiveByName = readSystemLinkActiveByName()
 
         var addressesPointer: UnsafeMutablePointer<ifaddrs>?
         guard getifaddrs(&addressesPointer) == 0, let first = addressesPointer else {
@@ -123,7 +121,8 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             let flags = Int32(interface.pointee.ifa_flags)
             let isUp = (flags & Int32(IFF_UP)) != 0
             let isRunning = (flags & Int32(IFF_RUNNING)) != 0
-            let isActive = isUp && isRunning
+            let fallbackActive = isUp && isRunning
+            let isActive = systemLinkActiveByName[name] ?? fallbackActive
 
             var hardwareType: String?
             var hardwareAddress: String?
@@ -179,7 +178,6 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
                     hardwareAddress: hardwareAddress,
                     ipv4Address: ipv4Address,
                     linkSpeedBitsPerSecond: linkSpeedBitsPerSecond,
-                    isUp: isUp,
                     isActive: isActive,
                     statistics: stats
                 )
@@ -188,6 +186,35 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         }
 
         return records
+    }
+
+    private func readSystemLinkActiveByName() -> [String: Bool] {
+        guard let store = SCDynamicStoreCreate(nil, "NetworkTools" as CFString, nil, nil) else {
+            return [:]
+        }
+
+        guard let keys = SCDynamicStoreCopyKeyList(store, "State:/Network/Interface/.*/Link" as CFString) as? [String] else {
+            return [:]
+        }
+
+        var result: [String: Bool] = [:]
+        for key in keys {
+            guard
+                let value = SCDynamicStoreCopyValue(store, key as CFString) as? [String: Any],
+                let active = value["Active"] as? Bool
+            else {
+                continue
+            }
+
+            let parts = key.split(separator: "/")
+            guard parts.count >= 4 else {
+                continue
+            }
+            let interfaceName = String(parts[3])
+            result[interfaceName] = active
+        }
+
+        return result
     }
 
     private func readSystemHardwareTypesByName() -> [String: String] {
