@@ -8,7 +8,7 @@
 **Minimum Platform:** macOS 15  
 **Device Support:** macOS desktop/laptop only  
 **State Management:** Stateless application  
-**Sandboxing:** Required  
+**Code Signing / Deployment:** Developer-signed  
 
 ## 2. Purpose
 
@@ -24,7 +24,7 @@ The application is intended to be stateless and does not persist user-entered da
 
 ### In Scope
 - Native macOS SwiftUI application.
-- Sandboxed app.
+- Developer-signed macOS app.
 - Native Swift networking implementation using sockets and/or Network framework.
 - Display of interface metadata and transfer statistics.
 - Ping workflow with validation, start/stop behavior, and streaming results.
@@ -44,7 +44,7 @@ The application is intended to be stateless and does not persist user-entered da
 1. The app minimum deployment target is **macOS 15**.
 2. The application must be implemented using **SwiftUI**.
 3. Networking functionality must use a **native Swift implementation** based on sockets and/or the Network framework; wrapping shell commands such as `ping` is not acceptable.
-4. The application runs in a **sandboxed** environment.
+4. The application is intended for **developer-signed macOS deployment** rather than App Sandbox deployment.
 5. Where macOS does not expose interface properties such as vendor, model, transport speed, or link speed, the UI must display **`Unavailable`**.
 6. Ping and port scan outputs should be presented in a **raw terminal-style text format**.
 7. Long-running operations must remain **responsive and cancellable**.
@@ -63,7 +63,7 @@ The implementation should follow a clean separation of concerns.
 ### Recommended Layers
 - **UI Layer**: SwiftUI views and view models.
 - **Domain/Service Layer**: network interface inspection, ping engine, and port scanning engine.
-- **System Integration Layer**: interfaces to sockets, Network framework, SystemConfiguration, NetworkExtension, or other permitted Apple APIs required by the sandboxed environment.
+- **System Integration Layer**: interfaces to sockets, Network framework, SystemConfiguration, NetworkExtension, or other permitted Apple APIs required by the developer-signed deployment model.
 
 ### Recommended Design Principles
 - MVVM or equivalent SwiftUI-friendly architecture.
@@ -403,12 +403,12 @@ The application shall include diagnostics suitable for development and support.
 - The scanning engine should use bounded concurrency or equivalent safeguards to avoid resource exhaustion.
 - Large-range scans, including 1–65535, must not freeze the UI.
 
-## 15. Security and Sandboxing Requirements
+## 15. Security and Deployment Requirements
 
-1. The application shall operate within the macOS sandbox.
-2. The implementation shall only use APIs and entitlements compatible with the sandboxed deployment target.
+1. The application shall target a developer-signed macOS deployment model and is not required to operate within the App Sandbox.
+2. The implementation may use APIs and entitlements appropriate for a developer-signed macOS application, subject to platform security and user-consent requirements.
 3. The app shall not require elevated privileges for normal use unless explicitly unavoidable and documented.
-4. If certain low-level operations are restricted by the sandbox or OS policy, the app shall fail gracefully and surface an understandable message.
+4. If certain low-level operations are restricted by macOS security policy, entitlements, or runtime permissions, the app shall fail gracefully and surface an understandable message.
 5. No persistent storage of network data is required.
 
 ## 16. Data and State Management
@@ -427,7 +427,7 @@ These are guidance notes, not hard UI requirements unless adopted by the impleme
 
 ### Info Tab
 - Enumerate interfaces using supported system APIs.
-- Obtain counters and interface details via best-effort mechanisms compatible with sandboxing.
+- Obtain counters and interface details via best-effort mechanisms compatible with developer-signed macOS deployment.
 - Normalize unavailable fields to `Unavailable` at the view-model boundary.
 
 ### Ping Tab
@@ -498,7 +498,7 @@ The implementation will be considered aligned with this specification when:
 - The Ping tab validates input, supports fixed or unlimited ping, streams terminal-style output, supports copy, and continues across tab changes.
 - The Port Scan tab validates input, supports all-ports or range-based scanning, reports open ports only, streams terminal-style output, supports copy, and continues across tab changes.
 - Long-running work is responsive and cancellable.
-- The app is sandboxed and fails gracefully under API or permission limitations.
+- The app is developer-signed and fails gracefully under API, entitlement, or permission limitations.
 - Accessibility, logging, error handling, and test requirements are addressed.
 
 ## 20. Open Implementation Considerations
