@@ -5,7 +5,7 @@ import Foundation
 final class PingViewModel: ObservableObject {
     @Published var destination = ""
     @Published var isUnlimited = false
-    @Published var pingCountText = "4"
+    @Published var pingCountText = "10"
     @Published private(set) var outputText = ""
     @Published private(set) var isRunning = false
     @Published private(set) var isCancelling = false

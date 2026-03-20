@@ -27,7 +27,7 @@ struct PingTabView: View {
 
                 VStack(alignment: .leading, spacing: 6) {
                     Text("# Pings to send")
-                    TextField("4", text: $viewModel.pingCountText)
+                    TextField("10", text: $viewModel.pingCountText)
                         .textFieldStyle(.roundedBorder)
                         .disabled(viewModel.isUnlimited)
                         .overlay(validationBorder(isValid: viewModel.isCountValid))
