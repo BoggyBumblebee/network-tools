@@ -6,11 +6,6 @@ struct InfoTabView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("Interface")
-                    .font(.headline)
-                    .onTapGesture(count: 5) {
-                        viewModel.toggleDebugDetails()
-                    }
                 Picker(
                     "Network Interface",
                     selection: Binding(

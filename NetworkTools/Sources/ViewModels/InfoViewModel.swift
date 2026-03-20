@@ -8,7 +8,6 @@ final class InfoViewModel: ObservableObject {
     @Published private(set) var interfaceRows: [DisplayRow] = []
     @Published private(set) var statisticsRows: [DisplayRow] = []
     @Published private(set) var emptyMessage: String?
-    @Published private(set) var isDebugDetailsVisible = false
 
     private let service: NetworkInterfaceService
     private var refreshTask: Task<Void, Never>?
@@ -32,11 +31,6 @@ final class InfoViewModel: ObservableObject {
 
     func selectInterface(_ name: String) {
         selectedInterfaceName = name
-        applySnapshot()
-    }
-
-    func toggleDebugDetails() {
-        isDebugDetailsVisible.toggle()
         applySnapshot()
     }
 
@@ -100,11 +94,11 @@ final class InfoViewModel: ObservableObject {
             DisplayRow(label: "Link Status", value: snapshot.linkStatus.displayValue),
             DisplayRow(
                 label: "Vendor",
-                value: displayValueWithDebugID(base: snapshot.vendor, id: snapshot.vendorID)
+                value: displayValueWithID(base: snapshot.vendor, id: snapshot.vendorID)
             ),
             DisplayRow(
                 label: "Model",
-                value: displayValueWithDebugID(base: snapshot.model, id: snapshot.deviceID)
+                value: displayValueWithID(base: snapshot.model, id: snapshot.deviceID)
             )
         ]
         interfaceRows = rows
@@ -135,9 +129,9 @@ final class InfoViewModel: ObservableObject {
         return "0x\(normalized)"
     }
 
-    private func displayValueWithDebugID(base: String?, id: String?) -> String {
+    private func displayValueWithID(base: String?, id: String?) -> String {
         let formattedID = Self.formatHexID(id)
-        guard isDebugDetailsVisible, let formattedID else {
+        guard let formattedID else {
             return Formatters.stringOrUnavailable(base)
         }
 

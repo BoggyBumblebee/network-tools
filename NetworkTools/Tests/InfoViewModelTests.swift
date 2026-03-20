@@ -16,15 +16,11 @@ final class InfoViewModelTests: XCTestCase {
     }
 
     @MainActor
-    func testDebugIdentifiersAreHiddenUntilToggled() {
+    func testIdentifiersAreShownWithoutDebugToggle() {
         let service = MockNetworkInterfaceService()
         let viewModel = InfoViewModel(service: service)
 
         viewModel.refreshForTesting()
-        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Vendor" })?.value, "Unavailable")
-        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Model" })?.value, "Unavailable")
-
-        viewModel.toggleDebugDetails()
         XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Vendor" })?.value, "0x14e4")
         XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Model" })?.value, "0x4434")
     }
