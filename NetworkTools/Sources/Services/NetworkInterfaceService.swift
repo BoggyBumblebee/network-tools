@@ -240,24 +240,20 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         var service = IOIteratorNext(iterator)
 
         while service != 0 {
-            if model == nil {
-                model = firstRegistryString(
-                    for: service,
-                    keys: ["model", "product-name", "device-model", "IOName"]
-                )
-                if model == nil, let deviceID = firstRegistryHexID(for: service, keys: ["device-id"]) {
-                    model = "0x\(deviceID)"
+            if let controller = parentService(of: service) {
+                populateVendorAndModel(from: controller, vendor: &vendor, model: &model)
+                if let currentModel = model, isHostModel(currentModel) {
+                    model = nil
                 }
-            }
+                populateVendorAndModelFromBusAncestors(startingAt: controller, vendor: &vendor, model: &model)
 
-            if vendor == nil {
-                vendor = firstRegistryString(
-                    for: service,
-                    keys: ["vendor-name", "manufacturer", "vendor", "subsystem-vendor-name"]
-                )
-                if vendor == nil, let vendorID = firstRegistryHexID(for: service, keys: ["vendor-id"]) {
-                    vendor = "0x\(vendorID)"
+                IOObjectRelease(controller)
+            } else {
+                populateVendorAndModel(from: service, vendor: &vendor, model: &model)
+                if let currentModel = model, isHostModel(currentModel) {
+                    model = nil
                 }
+                populateVendorAndModelFromBusAncestors(startingAt: service, vendor: &vendor, model: &model)
             }
 
             let next = IOIteratorNext(iterator)
@@ -266,6 +262,179 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         }
 
         return (vendor, model)
+    }
+
+    private func parentService(of service: io_registry_entry_t) -> io_registry_entry_t? {
+        var parent: io_registry_entry_t = 0
+        guard IORegistryEntryGetParentEntry(service, kIOServicePlane, &parent) == KERN_SUCCESS else {
+            return nil
+        }
+        return parent
+    }
+
+    private func populateVendorAndModel(
+        from service: io_registry_entry_t,
+        vendor: inout String?,
+        model: inout String?
+    ) {
+        if model == nil {
+            let rawModel = firstRegistryString(
+                for: service,
+                keys: ["IOModel", "model", "device-model"]
+            )
+            if let rawModel, !isHostModel(rawModel) {
+                model = rawModel
+            }
+            if model == nil, let deviceID = firstRegistryHexID(for: service, keys: ["device-id", "idProduct"]) {
+                model = "0x\(deviceID)"
+            }
+        }
+
+        if vendor == nil {
+            vendor = firstRegistryString(
+                for: service,
+                keys: ["IOVendor", "vendor-name", "manufacturer", "vendor", "subsystem-vendor-name"]
+            )
+            if vendor == nil, let vendorID = firstRegistryHexID(for: service, keys: ["vendor-id"]) {
+                vendor = "0x\(vendorID)"
+            }
+        }
+    }
+
+    private func populateVendorAndModelFromBusAncestors(
+        startingAt service: io_registry_entry_t,
+        vendor: inout String?,
+        model: inout String?
+    ) {
+        var ancestors: [io_registry_entry_t] = []
+        var cursor = service
+
+        for _ in 0..<8 {
+            guard let parent = parentService(of: cursor) else {
+                break
+            }
+            ancestors.append(parent)
+            cursor = parent
+        }
+        defer {
+            for ancestor in ancestors {
+                IOObjectRelease(ancestor)
+            }
+        }
+
+        for ancestor in ancestors {
+            let identifiers = busIdentifiers(for: ancestor)
+            guard identifiers.vendorID != nil || identifiers.deviceID != nil else {
+                continue
+            }
+
+            if vendor == nil {
+                if let vendorID = identifiers.vendorID {
+                    vendor = vendorName(for: vendorID) ?? "0x\(vendorID)"
+                }
+            }
+
+            if model == nil {
+                if
+                    let ioModel = firstRegistryString(for: ancestor, keys: ["IOModel", "model"]),
+                    !isHostModel(ioModel)
+                {
+                    model = ioModel
+                } else if let ioName = firstRegistryString(for: ancestor, keys: ["IONameMatched", "IOName"]) {
+                    model = ioName
+                } else if
+                    let vendorID = identifiers.vendorID,
+                    let deviceID = identifiers.deviceID
+                {
+                    model = "PCI \(vendorID):\(deviceID)"
+                } else if let deviceID = identifiers.deviceID {
+                    model = "0x\(deviceID)"
+                }
+            }
+
+            if vendor != nil, model != nil {
+                return
+            }
+        }
+    }
+
+    private func busIdentifiers(for service: io_registry_entry_t) -> (vendorID: String?, deviceID: String?) {
+        var vendorID = firstRegistryHexID(for: service, keys: ["vendor-id", "idVendor", "subsystem-vendor-id"])
+        var deviceID = firstRegistryHexID(for: service, keys: ["device-id", "idProduct", "subsystem-id"])
+
+        if let ioName = firstRegistryString(for: service, keys: ["IONameMatched", "IOName"]) {
+            let parsed = parseVendorAndDeviceID(fromIOName: ioName)
+            if vendorID == nil {
+                vendorID = parsed.vendorID
+            }
+            if deviceID == nil {
+                deviceID = parsed.deviceID
+            }
+        }
+
+        return (vendorID?.lowercased(), deviceID?.lowercased())
+    }
+
+    private func parseVendorAndDeviceID(fromIOName ioName: String) -> (vendorID: String?, deviceID: String?) {
+        let token = ioName.lowercased()
+        guard token.hasPrefix("pci") || token.hasPrefix("usb") else {
+            return (nil, nil)
+        }
+
+        let pair = token.dropFirst(3).split(separator: ",", maxSplits: 1)
+        guard pair.count == 2 else {
+            return (nil, nil)
+        }
+
+        let vendor = String(pair[0])
+        let device = String(pair[1])
+        guard isHexString(vendor), isHexString(device) else {
+            return (nil, nil)
+        }
+
+        return (vendorID: vendor, deviceID: device)
+    }
+
+    private func isHexString(_ value: String) -> Bool {
+        guard !value.isEmpty else {
+            return false
+        }
+        return value.unicodeScalars.allSatisfy { scalar in
+            CharacterSet(charactersIn: "0123456789abcdef").contains(scalar)
+        }
+    }
+
+    private func vendorName(for vendorID: String) -> String? {
+        switch vendorID.lowercased() {
+        case "14e4":
+            return "Broadcom"
+        case "1d6a":
+            return "Aquantia/Marvell"
+        case "8086":
+            return "Intel"
+        case "10ec", "0bda":
+            return "Realtek"
+        case "0b95":
+            return "ASIX"
+        case "05ac":
+            return "Apple"
+        case "168c", "17cb", "1969":
+            return "Qualcomm Atheros"
+        default:
+            return nil
+        }
+    }
+
+    private func isHostModel(_ model: String) -> Bool {
+        let trimmed = model.trimmingCharacters(in: .whitespacesAndNewlines)
+        let lower = trimmed.lowercased()
+        if lower.hasPrefix("mac"), trimmed.contains(",") {
+            return true
+        }
+        if lower.hasPrefix("macbook") || lower.hasPrefix("imac") || lower.hasPrefix("mac mini") || lower == "apple silicon" {
+            return true
+        }
+        return false
     }
 
     private func firstRegistryString(for service: io_registry_entry_t, keys: [String]) -> String? {
@@ -293,14 +462,15 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
     }
 
     private func registryProperty(for service: io_registry_entry_t, key: String) -> AnyObject? {
-        let options = IOOptionBits(kIORegistryIterateRecursively | kIORegistryIterateParents)
-        return IORegistryEntrySearchCFProperty(
+        guard let unmanaged = IORegistryEntryCreateCFProperty(
             service,
-            kIOServicePlane,
             key as CFString,
             kCFAllocatorDefault,
-            options
-        )
+            0
+        ) else {
+            return nil
+        }
+        return unmanaged.takeRetainedValue()
     }
 
     private func registryString(from value: AnyObject) -> String? {
