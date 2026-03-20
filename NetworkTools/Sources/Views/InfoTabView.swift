@@ -55,9 +55,7 @@ private struct KeyValueListView: View {
                     Text(row.label)
                         .foregroundStyle(.secondary)
                     Spacer()
-                    Text(row.value)
-                        .font(.system(.body, design: .monospaced))
-                        .multilineTextAlignment(.trailing)
+                    valueView(for: row)
                 }
                 .accessibilityElement(children: .combine)
             }
@@ -65,5 +63,41 @@ private struct KeyValueListView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.top, 4)
+    }
+
+    @ViewBuilder
+    private func valueView(for row: DisplayRow) -> some View {
+        if row.label == "Link Status" {
+            linkStatusView(statusValue: row.value)
+        } else {
+            Text(row.value)
+                .font(.system(.body, design: .monospaced))
+                .multilineTextAlignment(.trailing)
+        }
+    }
+
+    @ViewBuilder
+    private func linkStatusView(statusValue: String) -> some View {
+        let normalized = statusValue.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+
+        if normalized == "up" {
+            HStack(spacing: 6) {
+                Circle()
+                    .fill(.green)
+                    .frame(width: 8, height: 8)
+                Text("Active")
+            }
+        } else if normalized == "down" {
+            HStack(spacing: 6) {
+                Circle()
+                    .fill(.red)
+                    .frame(width: 8, height: 8)
+                Text("Inactive")
+            }
+        } else {
+            Text(statusValue)
+                .font(.system(.body, design: .monospaced))
+                .multilineTextAlignment(.trailing)
+        }
     }
 }
