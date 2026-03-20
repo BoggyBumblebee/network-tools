@@ -16,7 +16,7 @@ struct InfoTabView: View {
                     )
                 ) {
                     ForEach(viewModel.interfaces) { interface in
-                        Text(interface.name).tag(interface.name)
+                        Text(interface.displayName).tag(interface.name)
                     }
                 }
                 .disabled(viewModel.interfaces.isEmpty)

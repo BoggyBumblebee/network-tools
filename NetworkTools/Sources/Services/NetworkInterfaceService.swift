@@ -9,13 +9,25 @@ protocol NetworkInterfaceService {
 final class SystemNetworkInterfaceService: NetworkInterfaceService {
     func listInterfaces() -> [NetworkInterfaceSummary] {
         var names = Set<String>()
+        var hardwareTypeByName: [String: String] = [:]
+        var isActiveByName: [String: Bool] = [:]
+
         for record in readInterfaceRecords() {
             names.insert(record.name)
+            if hardwareTypeByName[record.name] == nil, let hardwareType = record.hardwareType {
+                hardwareTypeByName[record.name] = hardwareType
+            }
+            isActiveByName[record.name] = (isActiveByName[record.name] ?? false) || record.isActive
         }
 
         return names
             .sorted()
-            .map { NetworkInterfaceSummary(name: $0) }
+            .compactMap { name in
+                guard isActiveByName[name] == true else {
+                    return nil
+                }
+                return NetworkInterfaceSummary(name: name, hardwareType: hardwareTypeByName[name])
+            }
     }
 
     func snapshot(for interfaceName: String) -> InterfaceSnapshot? {
@@ -63,8 +75,10 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
 
     private struct InterfaceRecord {
         let name: String
+        let hardwareType: String?
         let ipv4Address: String?
         let isUp: Bool?
+        let isActive: Bool
         let statistics: InterfaceStatistics?
     }
 
@@ -84,6 +98,17 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             let name = String(cString: interface.pointee.ifa_name)
             let flags = Int32(interface.pointee.ifa_flags)
             let isUp = (flags & Int32(IFF_UP)) != 0
+            let isRunning = (flags & Int32(IFF_RUNNING)) != 0
+            let isActive = isUp && isRunning
+
+            var hardwareType: String?
+            if
+                let address = interface.pointee.ifa_addr,
+                address.pointee.sa_family == UInt8(AF_LINK)
+            {
+                let linkAddress = UnsafeRawPointer(address).assumingMemoryBound(to: sockaddr_dl.self).pointee
+                hardwareType = mapHardwareType(linkAddress.sdl_type)
+            }
 
             var ipv4Address: String?
             if let addr = interface.pointee.ifa_addr, addr.pointee.sa_family == UInt8(AF_INET) {
@@ -116,10 +141,30 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
                 )
             }
 
-            records.append(InterfaceRecord(name: name, ipv4Address: ipv4Address, isUp: isUp, statistics: stats))
+            records.append(
+                InterfaceRecord(
+                    name: name,
+                    hardwareType: hardwareType,
+                    ipv4Address: ipv4Address,
+                    isUp: isUp,
+                    isActive: isActive,
+                    statistics: stats
+                )
+            )
             current = interface.pointee.ifa_next
         }
 
         return records
+    }
+
+    private func mapHardwareType(_ type: UInt8) -> String? {
+        switch Int32(type) {
+        case IFT_ETHER:
+            return "Ethernet"
+        case IFT_LOOP:
+            return "Loopback"
+        default:
+            return nil
+        }
     }
 }

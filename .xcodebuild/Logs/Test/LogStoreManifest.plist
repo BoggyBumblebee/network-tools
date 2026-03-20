@@ -6,65 +6,6 @@
 	<integer>12</integer>
 	<key>logs</key>
 	<dict>
-		<key>2B0CDF27-B0E3-4FC4-9013-693060F450C2</key>
-		<dict>
-			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>58D44644-5CDE-499F-B0F8-E97B55396CC6</string>
-			<key>auxiliaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>E</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>38</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>3</integer>
-			</dict>
-			<key>className</key>
-			<string>IDESchemeActionsInvocationRecord</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>com.apple.dt.unit.cocoaUnitTest</string>
-			<key>fileName</key>
-			<string>Test-NetworkTools-2026.03.20_13-43-45-+0000.xcresult</string>
-			<key>hasAuxiliaryLog</key>
-			<true/>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>E</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>39</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>3</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>NetworkTools project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>NetworkTools</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Test NetworkTools</string>
-			<key>timeStartedRecording</key>
-			<real>795707025.24816704</real>
-			<key>timeStoppedRecording</key>
-			<real>795707035.44185698</real>
-			<key>title</key>
-			<string>Test NetworkTools</string>
-			<key>uniqueIdentifier</key>
-			<string>2B0CDF27-B0E3-4FC4-9013-693060F450C2</string>
-		</dict>
 		<key>BCB3E7DE-584E-47C9-B1AE-80048D777DF3</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -123,65 +64,6 @@
 			<string>Test NetworkTools</string>
 			<key>uniqueIdentifier</key>
 			<string>BCB3E7DE-584E-47C9-B1AE-80048D777DF3</string>
-		</dict>
-		<key>D60DB31A-E9E5-44CF-9922-EA567C0E68EA</key>
-		<dict>
-			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>BAD895D1-A5B1-4C17-8EFC-39CF921331A2</string>
-			<key>auxiliaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>E</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>1</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>className</key>
-			<string>IDESchemeActionsInvocationRecord</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>com.apple.dt.unit.cocoaUnitTest</string>
-			<key>fileName</key>
-			<string>Test-NetworkTools-2026.03.20_13-43-33-+0000.xcresult</string>
-			<key>hasAuxiliaryLog</key>
-			<true/>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>E</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>2</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>NetworkTools project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>NetworkTools</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Test NetworkTools</string>
-			<key>timeStartedRecording</key>
-			<real>795707013.62974095</real>
-			<key>timeStoppedRecording</key>
-			<real>795707014.54111004</real>
-			<key>title</key>
-			<string>Test NetworkTools</string>
-			<key>uniqueIdentifier</key>
-			<string>D60DB31A-E9E5-44CF-9922-EA567C0E68EA</string>
 		</dict>
 	</dict>
 </dict>

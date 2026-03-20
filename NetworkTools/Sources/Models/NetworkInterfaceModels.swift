@@ -3,6 +3,19 @@ import Foundation
 struct NetworkInterfaceSummary: Identifiable, Equatable {
     var id: String { name }
     let name: String
+    let hardwareType: String?
+
+    init(name: String, hardwareType: String? = nil) {
+        self.name = name
+        self.hardwareType = hardwareType
+    }
+
+    var displayName: String {
+        guard let hardwareType, !hardwareType.isEmpty else {
+            return name
+        }
+        return "\(hardwareType) (\(name))"
+    }
 }
 
 enum LinkStatus: Equatable {
