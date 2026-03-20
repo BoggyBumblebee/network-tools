@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00931134169EC81409C5FE01 /* PingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2E64133D4631695CA25D9 /* PingService.swift */; };
+		1B57A423C5B1DF870062CC43 /* InfoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AA3689C72FE6316FB020 /* InfoTabView.swift */; };
+		27B90E6EF96F9D902FF0405A /* OutputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D52AC238D0E41B213B15F /* OutputTextView.swift */; };
+		292970C27AC01BFB51CDEBB9 /* SocketUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F286367C6EE1FC89FA008F /* SocketUtilities.swift */; };
+		3C6D8C509FFC71F9BC0B247D /* NetworkInterfaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4112C0B62CFC4DAD7EF2842A /* NetworkInterfaceModels.swift */; };
+		3D1706EC248F02BD841C88CC /* PingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663AEA5DC8D0B886700BF254 /* PingViewModel.swift */; };
+		4B1DD7BE94EBB65E21CC7C71 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C0C9F24F0BAD8AF583998 /* RootTabView.swift */; };
+		50EF20013B99D37E3A035F80 /* PingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2C44B5A18505B138E6177D /* PingModels.swift */; };
+		6042D8FB17CE2FB01BAD2135 /* PingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825ABADDCD087579EA0930C1 /* PingTabView.swift */; };
+		748CB5505BD7211BC4B7E28D /* InfoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E81314882342D31926E6282 /* InfoViewModelTests.swift */; };
+		766914E2753F90F9FF3F9370 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC78094C4E6D80D1F2F8792D /* Validation.swift */; };
+		822D1F810F9C13B0DCEDA9F8 /* ViewModelStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C5C43E49BD398C6E37CE0 /* ViewModelStateTests.swift */; };
+		88F6720DB6D5D9EC9A86C9E5 /* PortScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C431D7F78A444E140C2ADB3 /* PortScanViewModel.swift */; };
+		8FB305A93633112500641EA9 /* ValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2546ECA2679BCEF621BC5F /* ValidationTests.swift */; };
+		932CAC301C33F39F602AAC2F /* PortScanModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D95AAFADD0455BA970317 /* PortScanModels.swift */; };
+		940E57EACE5026A2CD683DA0 /* Logger+NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266C48817B41ACB727B1F62 /* Logger+NetworkTools.swift */; };
+		96607F8F855CDE7459BA492F /* NetworkToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5F92C37ACBA982D235B7C /* NetworkToolsApp.swift */; };
+		9F91B0C7B5416467FD0AF0F2 /* OutputBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED217DD1AA04B60465F642 /* OutputBuffer.swift */; };
+		9FEB615D3DAA94BAEE456A48 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73AF7BF8419042DA726D881 /* InfoViewModel.swift */; };
+		A6AD877412F020C2D724A4B9 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602481EF346A84E3874F3F23 /* Formatters.swift */; };
+		A711BD48B5A20DFBB261D29C /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA01A9CB89711B67E824ABB /* AppTab.swift */; };
+		AA07E7AFCB2D1349356405A0 /* DisplayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA10B4D683C41D748D4F477 /* DisplayRow.swift */; };
+		C797BCC25A3F2EB95D26BCF9 /* NetworkInterfaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE4BC7907015FCEA16243 /* NetworkInterfaceService.swift */; };
+		F26917DF329A8E69D8DF0309 /* PortScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C6394151B38528118F061 /* PortScanService.swift */; };
+		F4E3DAB73C5D8C51361F186D /* OutputBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF93BFFA00554F987631E63 /* OutputBufferTests.swift */; };
+		F8822A881E354D12C00C7916 /* PortScanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A74104957A622DB775BDE /* PortScanTabView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5D4B31D9E76004887D14DD30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F7137651B7A1F34B0EF6A54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEEB7B8EE9A8D9BDEADE61C1;
+			remoteInfo = NetworkTools;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F2C44B5A18505B138E6177D /* PingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingModels.swift; sourceTree = "<group>"; };
+		131A74104957A622DB775BDE /* PortScanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanTabView.swift; sourceTree = "<group>"; };
+		15C2E64133D4631695CA25D9 /* PingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingService.swift; sourceTree = "<group>"; };
+		2AC7AA3689C72FE6316FB020 /* InfoTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTabView.swift; sourceTree = "<group>"; };
+		343D95AAFADD0455BA970317 /* PortScanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanModels.swift; sourceTree = "<group>"; };
+		3E81314882342D31926E6282 /* InfoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelTests.swift; sourceTree = "<group>"; };
+		3FA01A9CB89711B67E824ABB /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
+		4112C0B62CFC4DAD7EF2842A /* NetworkInterfaceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterfaceModels.swift; sourceTree = "<group>"; };
+		46F286367C6EE1FC89FA008F /* SocketUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketUtilities.swift; sourceTree = "<group>"; };
+		4C431D7F78A444E140C2ADB3 /* PortScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanViewModel.swift; sourceTree = "<group>"; };
+		602481EF346A84E3874F3F23 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		64F5F92C37ACBA982D235B7C /* NetworkToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkToolsApp.swift; sourceTree = "<group>"; };
+		659BE4BC7907015FCEA16243 /* NetworkInterfaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterfaceService.swift; sourceTree = "<group>"; };
+		663AEA5DC8D0B886700BF254 /* PingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingViewModel.swift; sourceTree = "<group>"; };
+		810C6394151B38528118F061 /* PortScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanService.swift; sourceTree = "<group>"; };
+		825ABADDCD087579EA0930C1 /* PingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingTabView.swift; sourceTree = "<group>"; };
+		8DED217DD1AA04B60465F642 /* OutputBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputBuffer.swift; sourceTree = "<group>"; };
+		A266C48817B41ACB727B1F62 /* Logger+NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+NetworkTools.swift"; sourceTree = "<group>"; };
+		AEA10B4D683C41D748D4F477 /* DisplayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
+		C73AF7BF8419042DA726D881 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
+		CAF93BFFA00554F987631E63 /* OutputBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputBufferTests.swift; sourceTree = "<group>"; };
+		D6608B5F60AFD257390413BD /* NetworkTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D66D0D2CFF607DE9DA8DC97D /* NetworkToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC2546ECA2679BCEF621BC5F /* ValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTests.swift; sourceTree = "<group>"; };
+		DC78094C4E6D80D1F2F8792D /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		DD9C5C43E49BD398C6E37CE0 /* ViewModelStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelStateTests.swift; sourceTree = "<group>"; };
+		E28D52AC238D0E41B213B15F /* OutputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputTextView.swift; sourceTree = "<group>"; };
+		FB0C0C9F24F0BAD8AF583998 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		19C72A54CE04CF63B04BCA59 /* NetworkTools */ = {
+			isa = PBXGroup;
+			children = (
+				30B9483B18B0B8D3CB738972 /* Sources */,
+				BC80D728BA829DDF76B5EABD /* Tests */,
+			);
+			path = NetworkTools;
+			sourceTree = "<group>";
+		};
+		30B9483B18B0B8D3CB738972 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7CC5D53E4C6F2208388CB8B3 /* App */,
+				7AB0D9C15B6C359A2B16CCF9 /* Models */,
+				C47E5A5741C53D2B2E5217CA /* Services */,
+				CE376F4566564F8F3FE61B53 /* Utilities */,
+				6C3D0F2A3BE778FDCDFBFA9F /* ViewModels */,
+				5FAAC31F7AEA3280F7F5215D /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		5FAAC31F7AEA3280F7F5215D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AC7AA3689C72FE6316FB020 /* InfoTabView.swift */,
+				E28D52AC238D0E41B213B15F /* OutputTextView.swift */,
+				825ABADDCD087579EA0930C1 /* PingTabView.swift */,
+				131A74104957A622DB775BDE /* PortScanTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6C3D0F2A3BE778FDCDFBFA9F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C73AF7BF8419042DA726D881 /* InfoViewModel.swift */,
+				663AEA5DC8D0B886700BF254 /* PingViewModel.swift */,
+				4C431D7F78A444E140C2ADB3 /* PortScanViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7AB0D9C15B6C359A2B16CCF9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FA01A9CB89711B67E824ABB /* AppTab.swift */,
+				AEA10B4D683C41D748D4F477 /* DisplayRow.swift */,
+				4112C0B62CFC4DAD7EF2842A /* NetworkInterfaceModels.swift */,
+				0F2C44B5A18505B138E6177D /* PingModels.swift */,
+				343D95AAFADD0455BA970317 /* PortScanModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7CC5D53E4C6F2208388CB8B3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				64F5F92C37ACBA982D235B7C /* NetworkToolsApp.swift */,
+				FB0C0C9F24F0BAD8AF583998 /* RootTabView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7FE2A00A85CF17922A23BFB2 = {
+			isa = PBXGroup;
+			children = (
+				19C72A54CE04CF63B04BCA59 /* NetworkTools */,
+				9F4F791E1107DBB6A3B7D08D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9F4F791E1107DBB6A3B7D08D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6608B5F60AFD257390413BD /* NetworkTools.app */,
+				D66D0D2CFF607DE9DA8DC97D /* NetworkToolsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC80D728BA829DDF76B5EABD /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3E81314882342D31926E6282 /* InfoViewModelTests.swift */,
+				CAF93BFFA00554F987631E63 /* OutputBufferTests.swift */,
+				DC2546ECA2679BCEF621BC5F /* ValidationTests.swift */,
+				DD9C5C43E49BD398C6E37CE0 /* ViewModelStateTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C47E5A5741C53D2B2E5217CA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				659BE4BC7907015FCEA16243 /* NetworkInterfaceService.swift */,
+				15C2E64133D4631695CA25D9 /* PingService.swift */,
+				810C6394151B38528118F061 /* PortScanService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CE376F4566564F8F3FE61B53 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				602481EF346A84E3874F3F23 /* Formatters.swift */,
+				A266C48817B41ACB727B1F62 /* Logger+NetworkTools.swift */,
+				8DED217DD1AA04B60465F642 /* OutputBuffer.swift */,
+				46F286367C6EE1FC89FA008F /* SocketUtilities.swift */,
+				DC78094C4E6D80D1F2F8792D /* Validation.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8AFA227F89C8124FB7F1785 /* NetworkToolsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B1B4E004684A2CB63B3CCCA /* Build configuration list for PBXNativeTarget "NetworkToolsTests" */;
+			buildPhases = (
+				88C0775FD9A220F223ED4EDB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E1ED00D04C8DC5B19EB11A2 /* PBXTargetDependency */,
+			);
+			name = NetworkToolsTests;
+			packageProductDependencies = (
+			);
+			productName = NetworkToolsTests;
+			productReference = D66D0D2CFF607DE9DA8DC97D /* NetworkToolsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EEEB7B8EE9A8D9BDEADE61C1 /* NetworkTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 558C2B95144D50550E249E92 /* Build configuration list for PBXNativeTarget "NetworkTools" */;
+			buildPhases = (
+				904AA3AC6EA30261508FDD29 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NetworkTools;
+			packageProductDependencies = (
+			);
+			productName = NetworkTools;
+			productReference = D6608B5F60AFD257390413BD /* NetworkTools.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6F7137651B7A1F34B0EF6A54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2630;
+			};
+			buildConfigurationList = 358E8D0B4915B533ABA83E21 /* Build configuration list for PBXProject "NetworkTools" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 7FE2A00A85CF17922A23BFB2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9F4F791E1107DBB6A3B7D08D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEEB7B8EE9A8D9BDEADE61C1 /* NetworkTools */,
+				C8AFA227F89C8124FB7F1785 /* NetworkToolsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88C0775FD9A220F223ED4EDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748CB5505BD7211BC4B7E28D /* InfoViewModelTests.swift in Sources */,
+				F4E3DAB73C5D8C51361F186D /* OutputBufferTests.swift in Sources */,
+				8FB305A93633112500641EA9 /* ValidationTests.swift in Sources */,
+				822D1F810F9C13B0DCEDA9F8 /* ViewModelStateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		904AA3AC6EA30261508FDD29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A711BD48B5A20DFBB261D29C /* AppTab.swift in Sources */,
+				AA07E7AFCB2D1349356405A0 /* DisplayRow.swift in Sources */,
+				A6AD877412F020C2D724A4B9 /* Formatters.swift in Sources */,
+				1B57A423C5B1DF870062CC43 /* InfoTabView.swift in Sources */,
+				9FEB615D3DAA94BAEE456A48 /* InfoViewModel.swift in Sources */,
+				940E57EACE5026A2CD683DA0 /* Logger+NetworkTools.swift in Sources */,
+				3C6D8C509FFC71F9BC0B247D /* NetworkInterfaceModels.swift in Sources */,
+				C797BCC25A3F2EB95D26BCF9 /* NetworkInterfaceService.swift in Sources */,
+				96607F8F855CDE7459BA492F /* NetworkToolsApp.swift in Sources */,
+				9F91B0C7B5416467FD0AF0F2 /* OutputBuffer.swift in Sources */,
+				27B90E6EF96F9D902FF0405A /* OutputTextView.swift in Sources */,
+				50EF20013B99D37E3A035F80 /* PingModels.swift in Sources */,
+				00931134169EC81409C5FE01 /* PingService.swift in Sources */,
+				6042D8FB17CE2FB01BAD2135 /* PingTabView.swift in Sources */,
+				3D1706EC248F02BD841C88CC /* PingViewModel.swift in Sources */,
+				932CAC301C33F39F602AAC2F /* PortScanModels.swift in Sources */,
+				F26917DF329A8E69D8DF0309 /* PortScanService.swift in Sources */,
+				F8822A881E354D12C00C7916 /* PortScanTabView.swift in Sources */,
+				88F6720DB6D5D9EC9A86C9E5 /* PortScanViewModel.swift in Sources */,
+				4B1DD7BE94EBB65E21CC7C71 /* RootTabView.swift in Sources */,
+				292970C27AC01BFB51CDEBB9 /* SocketUtilities.swift in Sources */,
+				766914E2753F90F9FF3F9370 /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9E1ED00D04C8DC5B19EB11A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEEB7B8EE9A8D9BDEADE61C1 /* NetworkTools */;
+			targetProxy = 5D4B31D9E76004887D14DD30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0CE2E31A04C442D775703A51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.1;
+			};
+			name = Release;
+		};
+		6405BE958677A42C057417DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boggybumblebee.NetworkToolsTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetworkTools.app/Contents/MacOS/NetworkTools";
+			};
+			name = Release;
+		};
+		7D47718A9B1757243D31E86A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boggybumblebee.NetworkToolsTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetworkTools.app/Contents/MacOS/NetworkTools";
+			};
+			name = Debug;
+		};
+		8C42AC74B5517582E42E4E5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.1;
+			};
+			name = Debug;
+		};
+		C7FA0515E4F2DF2F0CA8CE27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				INFOPLIST_FILE = NetworkTools/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boggybumblebee.NetworkTools;
+				PRODUCT_NAME = NetworkTools;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EB552F7D267520263070F86C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				INFOPLIST_FILE = NetworkTools/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boggybumblebee.NetworkTools;
+				PRODUCT_NAME = NetworkTools;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		358E8D0B4915B533ABA83E21 /* Build configuration list for PBXProject "NetworkTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C42AC74B5517582E42E4E5D /* Debug */,
+				0CE2E31A04C442D775703A51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3B1B4E004684A2CB63B3CCCA /* Build configuration list for PBXNativeTarget "NetworkToolsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D47718A9B1757243D31E86A /* Debug */,
+				6405BE958677A42C057417DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		558C2B95144D50550E249E92 /* Build configuration list for PBXNativeTarget "NetworkTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7FA0515E4F2DF2F0CA8CE27 /* Debug */,
+				EB552F7D267520263070F86C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6F7137651B7A1F34B0EF6A54 /* Project object */;
+}

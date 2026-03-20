@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>12</integer>
+	<key>logs</key>
+	<dict>
+		<key>4729B829-C7F5-4DD5-BCC7-1459B8627028</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>4729B829-C7F5-4DD5-BCC7-1459B8627028.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>NetworkTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>NetworkTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Testing project NetworkTools with scheme NetworkTools</string>
+			<key>timeStartedRecording</key>
+			<real>795707061.85708201</real>
+			<key>timeStoppedRecording</key>
+			<real>795707063.18886006</real>
+			<key>title</key>
+			<string>Testing project NetworkTools with scheme NetworkTools</string>
+			<key>uniqueIdentifier</key>
+			<string>4729B829-C7F5-4DD5-BCC7-1459B8627028</string>
+		</dict>
+		<key>58D44644-5CDE-499F-B0F8-E97B55396CC6</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>58D44644-5CDE-499F-B0F8-E97B55396CC6.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>38</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>3</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>NetworkTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>NetworkTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Testing project NetworkTools with scheme NetworkTools</string>
+			<key>timeStartedRecording</key>
+			<real>795707025.24776006</real>
+			<key>timeStoppedRecording</key>
+			<real>795707035.43311596</real>
+			<key>title</key>
+			<string>Testing project NetworkTools with scheme NetworkTools</string>
+			<key>uniqueIdentifier</key>
+			<string>58D44644-5CDE-499F-B0F8-E97B55396CC6</string>
+		</dict>
+		<key>BAD895D1-A5B1-4C17-8EFC-39CF921331A2</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BAD895D1-A5B1-4C17-8EFC-39CF921331A2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>NetworkTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>NetworkTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Testing project NetworkTools with scheme NetworkTools</string>
+			<key>timeStartedRecording</key>
+			<real>795707013.62932003</real>
+			<key>timeStoppedRecording</key>
+			<real>795707014.53317404</real>
+			<key>title</key>
+			<string>Testing project NetworkTools with scheme NetworkTools</string>
+			<key>uniqueIdentifier</key>
+			<string>BAD895D1-A5B1-4C17-8EFC-39CF921331A2</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

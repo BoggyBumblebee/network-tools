@@ -1,0 +1,49 @@
+{
+  "" : {
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/NetworkToolsTests-primary.dia",
+    "emit-module-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/NetworkToolsTests-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/NetworkToolsTests-primary-emit-module.dia",
+    "pch" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/NetworkToolsTests-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/NetworkToolsTests-primary.swiftdeps"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Tests/InfoViewModelTests.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/InfoViewModelTests.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/InfoViewModelTests.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/InfoViewModelTests.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/InfoViewModelTests.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/InfoViewModelTests.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/InfoViewModelTests.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/InfoViewModelTests.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/InfoViewModelTests~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Tests/OutputBufferTests.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/OutputBufferTests.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/OutputBufferTests.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/OutputBufferTests.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/OutputBufferTests.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/OutputBufferTests.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/OutputBufferTests.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/OutputBufferTests.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/OutputBufferTests~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Tests/ValidationTests.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ValidationTests.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ValidationTests.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ValidationTests.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ValidationTests.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ValidationTests.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ValidationTests.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ValidationTests.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ValidationTests~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Tests/ViewModelStateTests.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ViewModelStateTests.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ViewModelStateTests.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ViewModelStateTests.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ViewModelStateTests.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ViewModelStateTests.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ViewModelStateTests.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ViewModelStateTests.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkToolsTests.build/Objects-normal/arm64/ViewModelStateTests~partial.swiftmodule"
+  }
+}

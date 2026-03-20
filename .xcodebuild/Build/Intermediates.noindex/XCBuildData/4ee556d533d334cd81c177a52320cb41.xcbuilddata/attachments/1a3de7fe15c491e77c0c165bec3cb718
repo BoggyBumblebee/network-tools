@@ -1,0 +1,229 @@
+{
+  "" : {
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkTools-primary.dia",
+    "emit-module-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkTools-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkTools-primary-emit-module.dia",
+    "pch" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkTools-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkTools-primary.swiftdeps"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/App/NetworkToolsApp.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkToolsApp.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkToolsApp.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkToolsApp.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkToolsApp.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkToolsApp.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkToolsApp.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkToolsApp.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkToolsApp~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/App/RootTabView.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/RootTabView.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/RootTabView.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/RootTabView.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/RootTabView.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/RootTabView.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/RootTabView.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/RootTabView.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/RootTabView~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Models/AppTab.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/AppTab.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/AppTab.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/AppTab.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/AppTab.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/AppTab.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/AppTab.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/AppTab.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/AppTab~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Models/DisplayRow.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/DisplayRow.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/DisplayRow.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/DisplayRow.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/DisplayRow.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/DisplayRow.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/DisplayRow.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/DisplayRow.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/DisplayRow~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Models/NetworkInterfaceModels.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceModels.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceModels.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceModels.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceModels.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceModels.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceModels.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceModels.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceModels~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Models/PingModels.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingModels.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingModels.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingModels.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingModels.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingModels.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingModels.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingModels.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingModels~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Models/PortScanModels.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanModels.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanModels.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanModels.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanModels.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanModels.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanModels.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanModels.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanModels~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Services/NetworkInterfaceService.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceService.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceService.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceService.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceService.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceService.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceService.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceService.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/NetworkInterfaceService~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Services/PingService.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingService.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingService.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingService.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingService.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingService.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingService.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingService.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingService~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Services/PortScanService.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanService.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanService.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanService.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanService.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanService.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanService.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanService.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanService~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Utilities/Formatters.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Formatters.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Formatters.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Formatters.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Formatters.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Formatters.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Formatters.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Formatters.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Formatters~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Utilities/Logger+NetworkTools.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Logger+NetworkTools.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Logger+NetworkTools.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Logger+NetworkTools.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Logger+NetworkTools.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Logger+NetworkTools.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Logger+NetworkTools.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Logger+NetworkTools.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Logger+NetworkTools~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Utilities/OutputBuffer.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputBuffer.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputBuffer.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputBuffer.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputBuffer.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputBuffer.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputBuffer.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputBuffer.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputBuffer~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Utilities/SocketUtilities.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/SocketUtilities.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/SocketUtilities.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/SocketUtilities.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/SocketUtilities.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/SocketUtilities.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/SocketUtilities.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/SocketUtilities.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/SocketUtilities~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Utilities/Validation.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Validation.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Validation.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Validation.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Validation.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Validation.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Validation.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Validation.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/Validation~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/ViewModels/InfoViewModel.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoViewModel.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoViewModel.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoViewModel.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoViewModel.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoViewModel.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoViewModel.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoViewModel.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoViewModel~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/ViewModels/PingViewModel.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingViewModel.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingViewModel.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingViewModel.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingViewModel.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingViewModel.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingViewModel.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingViewModel.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingViewModel~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/ViewModels/PortScanViewModel.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanViewModel.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanViewModel.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanViewModel.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanViewModel.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanViewModel.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanViewModel.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanViewModel.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanViewModel~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Views/InfoTabView.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoTabView.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoTabView.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoTabView.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoTabView.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoTabView.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoTabView.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoTabView.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/InfoTabView~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Views/OutputTextView.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputTextView.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputTextView.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputTextView.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputTextView.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputTextView.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputTextView.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputTextView.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/OutputTextView~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Views/PingTabView.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingTabView.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingTabView.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingTabView.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingTabView.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingTabView.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingTabView.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingTabView.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PingTabView~partial.swiftmodule"
+  },
+  "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/NetworkTools/Sources/Views/PortScanTabView.swift" : {
+    "const-values" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanTabView.swiftconstvalues",
+    "dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanTabView.d",
+    "diagnostics" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanTabView.dia",
+    "index-unit-output-path" : "/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanTabView.o",
+    "llvm-bc" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanTabView.bc",
+    "object" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanTabView.o",
+    "swift-dependencies" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanTabView.swiftdeps",
+    "swiftmodule" : "/Users/cmb/Workspace/github.com/boggybumblebee/network-tools/.xcodebuild/Build/Intermediates.noindex/NetworkTools.build/Debug/NetworkTools.build/Objects-normal/arm64/PortScanTabView~partial.swiftmodule"
+  }
+}

@@ -1,0 +1,50 @@
+name: NetworkTools
+options:
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: 5.10
+    MACOSX_DEPLOYMENT_TARGET: 15.0
+targets:
+  NetworkTools:
+    type: application
+    platform: macOS
+    deploymentTarget: 15.0
+    sources:
+      - path: NetworkTools/Sources
+    info:
+      path: NetworkTools/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: Network Tools
+        CFBundleIdentifier: com.boggybumblebee.NetworkTools
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        LSMinimumSystemVersion: "15.0"
+        NSPrincipalClass: NSApplication
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.boggybumblebee.NetworkTools
+        PRODUCT_NAME: NetworkTools
+  NetworkToolsTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: 15.0
+    sources:
+      - path: NetworkTools/Tests
+    dependencies:
+      - target: NetworkTools
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.boggybumblebee.NetworkToolsTests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/NetworkTools.app/Contents/MacOS/NetworkTools"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  NetworkTools:
+    build:
+      targets:
+        NetworkTools: all
+        NetworkToolsTests: [test]
+    test:
+      targets:
+        - NetworkToolsTests
