@@ -8,7 +8,7 @@ protocol NetworkInterfaceService {
 }
 
 final class SystemNetworkInterfaceService: NetworkInterfaceService {
-    private var interfaceDetailsCache: [String: (vendor: String?, model: String?)] = [:]
+    private var interfaceDetailsCache: [String: (vendor: String?, model: String?, vendorID: String?, deviceID: String?)] = [:]
 
     func listInterfaces() -> [NetworkInterfaceSummary] {
         var names = Set<String>()
@@ -86,6 +86,8 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             linkStatus: linkStatus,
             vendor: interfaceDetails.vendor,
             model: interfaceDetails.model,
+            vendorID: interfaceDetails.vendorID,
+            deviceID: interfaceDetails.deviceID,
             statistics: fallbackStats
         )
     }
@@ -211,7 +213,7 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         return bytes.map { String(format: "%02x", $0) }.joined(separator: ":")
     }
 
-    private func vendorAndModel(for interfaceName: String) -> (vendor: String?, model: String?) {
+    private func vendorAndModel(for interfaceName: String) -> (vendor: String?, model: String?, vendorID: String?, deviceID: String?) {
         if let cached = interfaceDetailsCache[interfaceName] {
             return cached
         }
@@ -221,9 +223,9 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         return resolved
     }
 
-    private func resolveVendorAndModel(for interfaceName: String) -> (vendor: String?, model: String?) {
+    private func resolveVendorAndModel(for interfaceName: String) -> (vendor: String?, model: String?, vendorID: String?, deviceID: String?) {
         guard let matching = IOServiceMatching("IONetworkInterface") else {
-            return (nil, nil)
+            return (nil, nil, nil, nil)
         }
         let matchingDictionary = matching as NSMutableDictionary
 
@@ -231,29 +233,55 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
 
         var iterator: io_iterator_t = 0
         guard IOServiceGetMatchingServices(kIOMainPortDefault, matchingDictionary, &iterator) == KERN_SUCCESS else {
-            return (nil, nil)
+            return (nil, nil, nil, nil)
         }
         defer { IOObjectRelease(iterator) }
 
         var vendor: String?
         var model: String?
+        var vendorID: String?
+        var deviceID: String?
         var service = IOIteratorNext(iterator)
 
         while service != 0 {
             if let controller = parentService(of: service) {
-                populateVendorAndModel(from: controller, vendor: &vendor, model: &model)
+                populateVendorAndModel(
+                    from: controller,
+                    vendor: &vendor,
+                    model: &model,
+                    vendorID: &vendorID,
+                    deviceID: &deviceID
+                )
                 if let currentModel = model, isHostModel(currentModel) {
                     model = nil
                 }
-                populateVendorAndModelFromBusAncestors(startingAt: controller, vendor: &vendor, model: &model)
+                populateVendorAndModelFromBusAncestors(
+                    startingAt: controller,
+                    vendor: &vendor,
+                    model: &model,
+                    vendorID: &vendorID,
+                    deviceID: &deviceID
+                )
 
                 IOObjectRelease(controller)
             } else {
-                populateVendorAndModel(from: service, vendor: &vendor, model: &model)
+                populateVendorAndModel(
+                    from: service,
+                    vendor: &vendor,
+                    model: &model,
+                    vendorID: &vendorID,
+                    deviceID: &deviceID
+                )
                 if let currentModel = model, isHostModel(currentModel) {
                     model = nil
                 }
-                populateVendorAndModelFromBusAncestors(startingAt: service, vendor: &vendor, model: &model)
+                populateVendorAndModelFromBusAncestors(
+                    startingAt: service,
+                    vendor: &vendor,
+                    model: &model,
+                    vendorID: &vendorID,
+                    deviceID: &deviceID
+                )
             }
 
             let next = IOIteratorNext(iterator)
@@ -261,7 +289,7 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             service = next
         }
 
-        return (vendor, model)
+        return (vendor, model, vendorID, deviceID)
     }
 
     private func parentService(of service: io_registry_entry_t) -> io_registry_entry_t? {
@@ -275,7 +303,9 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
     private func populateVendorAndModel(
         from service: io_registry_entry_t,
         vendor: inout String?,
-        model: inout String?
+        model: inout String?,
+        vendorID: inout String?,
+        deviceID: inout String?
     ) {
         if model == nil {
             let rawModel = firstRegistryString(
@@ -285,8 +315,13 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             if let rawModel, !isHostModel(rawModel) {
                 model = rawModel
             }
-            if model == nil, let deviceID = firstRegistryHexID(for: service, keys: ["device-id", "idProduct"]) {
-                model = "0x\(deviceID)"
+            if let rawDeviceID = firstRegistryHexID(for: service, keys: ["device-id", "idProduct"]) {
+                if deviceID == nil {
+                    deviceID = rawDeviceID.lowercased()
+                }
+                if model == nil {
+                    model = "0x\(rawDeviceID)"
+                }
             }
         }
 
@@ -295,8 +330,13 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
                 for: service,
                 keys: ["IOVendor", "vendor-name", "manufacturer", "vendor", "subsystem-vendor-name"]
             )
-            if vendor == nil, let vendorID = firstRegistryHexID(for: service, keys: ["vendor-id"]) {
-                vendor = "0x\(vendorID)"
+            if let rawVendorID = firstRegistryHexID(for: service, keys: ["vendor-id", "idVendor"]) {
+                if vendorID == nil {
+                    vendorID = rawVendorID.lowercased()
+                }
+                if vendor == nil {
+                    vendor = "0x\(rawVendorID)"
+                }
             }
         }
     }
@@ -304,7 +344,9 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
     private func populateVendorAndModelFromBusAncestors(
         startingAt service: io_registry_entry_t,
         vendor: inout String?,
-        model: inout String?
+        model: inout String?,
+        vendorID: inout String?,
+        deviceID: inout String?
     ) {
         var ancestors: [io_registry_entry_t] = []
         var cursor = service
@@ -326,6 +368,13 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             let identifiers = busIdentifiers(for: ancestor)
             guard identifiers.vendorID != nil || identifiers.deviceID != nil else {
                 continue
+            }
+
+            if vendorID == nil {
+                vendorID = identifiers.vendorID
+            }
+            if deviceID == nil {
+                deviceID = identifiers.deviceID
             }
 
             if vendor == nil {

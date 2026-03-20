@@ -14,6 +14,20 @@ final class InfoViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Link Speed" })?.value, "Unavailable")
         XCTAssertEqual(viewModel.statisticsRows.first(where: { $0.label == "Sent Data" })?.value, "Unavailable")
     }
+
+    @MainActor
+    func testDebugIdentifiersAreHiddenUntilToggled() {
+        let service = MockNetworkInterfaceService()
+        let viewModel = InfoViewModel(service: service)
+
+        viewModel.refreshForTesting()
+        XCTAssertNil(viewModel.interfaceRows.first(where: { $0.label == "Vendor ID" }))
+        XCTAssertNil(viewModel.interfaceRows.first(where: { $0.label == "Device ID" }))
+
+        viewModel.toggleDebugDetails()
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Vendor ID" })?.value, "0x14e4")
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Device ID" })?.value, "0x4434")
+    }
 }
 
 private final class MockNetworkInterfaceService: NetworkInterfaceService {
@@ -31,6 +45,8 @@ private final class MockNetworkInterfaceService: NetworkInterfaceService {
             linkStatus: .unknown,
             vendor: nil,
             model: nil,
+            vendorID: "14e4",
+            deviceID: "4434",
             statistics: InterfaceStatistics(
                 sentPackets: nil,
                 sentBytes: nil,

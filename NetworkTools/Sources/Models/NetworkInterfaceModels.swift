@@ -54,5 +54,33 @@ struct InterfaceSnapshot: Equatable {
     let linkStatus: LinkStatus
     let vendor: String?
     let model: String?
+    let vendorID: String?
+    let deviceID: String?
     let statistics: InterfaceStatistics
+
+    init(
+        name: String,
+        hardwareAddress: String?,
+        ipAddress: String?,
+        linkSpeed: String?,
+        transportSpeed: String?,
+        linkStatus: LinkStatus,
+        vendor: String?,
+        model: String?,
+        vendorID: String? = nil,
+        deviceID: String? = nil,
+        statistics: InterfaceStatistics
+    ) {
+        self.name = name
+        self.hardwareAddress = hardwareAddress
+        self.ipAddress = ipAddress
+        self.linkSpeed = linkSpeed
+        self.transportSpeed = transportSpeed
+        self.linkStatus = linkStatus
+        self.vendor = vendor
+        self.model = model
+        self.vendorID = vendorID
+        self.deviceID = deviceID
+        self.statistics = statistics
+    }
 }

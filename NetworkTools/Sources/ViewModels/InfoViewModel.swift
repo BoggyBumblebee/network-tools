@@ -8,6 +8,7 @@ final class InfoViewModel: ObservableObject {
     @Published private(set) var interfaceRows: [DisplayRow] = []
     @Published private(set) var statisticsRows: [DisplayRow] = []
     @Published private(set) var emptyMessage: String?
+    @Published private(set) var isDebugDetailsVisible = false
 
     private let service: NetworkInterfaceService
     private var refreshTask: Task<Void, Never>?
@@ -31,6 +32,11 @@ final class InfoViewModel: ObservableObject {
 
     func selectInterface(_ name: String) {
         selectedInterfaceName = name
+        applySnapshot()
+    }
+
+    func toggleDebugDetails() {
+        isDebugDetailsVisible.toggle()
         applySnapshot()
     }
 
@@ -86,7 +92,7 @@ final class InfoViewModel: ObservableObject {
             return
         }
 
-        interfaceRows = [
+        var rows = [
             DisplayRow(label: "Hardware Address", value: Formatters.stringOrUnavailable(snapshot.hardwareAddress)),
             DisplayRow(label: "IP Address", value: Formatters.stringOrUnavailable(snapshot.ipAddress)),
             DisplayRow(label: "Link Speed", value: Formatters.stringOrUnavailable(snapshot.linkSpeed)),
@@ -95,6 +101,21 @@ final class InfoViewModel: ObservableObject {
             DisplayRow(label: "Vendor", value: Formatters.stringOrUnavailable(snapshot.vendor)),
             DisplayRow(label: "Model", value: Formatters.stringOrUnavailable(snapshot.model))
         ]
+        if isDebugDetailsVisible {
+            rows.append(
+                DisplayRow(
+                    label: "Vendor ID",
+                    value: Formatters.stringOrUnavailable(Self.formatHexID(snapshot.vendorID))
+                )
+            )
+            rows.append(
+                DisplayRow(
+                    label: "Device ID",
+                    value: Formatters.stringOrUnavailable(Self.formatHexID(snapshot.deviceID))
+                )
+            )
+        }
+        interfaceRows = rows
 
         statisticsRows = [
             DisplayRow(label: "Sent Packages", value: Formatters.numberOrUnavailable(snapshot.statistics.sentPackets)),
@@ -109,5 +130,16 @@ final class InfoViewModel: ObservableObject {
 
     func refreshForTesting() {
         refreshNow()
+    }
+
+    private static func formatHexID(_ value: String?) -> String? {
+        guard let value, !value.isEmpty else {
+            return nil
+        }
+        let normalized = value.lowercased()
+        if normalized.hasPrefix("0x") {
+            return normalized
+        }
+        return "0x\(normalized)"
     }
 }

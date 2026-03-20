@@ -8,6 +8,9 @@ struct InfoTabView: View {
             HStack {
                 Text("Interface")
                     .font(.headline)
+                    .onTapGesture(count: 5) {
+                        viewModel.toggleDebugDetails()
+                    }
                 Picker(
                     "Network Interface",
                     selection: Binding(
