@@ -26,11 +26,12 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
 
         return names
             .sorted()
-            .compactMap { name in
-                guard isActiveByName[name] == true else {
-                    return nil
-                }
-                return NetworkInterfaceSummary(name: name, hardwareType: hardwareTypeByName[name])
+            .map { name in
+                return NetworkInterfaceSummary(
+                    name: name,
+                    hardwareType: hardwareTypeByName[name],
+                    isActive: isActiveByName[name] ?? false
+                )
             }
     }
 

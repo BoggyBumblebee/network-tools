@@ -14,7 +14,8 @@ struct InfoTabView: View {
                     )
                 ) {
                     ForEach(viewModel.interfaces) { interface in
-                        Text(interface.displayName).tag(interface.name)
+                        Text("\(interface.isActive ? "🟢" : "🔴") \(interface.displayName)")
+                        .tag(interface.name)
                     }
                 }
                 .disabled(viewModel.interfaces.isEmpty)

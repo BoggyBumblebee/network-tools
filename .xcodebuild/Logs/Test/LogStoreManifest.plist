@@ -6,10 +6,10 @@
 	<integer>12</integer>
 	<key>logs</key>
 	<dict>
-		<key>52F62869-B441-47A0-97D3-D8001D8461DA</key>
+		<key>14F1C8F6-E8B9-433A-BDDE-0EB85614ADF0</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>FBD9DE94-B8F4-4F40-A324-E2AC7CF0C13F</string>
+			<string>4003EFB5-08E4-44DA-A44B-DE975F68C2D7</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,7 +30,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.unit.cocoaUnitTest</string>
 			<key>fileName</key>
-			<string>Test-NetworkTools-2026.03.20_17-47-22-+0000.xcresult</string>
+			<string>Test-NetworkTools-2026.03.20_18-07-41-+0000.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasPrimaryLog</key>
@@ -57,18 +57,18 @@
 			<key>signature</key>
 			<string>Test NetworkTools</string>
 			<key>timeStartedRecording</key>
-			<real>795721642.231408</real>
+			<real>795722861.35983205</real>
 			<key>timeStoppedRecording</key>
-			<real>795721646.12444103</real>
+			<real>795722865.07691503</real>
 			<key>title</key>
 			<string>Test NetworkTools</string>
 			<key>uniqueIdentifier</key>
-			<string>52F62869-B441-47A0-97D3-D8001D8461DA</string>
+			<string>14F1C8F6-E8B9-433A-BDDE-0EB85614ADF0</string>
 		</dict>
-		<key>8B348FCB-2032-4DCD-9944-CAF24E526024</key>
+		<key>69BA3EB8-130D-4F49-B32D-4065603C25B0</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>4088D175-D50E-48BD-BFBA-A90DEC7A5930</string>
+			<string>3BDC6BC4-F2BB-4C00-88F4-79EA9661112A</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -89,7 +89,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.unit.cocoaUnitTest</string>
 			<key>fileName</key>
-			<string>Test-NetworkTools-2026.03.20_17-56-37-+0000.xcresult</string>
+			<string>Test-NetworkTools-2026.03.20_18-09-49-+0000.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasPrimaryLog</key>
@@ -116,18 +116,18 @@
 			<key>signature</key>
 			<string>Test NetworkTools</string>
 			<key>timeStartedRecording</key>
-			<real>795722197.37099802</real>
+			<real>795722989.184389</real>
 			<key>timeStoppedRecording</key>
-			<real>795722201.21792603</real>
+			<real>795722992.76364195</real>
 			<key>title</key>
 			<string>Test NetworkTools</string>
 			<key>uniqueIdentifier</key>
-			<string>8B348FCB-2032-4DCD-9944-CAF24E526024</string>
+			<string>69BA3EB8-130D-4F49-B32D-4065603C25B0</string>
 		</dict>
-		<key>CFC34141-C273-4966-B7B1-736030C8164A</key>
+		<key>70A3AE83-D62E-4ABA-A147-96EBFD6E6F4A</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>CAA15723-03AD-428E-A3B7-AE033672AA8F</string>
+			<string>EBCF82F7-7917-46A8-A14F-8F6B100B0216</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -148,7 +148,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.unit.cocoaUnitTest</string>
 			<key>fileName</key>
-			<string>Test-NetworkTools-2026.03.20_17-53-14-+0000.xcresult</string>
+			<string>Test-NetworkTools-2026.03.20_18-12-14-+0000.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasPrimaryLog</key>
@@ -175,13 +175,131 @@
 			<key>signature</key>
 			<string>Test NetworkTools</string>
 			<key>timeStartedRecording</key>
-			<real>795721994.94937599</real>
+			<real>795723134.12535799</real>
 			<key>timeStoppedRecording</key>
-			<real>795721998.49309003</real>
+			<real>795723137.65828204</real>
 			<key>title</key>
 			<string>Test NetworkTools</string>
 			<key>uniqueIdentifier</key>
-			<string>CFC34141-C273-4966-B7B1-736030C8164A</string>
+			<string>70A3AE83-D62E-4ABA-A147-96EBFD6E6F4A</string>
+		</dict>
+		<key>97977AE0-98BE-4C9E-8E04-14CC2D0E0619</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>278D2DE4-B523-4251-A1ED-704B56F8EB7C</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.unit.cocoaUnitTest</string>
+			<key>fileName</key>
+			<string>Test-NetworkTools-2026.03.20_18-11-00-+0000.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>NetworkTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>NetworkTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Test NetworkTools</string>
+			<key>timeStartedRecording</key>
+			<real>795723060.342731</real>
+			<key>timeStoppedRecording</key>
+			<real>795723063.86249995</real>
+			<key>title</key>
+			<string>Test NetworkTools</string>
+			<key>uniqueIdentifier</key>
+			<string>97977AE0-98BE-4C9E-8E04-14CC2D0E0619</string>
+		</dict>
+		<key>CEE72AA6-F451-4F8E-8741-F3E2CCA9B3A0</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>73C6ABD4-7222-469B-82BE-3DFD096FAD4F</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.unit.cocoaUnitTest</string>
+			<key>fileName</key>
+			<string>Test-NetworkTools-2026.03.20_18-04-32-+0000.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>NetworkTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>NetworkTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Test NetworkTools</string>
+			<key>timeStartedRecording</key>
+			<real>795722672.91474402</real>
+			<key>timeStoppedRecording</key>
+			<real>795722676.68819296</real>
+			<key>title</key>
+			<string>Test NetworkTools</string>
+			<key>uniqueIdentifier</key>
+			<string>CEE72AA6-F451-4F8E-8741-F3E2CCA9B3A0</string>
 		</dict>
 	</dict>
 </dict>

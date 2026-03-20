@@ -91,7 +91,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			lhiGMuFX/qD76vNqE5zG0t29mC8=
+			DbdfdV0A34ccxpextk0wguoxDjY=
 			</data>
 			<key>requirement</key>
 			<string>identifier "NetworkTools.debug" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
@@ -109,10 +109,10 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			VScE4nDh4XUQJN6LZxneecxz/Fc=
+			PbCMro9MZsGzLdOIdKz5+TTpSP4=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"552704e270e1e1751024de8b6719de79cc73fc57"</string>
+			<string>cdhash H"3db08cae8f4c66c1b32dd38874acf9f934e948fe"</string>
 		</dict>
 	</dict>
 	<key>rules</key>

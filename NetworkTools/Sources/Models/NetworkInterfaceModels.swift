@@ -4,10 +4,12 @@ struct NetworkInterfaceSummary: Identifiable, Equatable {
     var id: String { name }
     let name: String
     let hardwareType: String?
+    let isActive: Bool
 
-    init(name: String, hardwareType: String? = nil) {
+    init(name: String, hardwareType: String? = nil, isActive: Bool = false) {
         self.name = name
         self.hardwareType = hardwareType
+        self.isActive = isActive
     }
 
     var displayName: String {
