@@ -13,22 +13,22 @@
 				<key>testDefaultsToEn0WhenAvailable</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00068306922912597656</real>
+					<real>0.00066006183624267578</real>
 				</dict>
 				<key>testIdentifiersAreShownWithoutDebugToggle</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00052094459533691406</real>
+					<real>0.00052404403686523438</real>
 				</dict>
 				<key>testUnavailableFallbackFormatting</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00044500827789306641</real>
+					<real>0.00044798851013183594</real>
 				</dict>
 				<key>testWiFiShowsLinkSpeedAndNotApplicableTransportSpeed</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00043094158172607422</real>
+					<real>0.00044107437133789062</real>
 				</dict>
 			</dict>
 			<key>OutputBufferTests</key>
@@ -36,7 +36,7 @@
 				<key>testOutputBufferTruncatesByLineLimit</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.0050060749053955078</real>
+					<real>0.0052620172500610352</real>
 				</dict>
 			</dict>
 			<key>ValidationTests</key>
@@ -44,22 +44,22 @@
 				<key>testInvalidHostnames</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00053000450134277344</real>
+					<real>0.00046706199645996094</real>
 				</dict>
 				<key>testPingCountValidationRange</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00066196918487548828</real>
+					<real>0.00038194656372070312</real>
 				</dict>
 				<key>testPortRangeValidation</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00045895576477050781</real>
+					<real>0.00041294097900390625</real>
 				</dict>
 				<key>testValidIPv4AndHostname</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00043702125549316406</real>
+					<real>0.00046396255493164062</real>
 				</dict>
 			</dict>
 			<key>ViewModelStateTests</key>
@@ -67,12 +67,12 @@
 				<key>testPingViewModelStartStopStateTransitions</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.21087908744812012</real>
+					<real>0.21416699886322021</real>
 				</dict>
 				<key>testPortScanViewModelStartStopStateTransitions</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.21357905864715576</real>
+					<real>0.21342599391937256</real>
 				</dict>
 			</dict>
 		</dict>

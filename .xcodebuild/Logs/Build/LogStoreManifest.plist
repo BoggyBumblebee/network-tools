@@ -6,7 +6,7 @@
 	<integer>12</integer>
 	<key>logs</key>
 	<dict>
-		<key>278D2DE4-B523-4251-A1ED-704B56F8EB7C</key>
+		<key>0A3C9892-3B67-4CE8-BCB1-1BE68F31761E</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>278D2DE4-B523-4251-A1ED-704B56F8EB7C.xcactivitylog</string>
+			<string>0A3C9892-3B67-4CE8-BCB1-1BE68F31761E.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -40,55 +40,13 @@
 			<key>signature</key>
 			<string>Testing project NetworkTools with scheme NetworkTools</string>
 			<key>timeStartedRecording</key>
-			<real>795723060.34231699</real>
+			<real>795723759.645105</real>
 			<key>timeStoppedRecording</key>
-			<real>795723062.22420704</real>
+			<real>795723761.85164905</real>
 			<key>title</key>
 			<string>Testing project NetworkTools with scheme NetworkTools</string>
 			<key>uniqueIdentifier</key>
-			<string>278D2DE4-B523-4251-A1ED-704B56F8EB7C</string>
-		</dict>
-		<key>3BDC6BC4-F2BB-4C00-88F4-79EA9661112A</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>3BDC6BC4-F2BB-4C00-88F4-79EA9661112A.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>NetworkTools project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>NetworkTools</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Testing project NetworkTools with scheme NetworkTools</string>
-			<key>timeStartedRecording</key>
-			<real>795722989.18397105</real>
-			<key>timeStoppedRecording</key>
-			<real>795722991.04496896</real>
-			<key>title</key>
-			<string>Testing project NetworkTools with scheme NetworkTools</string>
-			<key>uniqueIdentifier</key>
-			<string>3BDC6BC4-F2BB-4C00-88F4-79EA9661112A</string>
+			<string>0A3C9892-3B67-4CE8-BCB1-1BE68F31761E</string>
 		</dict>
 		<key>970A7308-1252-4A97-8E53-D04DB4F8726D</key>
 		<dict>
@@ -131,48 +89,6 @@
 			<string>Testing project NetworkTools with scheme NetworkTools</string>
 			<key>uniqueIdentifier</key>
 			<string>970A7308-1252-4A97-8E53-D04DB4F8726D</string>
-		</dict>
-		<key>EBCF82F7-7917-46A8-A14F-8F6B100B0216</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>EBCF82F7-7917-46A8-A14F-8F6B100B0216.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>NetworkTools project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>NetworkTools</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Testing project NetworkTools with scheme NetworkTools</string>
-			<key>timeStartedRecording</key>
-			<real>795723134.12487304</real>
-			<key>timeStoppedRecording</key>
-			<real>795723135.99737704</real>
-			<key>title</key>
-			<string>Testing project NetworkTools with scheme NetworkTools</string>
-			<key>uniqueIdentifier</key>
-			<string>EBCF82F7-7917-46A8-A14F-8F6B100B0216</string>
 		</dict>
 		<key>F964CAD8-FC20-48D8-945B-E03AD9E09593</key>
 		<dict>

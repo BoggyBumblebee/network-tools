@@ -1,4 +1,7 @@
 import SwiftUI
+#if os(macOS)
+import AppKit
+#endif
 
 struct InfoTabView: View {
     @ObservedObject var viewModel: InfoViewModel
@@ -61,11 +64,20 @@ private struct KeyValueListView: View {
                     valueView(for: row)
                 }
                 .accessibilityElement(children: .combine)
+                .contextMenu {
+                    Button("Copy Value") {
+                        copyToPasteboard(displayValueText(for: row))
+                    }
+                    Button("Copy Row") {
+                        copyToPasteboard("\(row.label): \(displayValueText(for: row))")
+                    }
+                }
             }
             Spacer(minLength: 0)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.top, 4)
+        .textSelection(.enabled)
     }
 
     @ViewBuilder
@@ -104,5 +116,28 @@ private struct KeyValueListView: View {
                 .font(.system(.body, design: .monospaced))
                 .multilineTextAlignment(.trailing)
         }
+    }
+
+    private func displayValueText(for row: DisplayRow) -> String {
+        guard row.label == "Link Status" else {
+            return row.value
+        }
+
+        let normalized = row.value.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        if normalized == "up" {
+            return "Active"
+        }
+        if normalized == "down" {
+            return "Inactive"
+        }
+        return row.value
+    }
+
+    private func copyToPasteboard(_ value: String) {
+        #if os(macOS)
+        let pasteboard = NSPasteboard.general
+        pasteboard.clearContents()
+        pasteboard.setString(value, forType: .string)
+        #endif
     }
 }
