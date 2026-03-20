@@ -310,7 +310,7 @@ The app shall validate destination strings before allowing Ping or Port Scan ope
 - Labels longer than 63 characters, or labels beginning/ending with `-`.
 
 ### Notes
-- Validation may be syntactic only before execution.
+- Validation will be syntactic only before execution.
 - DNS resolution errors discovered at runtime shall be presented in the output area and/or inline UI state.
 - A trailing `.` in a hostname will not be accepted by validation.
 
@@ -332,7 +332,7 @@ The app shall validate destination strings before allowing Ping or Port Scan ope
 - Cancellation shall be cooperative and timely.
 - UI controls shall reflect cancellation status correctly.
 - Output shall include a final line indicating user-initiated stop when applicable.
-- Stop requests shall transition UI state from `Stop` to `Ping` or `Scan` as soon as possible.
+- Stop requests shall transition UI state from `Stop` to `Ping` or `Scan` within **1 second**.
 
 ## 10. UI/UX Requirements
 
@@ -497,7 +497,7 @@ The project shall include unit tests for at least:
 - single-operation guard behavior (no duplicate Ping/Scan starts).
 
 ### 18.2 Integration / Service Tests
-Where feasible, include tests for:
+Include tests for:
 - host resolution logic,
 - cancellation behavior,
 - incremental output handling,
@@ -542,7 +542,7 @@ At minimum, verify:
 The implementation will be considered aligned with this specification when:
 - The app is a macOS 15+ SwiftUI application.
 - It opens on the Info tab.
-- The Info tab presents selectable interfaces and two detail panels with 15-second refresh while active.
+- The Info tab presents selectable interfaces and two detail panels with 15-second refresh while active (acceptable interval: 14 to 16 seconds), and refreshes within 1 second when returning to the tab.
 - Unavailable interface fields display `Unavailable`.
 - The Ping tab validates input, supports fixed or unlimited ping, uses default count 4, supports up to count 100, streams terminal-style output, supports copy, and continues across tab changes.
 - The Port Scan tab validates input, supports all-ports or range-based scanning, defaults to range 1-1024, reports open ports only, enforces bounded concurrency, streams terminal-style output, supports copy, and continues across tab changes.
