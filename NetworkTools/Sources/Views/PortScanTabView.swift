@@ -12,6 +12,8 @@ struct PortScanTabView: View {
                         .textFieldStyle(.roundedBorder)
                         .overlay(validationBorder(isValid: viewModel.isDestinationValid))
                         .accessibilityLabel("Scan Destination")
+                        .accessibilityValue(viewModel.isDestinationValid ? "Valid" : "Invalid")
+                        .accessibilityHint("Enter an IPv4 address or internet hostname.")
                 }
                 .frame(maxWidth: 420)
 
@@ -29,6 +31,8 @@ struct PortScanTabView: View {
                         .textFieldStyle(.roundedBorder)
                         .disabled(viewModel.scanAllPorts)
                         .accessibilityLabel("From port")
+                        .accessibilityValue(viewModel.scanAllPorts ? "Disabled" : viewModel.fromPortText)
+                        .accessibilityHint("Enter the first port in range.")
                 }
                 .frame(width: 100)
 
@@ -38,6 +42,8 @@ struct PortScanTabView: View {
                         .textFieldStyle(.roundedBorder)
                         .disabled(viewModel.scanAllPorts)
                         .accessibilityLabel("To port")
+                        .accessibilityValue(viewModel.scanAllPorts ? "Disabled" : viewModel.toPortText)
+                        .accessibilityHint("Enter the last port in range.")
                 }
                 .frame(width: 100)
                 .overlay(validationBorder(isValid: viewModel.isRangeValid))
@@ -47,7 +53,12 @@ struct PortScanTabView: View {
                 }
                 .keyboardShortcut(.defaultAction)
                 .disabled(!viewModel.isRunning && !viewModel.canStart)
-                .accessibilityLabel("Scan Action")
+                .accessibilityLabel(viewModel.isRunning ? "Stop scan" : "Start scan")
+                .accessibilityHint(
+                    viewModel.isRunning
+                        ? "Stops the current port scan."
+                        : "Starts scanning with the current destination and range."
+                )
             }
 
             GroupBox("Output") {

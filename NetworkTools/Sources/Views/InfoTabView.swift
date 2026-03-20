@@ -16,11 +16,12 @@ struct InfoTabView: View {
                     ForEach(viewModel.interfaces) { interface in
                         Text("\(interface.isActive ? "🟢" : "🔴") \(interface.displayName)")
                             .accessibilityLabel("\(interface.isActive ? "Active" : "Inactive"), \(interface.displayName)")
-                        .tag(interface.name)
+                            .tag(interface.name)
                     }
                 }
                 .disabled(viewModel.interfaces.isEmpty)
                 .accessibilityLabel("Network Interface Picker")
+                .accessibilityHint("Select a network interface to view details.")
             }
 
             if let emptyMessage = viewModel.emptyMessage {
@@ -87,6 +88,7 @@ private struct KeyValueListView: View {
                 Circle()
                     .fill(.green)
                     .frame(width: 8, height: 8)
+                    .accessibilityHidden(true)
                 Text("Active")
             }
         } else if normalized == "down" {
@@ -94,6 +96,7 @@ private struct KeyValueListView: View {
                 Circle()
                     .fill(.red)
                     .frame(width: 8, height: 8)
+                    .accessibilityHidden(true)
                 Text("Inactive")
             }
         } else {
