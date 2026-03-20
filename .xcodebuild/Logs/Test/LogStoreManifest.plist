@@ -6,65 +6,6 @@
 	<integer>12</integer>
 	<key>logs</key>
 	<dict>
-		<key>BCB3E7DE-584E-47C9-B1AE-80048D777DF3</key>
-		<dict>
-			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>4729B829-C7F5-4DD5-BCC7-1459B8627028</string>
-			<key>auxiliaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>className</key>
-			<string>IDESchemeActionsInvocationRecord</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>com.apple.dt.unit.cocoaUnitTest</string>
-			<key>fileName</key>
-			<string>Test-NetworkTools-2026.03.20_13-44-21-+0000.xcresult</string>
-			<key>hasAuxiliaryLog</key>
-			<true/>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>E</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>1</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>NetworkTools project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>NetworkTools</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Test NetworkTools</string>
-			<key>timeStartedRecording</key>
-			<real>795707061.85779905</real>
-			<key>timeStoppedRecording</key>
-			<real>795707063.46817195</real>
-			<key>title</key>
-			<string>Test NetworkTools</string>
-			<key>uniqueIdentifier</key>
-			<string>BCB3E7DE-584E-47C9-B1AE-80048D777DF3</string>
-		</dict>
 		<key>F22FABC1-1AD8-44C1-8225-2C3CB099EF54</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>

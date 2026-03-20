@@ -92,29 +92,21 @@ final class InfoViewModel: ObservableObject {
             return
         }
 
-        var rows = [
+        let rows = [
             DisplayRow(label: "Hardware Address", value: Formatters.stringOrUnavailable(snapshot.hardwareAddress)),
             DisplayRow(label: "IP Address", value: Formatters.stringOrUnavailable(snapshot.ipAddress)),
             DisplayRow(label: "Link Speed", value: Formatters.stringOrUnavailable(snapshot.linkSpeed)),
             DisplayRow(label: "Transport Speed", value: Formatters.stringOrUnavailable(snapshot.transportSpeed)),
             DisplayRow(label: "Link Status", value: snapshot.linkStatus.displayValue),
-            DisplayRow(label: "Vendor", value: Formatters.stringOrUnavailable(snapshot.vendor)),
-            DisplayRow(label: "Model", value: Formatters.stringOrUnavailable(snapshot.model))
+            DisplayRow(
+                label: "Vendor",
+                value: displayValueWithDebugID(base: snapshot.vendor, id: snapshot.vendorID)
+            ),
+            DisplayRow(
+                label: "Model",
+                value: displayValueWithDebugID(base: snapshot.model, id: snapshot.deviceID)
+            )
         ]
-        if isDebugDetailsVisible {
-            rows.append(
-                DisplayRow(
-                    label: "Vendor ID",
-                    value: Formatters.stringOrUnavailable(Self.formatHexID(snapshot.vendorID))
-                )
-            )
-            rows.append(
-                DisplayRow(
-                    label: "Device ID",
-                    value: Formatters.stringOrUnavailable(Self.formatHexID(snapshot.deviceID))
-                )
-            )
-        }
         interfaceRows = rows
 
         statisticsRows = [
@@ -141,5 +133,18 @@ final class InfoViewModel: ObservableObject {
             return normalized
         }
         return "0x\(normalized)"
+    }
+
+    private func displayValueWithDebugID(base: String?, id: String?) -> String {
+        let formattedID = Self.formatHexID(id)
+        guard isDebugDetailsVisible, let formattedID else {
+            return Formatters.stringOrUnavailable(base)
+        }
+
+        guard let base, !base.isEmpty else {
+            return formattedID
+        }
+
+        return "\(base) (\(formattedID))"
     }
 }

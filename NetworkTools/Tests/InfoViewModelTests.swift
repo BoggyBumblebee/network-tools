@@ -21,12 +21,12 @@ final class InfoViewModelTests: XCTestCase {
         let viewModel = InfoViewModel(service: service)
 
         viewModel.refreshForTesting()
-        XCTAssertNil(viewModel.interfaceRows.first(where: { $0.label == "Vendor ID" }))
-        XCTAssertNil(viewModel.interfaceRows.first(where: { $0.label == "Device ID" }))
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Vendor" })?.value, "Unavailable")
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Model" })?.value, "Unavailable")
 
         viewModel.toggleDebugDetails()
-        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Vendor ID" })?.value, "0x14e4")
-        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Device ID" })?.value, "0x4434")
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Vendor" })?.value, "0x14e4")
+        XCTAssertEqual(viewModel.interfaceRows.first(where: { $0.label == "Model" })?.value, "0x4434")
     }
 }
 
