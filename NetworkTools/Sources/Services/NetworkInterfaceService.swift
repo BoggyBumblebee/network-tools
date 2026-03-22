@@ -527,65 +527,19 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
     }
 
     private func parseVendorAndDeviceID(fromIOName ioName: String) -> (vendorID: String?, deviceID: String?) {
-        let token = ioName.lowercased()
-        guard token.hasPrefix("pci") || token.hasPrefix("usb") else {
-            return (nil, nil)
-        }
-
-        let pair = token.dropFirst(3).split(separator: ",", maxSplits: 1)
-        guard pair.count == 2 else {
-            return (nil, nil)
-        }
-
-        let vendor = String(pair[0])
-        let device = String(pair[1])
-        guard isHexString(vendor), isHexString(device) else {
-            return (nil, nil)
-        }
-
-        return (vendorID: vendor, deviceID: device)
+        NetworkInterfaceParser.parseVendorAndDeviceID(fromIOName: ioName)
     }
 
     private func isHexString(_ value: String) -> Bool {
-        guard !value.isEmpty else {
-            return false
-        }
-        return value.unicodeScalars.allSatisfy { scalar in
-            CharacterSet(charactersIn: "0123456789abcdef").contains(scalar)
-        }
+        NetworkInterfaceParser.isHexString(value)
     }
 
     private func vendorName(for vendorID: String) -> String? {
-        switch vendorID.lowercased() {
-        case "14e4":
-            return "Broadcom"
-        case "1d6a":
-            return "Aquantia/Marvell"
-        case "8086":
-            return "Intel"
-        case "10ec", "0bda":
-            return "Realtek"
-        case "0b95":
-            return "ASIX"
-        case "05ac":
-            return "Apple"
-        case "168c", "17cb", "1969":
-            return "Qualcomm Atheros"
-        default:
-            return nil
-        }
+        NetworkInterfaceParser.vendorName(for: vendorID)
     }
 
     private func isHostModel(_ model: String) -> Bool {
-        let trimmed = model.trimmingCharacters(in: .whitespacesAndNewlines)
-        let lower = trimmed.lowercased()
-        if lower.hasPrefix("mac"), trimmed.contains(",") {
-            return true
-        }
-        if lower.hasPrefix("macbook") || lower.hasPrefix("imac") || lower.hasPrefix("mac mini") || lower == "apple silicon" {
-            return true
-        }
-        return false
+        NetworkInterfaceParser.isHostModel(model)
     }
 
     private func firstRegistryString(for service: io_registry_entry_t, keys: [String]) -> String? {
@@ -625,6 +579,83 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
     }
 
     private func registryString(from value: AnyObject) -> String? {
+        NetworkInterfaceParser.registryString(from: value)
+    }
+
+    private func registryHexID(from value: AnyObject) -> String? {
+        NetworkInterfaceParser.registryHexID(from: value)
+    }
+
+    private func normalized(_ text: String) -> String? {
+        NetworkInterfaceParser.normalized(text)
+    }
+}
+
+enum NetworkInterfaceParser {
+    static func parseVendorAndDeviceID(fromIOName ioName: String) -> (vendorID: String?, deviceID: String?) {
+        let token = ioName.lowercased()
+        guard token.hasPrefix("pci") || token.hasPrefix("usb") else {
+            return (nil, nil)
+        }
+
+        let pair = token.dropFirst(3).split(separator: ",", maxSplits: 1)
+        guard pair.count == 2 else {
+            return (nil, nil)
+        }
+
+        let vendor = String(pair[0])
+        let device = String(pair[1])
+        guard isHexString(vendor), isHexString(device) else {
+            return (nil, nil)
+        }
+
+        return (vendorID: vendor, deviceID: device)
+    }
+
+    static func isHexString(_ value: String) -> Bool {
+        guard !value.isEmpty else {
+            return false
+        }
+
+        return value.unicodeScalars.allSatisfy { scalar in
+            CharacterSet(charactersIn: "0123456789abcdef").contains(scalar)
+        }
+    }
+
+    static func vendorName(for vendorID: String) -> String? {
+        switch vendorID.lowercased() {
+        case "14e4":
+            return "Broadcom"
+        case "1d6a":
+            return "Aquantia/Marvell"
+        case "8086":
+            return "Intel"
+        case "10ec", "0bda":
+            return "Realtek"
+        case "0b95":
+            return "ASIX"
+        case "05ac":
+            return "Apple"
+        case "168c", "17cb", "1969":
+            return "Qualcomm Atheros"
+        default:
+            return nil
+        }
+    }
+
+    static func isHostModel(_ model: String) -> Bool {
+        let trimmed = model.trimmingCharacters(in: .whitespacesAndNewlines)
+        let lower = trimmed.lowercased()
+        if lower.hasPrefix("mac"), trimmed.contains(",") {
+            return true
+        }
+        if lower.hasPrefix("macbook") || lower.hasPrefix("imac") || lower.hasPrefix("mac mini") || lower == "apple silicon" {
+            return true
+        }
+        return false
+    }
+
+    static func registryString(from value: AnyObject) -> String? {
         if let text = value as? String {
             return normalized(text)
         }
@@ -640,24 +671,24 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         return nil
     }
 
-    private func registryHexID(from value: AnyObject) -> String? {
+    static func registryHexID(from value: AnyObject) -> String? {
         if let number = value as? NSNumber {
             return String(format: "%04x", number.uint64Value & 0xffff)
         }
 
         if let data = value as? Data, data.count >= 2 {
-            var value: UInt32 = 0
+            var numericValue: UInt32 = 0
             for (index, byte) in data.prefix(4).enumerated() {
                 let shift = UInt32(index * 8)
-                value |= UInt32(byte) << shift
+                numericValue |= UInt32(byte) << shift
             }
-            return String(format: "%04x", value & 0xffff)
+            return String(format: "%04x", numericValue & 0xffff)
         }
 
         return nil
     }
 
-    private func normalized(_ text: String) -> String? {
+    static func normalized(_ text: String) -> String? {
         let cleaned = text.trimmingCharacters(in: .whitespacesAndNewlines.union(.controlCharacters))
         return cleaned.isEmpty ? nil : cleaned
     }
