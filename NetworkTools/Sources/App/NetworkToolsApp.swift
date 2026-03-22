@@ -8,9 +8,6 @@ struct NetworkToolsApp: App {
 
     init() {
         Self.enforceSingleInstance()
-
-        // Keep runtime icon in sync with the bundle icon used by Finder/Dock.
-        NSApplication.shared.applicationIconImage = Self.resolvedApplicationIcon()
     }
 
     var body: some Scene {
@@ -22,11 +19,7 @@ struct NetworkToolsApp: App {
         .commands {
             CommandGroup(replacing: .appInfo) {
                 Button("About Network Tools") {
-                    NSApp.orderFrontStandardAboutPanel(options: [
-                        .applicationName: "Network Tools",
-                        .applicationIcon: Self.resolvedApplicationIcon()
-                    ])
-                    NSApp.activate(ignoringOtherApps: true)
+                    Self.showAboutWindow()
                 }
             }
             CommandGroup(after: .help) {
@@ -80,10 +73,22 @@ struct NetworkToolsApp: App {
         NSWorkspace.shared.open(helpURL)
     }
 
+    private static func showAboutWindow() {
+        NSApp.orderFrontStandardAboutPanel(options: [
+            .applicationName: "Network Tools",
+            .applicationIcon: resolvedApplicationIcon()
+        ])
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
     private static func resolvedApplicationIcon() -> NSImage {
+        if let icon = NSApplication.shared.applicationIconImage {
+            return icon
+        }
+        if let icon = NSImage(named: NSImage.applicationIconName) {
+            return icon
+        }
         // `icon(forFile:)` resolves the same icon representation shown in Finder and Dock.
-        let icon = NSWorkspace.shared.icon(forFile: Bundle.main.bundlePath)
-        icon.size = NSSize(width: 128, height: 128)
-        return icon
+        return NSWorkspace.shared.icon(forFile: Bundle.main.bundlePath)
     }
 }
