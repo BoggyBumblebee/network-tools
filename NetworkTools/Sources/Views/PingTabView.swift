@@ -2,6 +2,12 @@ import SwiftUI
 
 struct PingTabView: View {
     @ObservedObject var viewModel: PingViewModel
+    private var pingCountAccessibilityValue: String {
+        if viewModel.isUnlimited {
+            return "Disabled"
+        }
+        return viewModel.isCountValid ? "Valid" : "Invalid"
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -32,9 +38,7 @@ struct PingTabView: View {
                         .disabled(viewModel.isUnlimited)
                         .overlay(validationBorder(isValid: viewModel.isCountValid))
                         .accessibilityLabel("Number of pings to send")
-                        .accessibilityValue(
-                            viewModel.isUnlimited ? "Disabled" : (viewModel.isCountValid ? "Valid" : "Invalid")
-                        )
+                        .accessibilityValue(pingCountAccessibilityValue)
                         .accessibilityHint("Enter a number from 1 to 100.")
                 }
                 .frame(width: 180)

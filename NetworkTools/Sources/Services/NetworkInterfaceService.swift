@@ -196,7 +196,13 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             return [:]
         }
 
-        guard let keys = SCDynamicStoreCopyKeyList(store, "State:/Network/Interface/.*/Link" as CFString) as? [String] else {
+        let linkStateKeyPattern = SCDynamicStoreKeyCreateNetworkInterfaceEntity(
+            nil,
+            kSCDynamicStoreDomainState,
+            kSCCompAnyRegex,
+            kSCEntNetLink
+        )
+        guard let keys = SCDynamicStoreCopyKeyList(store, linkStateKeyPattern) as? [String] else {
             return [:]
         }
 
@@ -475,10 +481,8 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
                 deviceID = identifiers.deviceID
             }
 
-            if vendor == nil {
-                if let vendorID = identifiers.vendorID {
-                    vendor = vendorName(for: vendorID) ?? "0x\(vendorID)"
-                }
+            if vendor == nil, let vendorID = identifiers.vendorID {
+                vendor = vendorName(for: vendorID) ?? "0x\(vendorID)"
             }
 
             if model == nil {

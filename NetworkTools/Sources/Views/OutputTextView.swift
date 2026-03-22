@@ -98,7 +98,7 @@ private struct MacReadOnlyOutputTextView: NSViewRepresentable {
         return scrollView
     }
 
-    func updateNSView(_ scrollView: NSScrollView, context: Context) {
+    func updateNSView(_ scrollView: NSScrollView, context _: Context) {
         guard let textView = scrollView.documentView as? NSTextView else { return }
 
         if textView.string != text {
@@ -113,7 +113,7 @@ private struct MacReadOnlyOutputTextView: NSViewRepresentable {
         }
     }
 
-    static func dismantleNSView(_ nsView: NSScrollView, coordinator: Coordinator) {
+    static func dismantleNSView(_: NSScrollView, coordinator: Coordinator) {
         coordinator.cleanup()
     }
 

@@ -82,15 +82,11 @@ final class PortScanViewModel: ObservableObject {
 
         runTask = Task { [weak self] in
             guard let self else { return }
-            let reason = await service.run(configuration: configuration) { line in
-                Task { @MainActor [weak self] in
-                    self?.appendLine(line, runID: runID)
-                }
+            let reason = await service.run(configuration: configuration) { [weak self] line in
+                self?.enqueueOutputLine(line, runID: runID)
             }
 
-            await MainActor.run { [weak self] in
-                self?.finish(reason: reason, runID: runID)
-            }
+            await self.completeRun(reason: reason, runID: runID)
         }
     }
 
@@ -114,5 +110,16 @@ final class PortScanViewModel: ObservableObject {
         guard activeRunID == runID else { return }
         outputBuffer.append(line)
         outputText = outputBuffer.renderedText
+    }
+
+    nonisolated private func enqueueOutputLine(_ line: String, runID: UUID) {
+        Task { @MainActor [weak self] in
+            self?.appendLine(line, runID: runID)
+        }
+    }
+
+    @MainActor
+    private func completeRun(reason: PortScanCompletionReason, runID: UUID) {
+        finish(reason: reason, runID: runID)
     }
 }
