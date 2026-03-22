@@ -76,18 +76,20 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
 
         let speedText = Formatters.bitsPerSecondString(linkSpeedBitsPerSecond)
         let interfaceDetails = vendorAndModel(for: interfaceName)
+        var snapshotDetails = InterfaceSnapshot.Details()
+        snapshotDetails.hardwareAddress = hardwareAddress
+        snapshotDetails.ipAddress = ipAddress
+        snapshotDetails.linkSpeed = speedText
+        snapshotDetails.transportSpeed = speedText
+        snapshotDetails.linkStatus = isAnyRecordActive ? .up : .down
+        snapshotDetails.vendor = interfaceDetails.vendor
+        snapshotDetails.model = interfaceDetails.model
+        snapshotDetails.vendorID = interfaceDetails.vendorID
+        snapshotDetails.deviceID = interfaceDetails.deviceID
 
         return InterfaceSnapshot(
             name: interfaceName,
-            hardwareAddress: hardwareAddress,
-            ipAddress: ipAddress,
-            linkSpeed: speedText,
-            transportSpeed: speedText,
-            linkStatus: isAnyRecordActive ? .up : .down,
-            vendor: interfaceDetails.vendor,
-            model: interfaceDetails.model,
-            vendorID: interfaceDetails.vendorID,
-            deviceID: interfaceDetails.deviceID,
+            details: snapshotDetails,
             statistics: fallbackStats
         )
     }

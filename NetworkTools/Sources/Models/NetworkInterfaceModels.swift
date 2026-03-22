@@ -48,41 +48,35 @@ struct InterfaceStatistics: Equatable {
 }
 
 struct InterfaceSnapshot: Equatable {
+    struct Details: Equatable {
+        var hardwareAddress: String? = nil
+        var ipAddress: String? = nil
+        var linkSpeed: String? = nil
+        var transportSpeed: String? = nil
+        var linkStatus: LinkStatus = .unknown
+        var vendor: String? = nil
+        var model: String? = nil
+        var vendorID: String? = nil
+        var deviceID: String? = nil
+    }
+
     let name: String
-    let hardwareAddress: String?
-    let ipAddress: String?
-    let linkSpeed: String?
-    let transportSpeed: String?
-    let linkStatus: LinkStatus
-    let vendor: String?
-    let model: String?
-    let vendorID: String?
-    let deviceID: String?
+    let details: Details
     let statistics: InterfaceStatistics
 
-    init(
-        name: String,
-        hardwareAddress: String?,
-        ipAddress: String?,
-        linkSpeed: String?,
-        transportSpeed: String?,
-        linkStatus: LinkStatus,
-        vendor: String?,
-        model: String?,
-        vendorID: String? = nil,
-        deviceID: String? = nil,
-        statistics: InterfaceStatistics
-    ) {
+    init(name: String, details: Details = Details(), statistics: InterfaceStatistics) {
         self.name = name
-        self.hardwareAddress = hardwareAddress
-        self.ipAddress = ipAddress
-        self.linkSpeed = linkSpeed
-        self.transportSpeed = transportSpeed
-        self.linkStatus = linkStatus
-        self.vendor = vendor
-        self.model = model
-        self.vendorID = vendorID
-        self.deviceID = deviceID
+        self.details = details
         self.statistics = statistics
     }
+
+    var hardwareAddress: String? { details.hardwareAddress }
+    var ipAddress: String? { details.ipAddress }
+    var linkSpeed: String? { details.linkSpeed }
+    var transportSpeed: String? { details.transportSpeed }
+    var linkStatus: LinkStatus { details.linkStatus }
+    var vendor: String? { details.vendor }
+    var model: String? { details.model }
+    var vendorID: String? { details.vendorID }
+    var deviceID: String? { details.deviceID }
 }
