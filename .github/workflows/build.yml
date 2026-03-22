@@ -21,8 +21,8 @@ jobs:
         uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v6
       - name: Build and Test with Coverage
         run: |
-          build-wrapper-macosx-x86 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} 
-          xcodebuild \
+          build-wrapper-macosx-x86 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} \
+            xcodebuild \
             -project NetworkTools.xcodeproj \
             -scheme NetworkTools \
             -destination 'platform=macOS' \
