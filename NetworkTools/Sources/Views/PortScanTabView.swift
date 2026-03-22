@@ -63,7 +63,7 @@ struct PortScanTabView: View {
 
             GroupBox("Output") {
                 OutputTextView(text: viewModel.outputText)
-                    .frame(minHeight: 380)
+                    .frame(minHeight: 150)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }

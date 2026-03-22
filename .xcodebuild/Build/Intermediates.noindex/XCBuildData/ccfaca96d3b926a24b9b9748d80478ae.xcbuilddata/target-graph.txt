@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'NetworkToolsTests' in project 'NetworkTools'
+➜ Explicit dependency on target 'NetworkTools' in project 'NetworkTools'
+Target 'NetworkTools' in project 'NetworkTools' (no dependencies)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00931134169EC81409C5FE01 /* PingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2E64133D4631695CA25D9 /* PingService.swift */; };
+		018E79E53B52B6F6D2FB6601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 018E79E53B52B6F6D2FB6600 /* Assets.xcassets */; };
 		1B57A423C5B1DF870062CC43 /* InfoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AA3689C72FE6316FB020 /* InfoTabView.swift */; };
 		27B90E6EF96F9D902FF0405A /* OutputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D52AC238D0E41B213B15F /* OutputTextView.swift */; };
 		292970C27AC01BFB51CDEBB9 /* SocketUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F286367C6EE1FC89FA008F /* SocketUtilities.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		018E79E53B52B6F6D2FB6600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F2C44B5A18505B138E6177D /* PingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingModels.swift; sourceTree = "<group>"; };
 		131A74104957A622DB775BDE /* PortScanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanTabView.swift; sourceTree = "<group>"; };
 		15C2E64133D4631695CA25D9 /* PingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingService.swift; sourceTree = "<group>"; };
@@ -77,9 +79,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		018E79E53B52B6F6D2FB6602 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				018E79E53B52B6F6D2FB6600 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		19C72A54CE04CF63B04BCA59 /* NetworkTools */ = {
 			isa = PBXGroup;
 			children = (
+				018E79E53B52B6F6D2FB6602 /* Resources */,
 				30B9483B18B0B8D3CB738972 /* Sources */,
 				BC80D728BA829DDF76B5EABD /* Tests */,
 			);
@@ -216,6 +227,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 558C2B95144D50550E249E92 /* Build configuration list for PBXNativeTarget "NetworkTools" */;
 			buildPhases = (
+				018E79E53B52B6F6D2FB6603 /* Resources */,
 				904AA3AC6EA30261508FDD29 /* Sources */,
 			);
 			buildRules = (
@@ -257,6 +269,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		018E79E53B52B6F6D2FB6603 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				018E79E53B52B6F6D2FB6601 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		88C0775FD9A220F223ED4EDB /* Sources */ = {
@@ -483,6 +506,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = BF5L53YXV4;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NetworkTools/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -506,6 +530,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = BF5L53YXV4;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NetworkTools/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

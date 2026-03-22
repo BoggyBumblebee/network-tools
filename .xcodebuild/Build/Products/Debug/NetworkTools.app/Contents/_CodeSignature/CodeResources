@@ -3,7 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>files</key>
-	<dict/>
+	<dict>
+		<key>Resources/AppIcon.icns</key>
+		<data>
+		oDr4SjaBw9gaSzrg0W3cfmu8AIc=
+		</data>
+		<key>Resources/Assets.car</key>
+		<data>
+		zIUw5kryq5IhQB18ZjIMlglQ8kQ=
+		</data>
+	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Frameworks/Testing.framework</key>
@@ -91,7 +100,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			odv8B1SUI9BTz0TqUqVKptdh5Us=
+			vmUjZvHNqa3QTyjMrsBh+bBZ4aA=
 			</data>
 			<key>requirement</key>
 			<string>identifier "NetworkTools.debug" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Christopher Marsh-Bourdon (N849L4J586)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
@@ -113,6 +122,20 @@
 			</data>
 			<key>requirement</key>
 			<string>cdhash H"3db08cae8f4c66c1b32dd38874acf9f934e948fe"</string>
+		</dict>
+		<key>Resources/AppIcon.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			8vt2ec+/TEHqMHwXzHQKYLnDWT5JuwHT1MhgNFva/oM=
+			</data>
+		</dict>
+		<key>Resources/Assets.car</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9OFeBUr6mdX+SnBM1Pkc9eYOBxdfXqNrmHeINYx/CqU=
+			</data>
 		</dict>
 	</dict>
 	<key>rules</key>
