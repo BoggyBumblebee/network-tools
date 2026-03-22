@@ -5,6 +5,17 @@ protocol PortScanService {
 }
 
 final class NativePortScanService: PortScanService {
+    private let resolver: IPv4AddressResolving
+    private let prober: TCPConnectProbing
+
+    init(
+        resolver: IPv4AddressResolving = SystemIPv4AddressResolver(),
+        prober: TCPConnectProbing = SystemTCPConnectProber()
+    ) {
+        self.resolver = resolver
+        self.prober = prober
+    }
+
     private actor PortSequence {
         private var current: Int
         private let end: Int
@@ -63,7 +74,7 @@ final class NativePortScanService: PortScanService {
 
         let addresses: [sockaddr_in]
         do {
-            addresses = try SocketResolver.resolveIPv4Addresses(host: configuration.destination)
+            addresses = try resolver.resolveIPv4Addresses(host: configuration.destination)
         } catch {
             AppLogger.scan.error("Scan resolve failure destination=\(configuration.destination, privacy: .public)")
             return .failedToResolveHost
@@ -83,7 +94,7 @@ final class NativePortScanService: PortScanService {
 
                         let isOpen: Bool
                         do {
-                            _ = try TCPConnectProbe.probe(
+                            _ = try self.prober.probe(
                                 addresses: addresses,
                                 port: UInt16(port),
                                 timeoutMilliseconds: configuration.timeoutMilliseconds

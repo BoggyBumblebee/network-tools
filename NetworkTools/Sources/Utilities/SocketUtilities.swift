@@ -8,6 +8,26 @@ enum SocketOperationError: Error, Equatable {
     case socketFailure(String)
 }
 
+protocol IPv4AddressResolving {
+    func resolveIPv4Addresses(host: String) throws -> [sockaddr_in]
+}
+
+protocol TCPConnectProbing {
+    func probe(addresses: [sockaddr_in], port: UInt16, timeoutMilliseconds: Int) throws -> Double
+}
+
+struct SystemIPv4AddressResolver: IPv4AddressResolving {
+    func resolveIPv4Addresses(host: String) throws -> [sockaddr_in] {
+        try SocketResolver.resolveIPv4Addresses(host: host)
+    }
+}
+
+struct SystemTCPConnectProber: TCPConnectProbing {
+    func probe(addresses: [sockaddr_in], port: UInt16, timeoutMilliseconds: Int) throws -> Double {
+        try TCPConnectProbe.probe(addresses: addresses, port: port, timeoutMilliseconds: timeoutMilliseconds)
+    }
+}
+
 enum SocketResolver {
     static func resolveIPv4Addresses(host: String) throws -> [sockaddr_in] {
         var hints = addrinfo(

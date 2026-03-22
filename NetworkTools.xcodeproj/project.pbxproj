@@ -8,21 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		00931134169EC81409C5FE01 /* PingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2E64133D4631695CA25D9 /* PingService.swift */; };
-		018E79E53B52B6F6D2FB6601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 018E79E53B52B6F6D2FB6600 /* Assets.xcassets */; };
-		0A7C3D9E1F2B4A6C8E0D1F22 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 0A7C3D9E1F2B4A6C8E0D1F21 /* Help */; };
 		1B57A423C5B1DF870062CC43 /* InfoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AA3689C72FE6316FB020 /* InfoTabView.swift */; };
 		27B90E6EF96F9D902FF0405A /* OutputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D52AC238D0E41B213B15F /* OutputTextView.swift */; };
 		292970C27AC01BFB51CDEBB9 /* SocketUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F286367C6EE1FC89FA008F /* SocketUtilities.swift */; };
+		2C14395C074FC96EAC66EB2B /* ViewSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED0C5327C5E37E99B862A86 /* ViewSmokeTests.swift */; };
+		3B3DD8C482D1A187A833E9B9 /* PortScanServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429C3264C01A255A5163C92D /* PortScanServiceTests.swift */; };
 		3C6D8C509FFC71F9BC0B247D /* NetworkInterfaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4112C0B62CFC4DAD7EF2842A /* NetworkInterfaceModels.swift */; };
 		3D1706EC248F02BD841C88CC /* PingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663AEA5DC8D0B886700BF254 /* PingViewModel.swift */; };
 		4B1DD7BE94EBB65E21CC7C71 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C0C9F24F0BAD8AF583998 /* RootTabView.swift */; };
 		50EF20013B99D37E3A035F80 /* PingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2C44B5A18505B138E6177D /* PingModels.swift */; };
+		519A694B3ECB6975F7482E69 /* FormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A771563931520134F40BD4EB /* FormattersTests.swift */; };
 		6042D8FB17CE2FB01BAD2135 /* PingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825ABADDCD087579EA0930C1 /* PingTabView.swift */; };
 		748CB5505BD7211BC4B7E28D /* InfoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E81314882342D31926E6282 /* InfoViewModelTests.swift */; };
 		766914E2753F90F9FF3F9370 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC78094C4E6D80D1F2F8792D /* Validation.swift */; };
 		822D1F810F9C13B0DCEDA9F8 /* ViewModelStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C5C43E49BD398C6E37CE0 /* ViewModelStateTests.swift */; };
 		88F6720DB6D5D9EC9A86C9E5 /* PortScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C431D7F78A444E140C2ADB3 /* PortScanViewModel.swift */; };
 		8FB305A93633112500641EA9 /* ValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2546ECA2679BCEF621BC5F /* ValidationTests.swift */; };
+		9067FC875C5EDB405055B8DD /* PingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DB216824DAAA93E152FC7 /* PingServiceTests.swift */; };
 		932CAC301C33F39F602AAC2F /* PortScanModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D95AAFADD0455BA970317 /* PortScanModels.swift */; };
 		940E57EACE5026A2CD683DA0 /* Logger+NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266C48817B41ACB727B1F62 /* Logger+NetworkTools.swift */; };
 		96607F8F855CDE7459BA492F /* NetworkToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5F92C37ACBA982D235B7C /* NetworkToolsApp.swift */; };
@@ -31,6 +33,7 @@
 		A6AD877412F020C2D724A4B9 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602481EF346A84E3874F3F23 /* Formatters.swift */; };
 		A711BD48B5A20DFBB261D29C /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA01A9CB89711B67E824ABB /* AppTab.swift */; };
 		AA07E7AFCB2D1349356405A0 /* DisplayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA10B4D683C41D748D4F477 /* DisplayRow.swift */; };
+		BC1DA079FDD5FC788CE4329B /* SocketUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BAB55ECD75338997EA8BCD /* SocketUtilitiesTests.swift */; };
 		C797BCC25A3F2EB95D26BCF9 /* NetworkInterfaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE4BC7907015FCEA16243 /* NetworkInterfaceService.swift */; };
 		F26917DF329A8E69D8DF0309 /* PortScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C6394151B38528118F061 /* PortScanService.swift */; };
 		F4E3DAB73C5D8C51361F186D /* OutputBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF93BFFA00554F987631E63 /* OutputBufferTests.swift */; };
@@ -48,8 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		018E79E53B52B6F6D2FB6600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A7C3D9E1F2B4A6C8E0D1F21 /* Help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Help; sourceTree = "<group>"; };
 		0F2C44B5A18505B138E6177D /* PingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingModels.swift; sourceTree = "<group>"; };
 		131A74104957A622DB775BDE /* PortScanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanTabView.swift; sourceTree = "<group>"; };
 		15C2E64133D4631695CA25D9 /* PingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingService.swift; sourceTree = "<group>"; };
@@ -58,16 +59,21 @@
 		3E81314882342D31926E6282 /* InfoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelTests.swift; sourceTree = "<group>"; };
 		3FA01A9CB89711B67E824ABB /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
 		4112C0B62CFC4DAD7EF2842A /* NetworkInterfaceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterfaceModels.swift; sourceTree = "<group>"; };
+		429C3264C01A255A5163C92D /* PortScanServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanServiceTests.swift; sourceTree = "<group>"; };
 		46F286367C6EE1FC89FA008F /* SocketUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketUtilities.swift; sourceTree = "<group>"; };
 		4C431D7F78A444E140C2ADB3 /* PortScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanViewModel.swift; sourceTree = "<group>"; };
 		602481EF346A84E3874F3F23 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		64F5F92C37ACBA982D235B7C /* NetworkToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkToolsApp.swift; sourceTree = "<group>"; };
 		659BE4BC7907015FCEA16243 /* NetworkInterfaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterfaceService.swift; sourceTree = "<group>"; };
 		663AEA5DC8D0B886700BF254 /* PingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingViewModel.swift; sourceTree = "<group>"; };
+		68BAB55ECD75338997EA8BCD /* SocketUtilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketUtilitiesTests.swift; sourceTree = "<group>"; };
+		717DB216824DAAA93E152FC7 /* PingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingServiceTests.swift; sourceTree = "<group>"; };
+		7ED0C5327C5E37E99B862A86 /* ViewSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSmokeTests.swift; sourceTree = "<group>"; };
 		810C6394151B38528118F061 /* PortScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanService.swift; sourceTree = "<group>"; };
 		825ABADDCD087579EA0930C1 /* PingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingTabView.swift; sourceTree = "<group>"; };
 		8DED217DD1AA04B60465F642 /* OutputBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputBuffer.swift; sourceTree = "<group>"; };
 		A266C48817B41ACB727B1F62 /* Logger+NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+NetworkTools.swift"; sourceTree = "<group>"; };
+		A771563931520134F40BD4EB /* FormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattersTests.swift; sourceTree = "<group>"; };
 		AEA10B4D683C41D748D4F477 /* DisplayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
 		C73AF7BF8419042DA726D881 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		CAF93BFFA00554F987631E63 /* OutputBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputBufferTests.swift; sourceTree = "<group>"; };
@@ -81,19 +87,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		018E79E53B52B6F6D2FB6602 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				018E79E53B52B6F6D2FB6600 /* Assets.xcassets */,
-				0A7C3D9E1F2B4A6C8E0D1F21 /* Help */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		19C72A54CE04CF63B04BCA59 /* NetworkTools */ = {
 			isa = PBXGroup;
 			children = (
-				018E79E53B52B6F6D2FB6602 /* Resources */,
 				30B9483B18B0B8D3CB738972 /* Sources */,
 				BC80D728BA829DDF76B5EABD /* Tests */,
 			);
@@ -175,10 +171,15 @@
 		BC80D728BA829DDF76B5EABD /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A771563931520134F40BD4EB /* FormattersTests.swift */,
 				3E81314882342D31926E6282 /* InfoViewModelTests.swift */,
 				CAF93BFFA00554F987631E63 /* OutputBufferTests.swift */,
+				717DB216824DAAA93E152FC7 /* PingServiceTests.swift */,
+				429C3264C01A255A5163C92D /* PortScanServiceTests.swift */,
+				68BAB55ECD75338997EA8BCD /* SocketUtilitiesTests.swift */,
 				DC2546ECA2679BCEF621BC5F /* ValidationTests.swift */,
 				DD9C5C43E49BD398C6E37CE0 /* ViewModelStateTests.swift */,
+				7ED0C5327C5E37E99B862A86 /* ViewSmokeTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -230,7 +231,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 558C2B95144D50550E249E92 /* Build configuration list for PBXNativeTarget "NetworkTools" */;
 			buildPhases = (
-				018E79E53B52B6F6D2FB6603 /* Resources */,
 				904AA3AC6EA30261508FDD29 /* Sources */,
 			);
 			buildRules = (
@@ -251,7 +251,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 2630;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 358E8D0B4915B533ABA83E21 /* Build configuration list for PBXProject "NetworkTools" */;
 			developmentRegion = en;
@@ -273,27 +275,20 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		018E79E53B52B6F6D2FB6603 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				018E79E53B52B6F6D2FB6601 /* Assets.xcassets in Resources */,
-				0A7C3D9E1F2B4A6C8E0D1F22 /* Help in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		88C0775FD9A220F223ED4EDB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				519A694B3ECB6975F7482E69 /* FormattersTests.swift in Sources */,
 				748CB5505BD7211BC4B7E28D /* InfoViewModelTests.swift in Sources */,
 				F4E3DAB73C5D8C51361F186D /* OutputBufferTests.swift in Sources */,
+				9067FC875C5EDB405055B8DD /* PingServiceTests.swift in Sources */,
+				3B3DD8C482D1A187A833E9B9 /* PortScanServiceTests.swift in Sources */,
+				BC1DA079FDD5FC788CE4329B /* SocketUtilitiesTests.swift in Sources */,
 				8FB305A93633112500641EA9 /* ValidationTests.swift in Sources */,
 				822D1F810F9C13B0DCEDA9F8 /* ViewModelStateTests.swift in Sources */,
+				2C14395C074FC96EAC66EB2B /* ViewSmokeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,11 +366,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -389,7 +382,6 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.1;
@@ -401,7 +393,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -420,7 +411,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,11 +458,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -493,7 +481,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.1;
@@ -504,13 +491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = BF5L53YXV4;
-				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NetworkTools/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,7 +500,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.boggybumblebee.NetworkTools;
 				PRODUCT_NAME = NetworkTools;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -528,13 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = BF5L53YXV4;
-				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NetworkTools/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -543,7 +517,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.boggybumblebee.NetworkTools;
 				PRODUCT_NAME = NetworkTools;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 			};
 			name = Release;

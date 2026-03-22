@@ -6,9 +6,22 @@ protocol PingService {
 
 final class NativePingService: PingService {
     private let probePort: UInt16
+    private let resolver: IPv4AddressResolving
+    private let prober: TCPConnectProbing
+    private let sleeper: @Sendable (UInt64) async throws -> Void
 
-    init(probePort: UInt16 = 443) {
+    init(
+        probePort: UInt16 = 443,
+        resolver: IPv4AddressResolving = SystemIPv4AddressResolver(),
+        prober: TCPConnectProbing = SystemTCPConnectProber(),
+        sleeper: @escaping @Sendable (UInt64) async throws -> Void = { nanoseconds in
+            try await Task.sleep(nanoseconds: nanoseconds)
+        }
+    ) {
         self.probePort = probePort
+        self.resolver = resolver
+        self.prober = prober
+        self.sleeper = sleeper
     }
 
     func run(configuration: PingConfiguration, onLine: @escaping @Sendable (String) -> Void) async -> PingCompletionReason {
@@ -17,7 +30,7 @@ final class NativePingService: PingService {
 
         let addresses: [sockaddr_in]
         do {
-            addresses = try SocketResolver.resolveIPv4Addresses(host: configuration.destination)
+            addresses = try resolver.resolveIPv4Addresses(host: configuration.destination)
         } catch {
             AppLogger.ping.error("Ping resolve failure destination=\(configuration.destination, privacy: .public)")
             return .failedToResolveHost
@@ -34,7 +47,7 @@ final class NativePingService: PingService {
 
             sentCount += 1
             do {
-                let rtt = try TCPConnectProbe.probe(
+                let rtt = try prober.probe(
                     addresses: addresses,
                     port: probePort,
                     timeoutMilliseconds: Int(configuration.timeoutSeconds * 1_000.0)
@@ -61,7 +74,7 @@ final class NativePingService: PingService {
             }
 
             do {
-                try await Task.sleep(nanoseconds: UInt64(configuration.intervalSeconds * 1_000_000_000.0))
+                try await sleeper(UInt64(configuration.intervalSeconds * 1_000_000_000.0))
             } catch {
                 break
             }
