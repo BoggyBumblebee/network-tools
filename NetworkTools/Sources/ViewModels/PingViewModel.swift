@@ -70,10 +70,20 @@ final class PingViewModel: ObservableObject {
         runTask = Task { [weak self] in
             guard let self else { return }
             let reason = await service.run(configuration: configuration) { [weak self] line in
-                self?.enqueueOutputLine(line, runID: runID)
+                MainActorRelay.enqueue(
+                    owner: self,
+                    first: line,
+                    second: runID,
+                    action: PingViewModel.appendLine
+                )
             }
 
-            await self.completeRun(reason: reason, runID: runID)
+            await MainActorRelay.complete(
+                owner: self,
+                first: reason,
+                second: runID,
+                action: PingViewModel.finish
+            )
         }
     }
 
@@ -99,15 +109,30 @@ final class PingViewModel: ObservableObject {
         outputBuffer.append(line)
         outputText = outputBuffer.renderedText
     }
+}
 
-    nonisolated private func enqueueOutputLine(_ line: String, runID: UUID) {
-        Task { @MainActor [weak self] in
-            self?.appendLine(line, runID: runID)
+enum MainActorRelay {
+    static func enqueue<Owner: AnyObject, First, Second>(
+        owner: Owner?,
+        first: First,
+        second: Second,
+        action: @escaping (Owner) -> @MainActor (First, Second) -> Void
+    ) {
+        Task { @MainActor in
+            guard let owner else { return }
+            action(owner)(first, second)
         }
     }
 
-    @MainActor
-    private func completeRun(reason: PingCompletionReason, runID: UUID) {
-        finish(reason: reason, runID: runID)
+    static func complete<Owner: AnyObject, First, Second>(
+        owner: Owner?,
+        first: First,
+        second: Second,
+        action: @escaping (Owner) -> @MainActor (First, Second) -> Void
+    ) async {
+        guard let owner else { return }
+        await MainActor.run {
+            action(owner)(first, second)
+        }
     }
 }
