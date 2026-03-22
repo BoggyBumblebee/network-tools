@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00931134169EC81409C5FE01 /* PingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2E64133D4631695CA25D9 /* PingService.swift */; };
 		018E79E53B52B6F6D2FB6601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 018E79E53B52B6F6D2FB6600 /* Assets.xcassets */; };
+		0A7C3D9E1F2B4A6C8E0D1F22 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 0A7C3D9E1F2B4A6C8E0D1F21 /* Help */; };
 		1B57A423C5B1DF870062CC43 /* InfoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AA3689C72FE6316FB020 /* InfoTabView.swift */; };
 		27B90E6EF96F9D902FF0405A /* OutputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D52AC238D0E41B213B15F /* OutputTextView.swift */; };
 		292970C27AC01BFB51CDEBB9 /* SocketUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F286367C6EE1FC89FA008F /* SocketUtilities.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		018E79E53B52B6F6D2FB6600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A7C3D9E1F2B4A6C8E0D1F21 /* Help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Help; sourceTree = "<group>"; };
 		0F2C44B5A18505B138E6177D /* PingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingModels.swift; sourceTree = "<group>"; };
 		131A74104957A622DB775BDE /* PortScanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanTabView.swift; sourceTree = "<group>"; };
 		15C2E64133D4631695CA25D9 /* PingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingService.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				018E79E53B52B6F6D2FB6600 /* Assets.xcassets */,
+				0A7C3D9E1F2B4A6C8E0D1F21 /* Help */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				018E79E53B52B6F6D2FB6601 /* Assets.xcassets in Resources */,
+				0A7C3D9E1F2B4A6C8E0D1F22 /* Help in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

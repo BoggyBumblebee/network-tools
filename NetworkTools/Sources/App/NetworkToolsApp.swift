@@ -32,6 +32,11 @@ struct NetworkToolsApp: App {
                     NSApp.activate(ignoringOtherApps: true)
                 }
             }
+            CommandGroup(after: .help) {
+                Button("Network Tools Help") {
+                    Self.openHelpPage()
+                }
+            }
         }
     }
 
@@ -68,5 +73,13 @@ struct NetworkToolsApp: App {
         _ = pidString.withCString { cString in
             write(fd, cString, strlen(cString))
         }
+    }
+
+    private static func openHelpPage() {
+        guard let helpURL = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Help") else {
+            NSSound.beep()
+            return
+        }
+        NSWorkspace.shared.open(helpURL)
     }
 }
