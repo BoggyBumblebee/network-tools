@@ -56,15 +56,17 @@ private final class MockNetworkInterfaceService: NetworkInterfaceService {
     func snapshot(for interfaceName: String) -> InterfaceSnapshot? {
         InterfaceSnapshot(
             name: interfaceName,
-            hardwareAddress: nil,
-            ipAddress: nil,
-            linkSpeed: nil,
-            transportSpeed: nil,
-            linkStatus: .unknown,
-            vendor: nil,
-            model: nil,
-            vendorID: "14e4",
-            deviceID: "4434",
+            details: InterfaceSnapshot.Details(
+                hardwareAddress: nil,
+                ipAddress: nil,
+                linkSpeed: nil,
+                transportSpeed: nil,
+                linkStatus: .unknown,
+                vendor: nil,
+                model: nil,
+                vendorID: "14e4",
+                deviceID: "4434"
+            ),
             statistics: InterfaceStatistics(
                 sentPackets: nil,
                 sentBytes: nil,
@@ -86,15 +88,17 @@ private final class WiFiInterfaceService: NetworkInterfaceService {
     func snapshot(for interfaceName: String) -> InterfaceSnapshot? {
         InterfaceSnapshot(
             name: interfaceName,
-            hardwareAddress: nil,
-            ipAddress: nil,
-            linkSpeed: "866 Mbps",
-            transportSpeed: "1.2 Gbps",
-            linkStatus: .up,
-            vendor: nil,
-            model: nil,
-            vendorID: nil,
-            deviceID: nil,
+            details: InterfaceSnapshot.Details(
+                hardwareAddress: nil,
+                ipAddress: nil,
+                linkSpeed: "866 Mbps",
+                transportSpeed: "1.2 Gbps",
+                linkStatus: .up,
+                vendor: nil,
+                model: nil,
+                vendorID: nil,
+                deviceID: nil
+            ),
             statistics: InterfaceStatistics(
                 sentPackets: nil,
                 sentBytes: nil,
@@ -120,15 +124,17 @@ private final class PreferredInterfaceOrderService: NetworkInterfaceService {
     func snapshot(for interfaceName: String) -> InterfaceSnapshot? {
         InterfaceSnapshot(
             name: interfaceName,
-            hardwareAddress: nil,
-            ipAddress: nil,
-            linkSpeed: nil,
-            transportSpeed: nil,
-            linkStatus: .unknown,
-            vendor: nil,
-            model: nil,
-            vendorID: nil,
-            deviceID: nil,
+            details: InterfaceSnapshot.Details(
+                hardwareAddress: nil,
+                ipAddress: nil,
+                linkSpeed: nil,
+                transportSpeed: nil,
+                linkStatus: .unknown,
+                vendor: nil,
+                model: nil,
+                vendorID: nil,
+                deviceID: nil
+            ),
             statistics: InterfaceStatistics(
                 sentPackets: nil,
                 sentBytes: nil,
