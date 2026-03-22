@@ -18,6 +18,7 @@ jobs:
 
       - name: Build and Test with Coverage
         run: |
+          build-wrapper-macosx-x86 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} 
           xcodebuild \
             -project NetworkTools.xcodeproj \
             -scheme NetworkTools \
@@ -36,6 +37,9 @@ jobs:
           ./xccov-to-sonarqube-generic.sh TestResults.xcresult > sonar-generic-coverage.xml
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@a31c9398be7ace6bbfaf30c0bd5d415f843d45e9 # v7
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            --define "sonar.cfamily.compile-commands=${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json"        
