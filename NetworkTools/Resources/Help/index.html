@@ -9,38 +9,114 @@
 <body>
   <main>
     <h1>Network Tools Help</h1>
-    <p class="lead">Network Tools is a macOS utility for checking interface details, pinging hosts, and scanning ports.</p>
+    <p class="lead">Network Tools helps you inspect interfaces, run ping checks, and scan TCP ports from a simple macOS UI.</p>
 
-    <h2>Info Tab</h2>
-    <ul>
-      <li>Select a network interface from the picker.</li>
-      <li>Review interface information such as address, status, vendor, and model.</li>
-      <li>Review transfer statistics for sent/received traffic and errors.</li>
-      <li>Use copy buttons or right-click context menu actions to copy values.</li>
-    </ul>
+    <section class="toc panel">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#quick-start">Quick Start</a></li>
+        <li><a href="#info-tab">Info Tab</a></li>
+        <li><a href="#ping-tab">Ping Tab</a></li>
+        <li><a href="#scan-tab">Port Scan Tab</a></li>
+        <li><a href="#copying">Copying Data</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#safety">Safety and Privacy</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+      </ul>
+    </section>
 
-    <h2>Ping Tab</h2>
-    <ul>
-      <li>Enter a destination (IPv4 address or hostname).</li>
-      <li>Choose finite mode or unlimited mode.</li>
-      <li>Use <strong>Ping</strong> to start and <strong>Stop</strong> to cancel.</li>
-      <li>Use the copy icon in Output to copy all results.</li>
-    </ul>
+    <section id="quick-start">
+      <h2>Quick Start</h2>
+      <div class="panel">
+        <ol>
+          <li>Open the tab for the task you need: <strong>Info</strong>, <strong>Ping</strong>, or <strong>Port Scan</strong>.</li>
+          <li>Enter a destination host when required (IPv4 or hostname).</li>
+          <li>Run the action using <strong>Ping</strong> or <strong>Scan</strong>.</li>
+          <li>Use <strong>Stop</strong> at any time to cancel an active run.</li>
+        </ol>
+      </div>
+    </section>
 
-    <h2>Port Scan Tab</h2>
-    <ul>
-      <li>Enter a destination (IPv4 address or hostname).</li>
-      <li>Choose a custom range or enable full scan (1–65535).</li>
-      <li>Use <strong>Scan</strong> to start and <strong>Stop</strong> to cancel.</li>
-      <li>Use the copy icon in Output to copy all results.</li>
-    </ul>
+    <section id="info-tab">
+      <h2>Info Tab</h2>
+      <div class="panel">
+        <ul>
+          <li>Use the interface picker to select a network interface.</li>
+          <li>Interface rows show link state, addressing details, and hardware metadata when available.</li>
+          <li>Transfer statistics refresh automatically and are formatted with locale grouping.</li>
+          <li>Some values can be unavailable if the driver or hardware does not expose them.</li>
+        </ul>
+      </div>
+    </section>
 
-    <h2>Tips</h2>
-    <ul>
-      <li>If start buttons are disabled, confirm destination/range input is valid.</li>
-      <li>Some interface details depend on hardware and driver support.</li>
-      <li>Scan and ping results depend on network conditions, firewall rules, and host settings.</li>
-    </ul>
+    <section id="ping-tab">
+      <h2>Ping Tab</h2>
+      <div class="panel">
+        <ul>
+          <li>Destination must be a valid IPv4 address or hostname.</li>
+          <li><strong># Pings to Send</strong> applies in finite mode; unlimited mode runs until stopped.</li>
+          <li>Output shows progress, timing lines, and a clear termination reason.</li>
+          <li>If the button is disabled, check destination format and ping count validity.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="scan-tab">
+      <h2>Port Scan Tab</h2>
+      <div class="panel">
+        <ul>
+          <li>Scan supports a custom port range or the full range (1–65535).</li>
+          <li>Progress and open-port results stream into the output panel.</li>
+          <li>Scans can be stopped at any time; completion lines summarize scanned and open counts.</li>
+          <li>Results depend on host availability, firewall policy, and network routing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="copying">
+      <h2>Copying Data</h2>
+      <div class="panel">
+        <ul>
+          <li>Use copy controls on output panels to copy all output text.</li>
+          <li>Use per-field copy controls on supported Info rows for quick value export.</li>
+          <li>Text fields that are selectable can also be copied via standard macOS copy actions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Troubleshooting</h2>
+      <div class="panel warn">
+        <h3>Buttons are disabled</h3>
+        <p>Verify destination syntax and any numeric range inputs.</p>
+        <h3>No ping or scan results</h3>
+        <p>Check host reachability, DNS resolution, and firewall/network policy.</p>
+        <h3>Interface values are missing</h3>
+        <p>Some vendors/drivers do not expose all hardware fields to the operating system.</p>
+      </div>
+    </section>
+
+    <section id="safety">
+      <h2>Safety and Privacy</h2>
+      <div class="panel note">
+        <ul>
+          <li>Run scans only on systems and networks you own or are authorized to test.</li>
+          <li>Output may include hostnames, addresses, and port data; treat copied output as sensitive.</li>
+          <li>Use smaller scan ranges first when testing unfamiliar hosts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="accessibility">
+      <h2>Accessibility</h2>
+      <div class="panel">
+        <ul>
+          <li>The app supports keyboard navigation across tabs, fields, and controls.</li>
+          <li>Primary actions expose disabled states so invalid inputs are clear before execution.</li>
+          <li>Help is reachable from the Help menu and can be opened quickly with <code>Command + Shift + /</code>.</li>
+        </ul>
+      </div>
+    </section>
   </main>
 </body>
 </html>

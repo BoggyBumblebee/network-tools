@@ -25,9 +25,18 @@ struct NetworkToolsApp: App {
                     Self.showAboutWindow()
                 }
             }
-            CommandGroup(after: .help) {
+            CommandGroup(replacing: .help) {
                 Button("Network Tools Help") {
                     Self.openHelpPage()
+                }
+                .keyboardShortcut("/", modifiers: [.command, .shift])
+
+                Button("Quick Start") {
+                    Self.openHelpPage(anchor: "quick-start")
+                }
+
+                Button("Troubleshooting") {
+                    Self.openHelpPage(anchor: "troubleshooting")
                 }
             }
         }
@@ -68,12 +77,24 @@ struct NetworkToolsApp: App {
         }
     }
 
-    private static func openHelpPage() {
-        guard let helpURL = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Help") else {
+    private static func openHelpPage(anchor: String? = nil) {
+        guard var helpURL = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Help")
+            ?? Bundle.main.url(forResource: "index", withExtension: "html") else {
             NSSound.beep()
             return
         }
-        NSWorkspace.shared.open(helpURL)
+
+        if let anchor, !anchor.isEmpty,
+           var components = URLComponents(url: helpURL, resolvingAgainstBaseURL: false) {
+            components.fragment = anchor
+            if let anchoredURL = components.url {
+                helpURL = anchoredURL
+            }
+        }
+
+        if !NSWorkspace.shared.open(helpURL) {
+            NSSound.beep()
+        }
     }
 
     private static func showAboutWindow() {
