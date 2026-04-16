@@ -12,9 +12,12 @@ targets:
     deploymentTarget: 15.0
     sources:
       - path: NetworkTools/Sources
-    resources:
       - path: NetworkTools/Resources/Assets.xcassets
+        buildPhase: resources
+      - path: NetworkTools/Resources/Assets
+        buildPhase: resources
       - path: NetworkTools/Resources/Help
+        buildPhase: resources
     info:
       path: NetworkTools/Resources/Info.plist
       properties:

@@ -8,6 +8,9 @@ struct NetworkToolsApp: App {
 
     init() {
         Self.enforceSingleInstance()
+        if let icon = Self.bundledAppIcon() {
+            NSApplication.shared.applicationIconImage = icon
+        }
     }
 
     var body: some Scene {
@@ -82,6 +85,9 @@ struct NetworkToolsApp: App {
     }
 
     private static func resolvedApplicationIcon() -> NSImage {
+        if let icon = bundledAppIcon() {
+            return icon
+        }
         if let icon = NSApplication.shared.applicationIconImage {
             return icon
         }
@@ -90,5 +96,17 @@ struct NetworkToolsApp: App {
         }
         // `icon(forFile:)` resolves the same icon representation shown in Finder and Dock.
         return NSWorkspace.shared.icon(forFile: Bundle.main.bundlePath)
+    }
+
+    private static func bundledAppIcon() -> NSImage? {
+        if let icnsURL = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+           let icon = NSImage(contentsOf: icnsURL) {
+            return icon
+        }
+        if let pngURL = Bundle.main.url(forResource: "AppIcon", withExtension: "png"),
+           let icon = NSImage(contentsOf: pngURL) {
+            return icon
+        }
+        return nil
     }
 }
