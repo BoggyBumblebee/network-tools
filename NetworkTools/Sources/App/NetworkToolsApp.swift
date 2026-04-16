@@ -61,7 +61,14 @@ struct NetworkToolsApp: App {
             if let existingApp = NSRunningApplication
                 .runningApplications(withBundleIdentifier: bundleIdentifier)
                 .first(where: { $0.processIdentifier != ProcessInfo.processInfo.processIdentifier }) {
-                existingApp.activate(options: [.activateAllWindows])
+                existingApp.unhide()
+                _ = existingApp.activate(options: [.activateAllWindows])
+                if let bundleURL = existingApp.bundleURL {
+                    NSWorkspace.shared.openApplication(
+                        at: bundleURL,
+                        configuration: NSWorkspace.OpenConfiguration()
+                    ) { _, _ in }
+                }
             }
 
             exit(EXIT_SUCCESS)
