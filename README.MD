@@ -77,6 +77,37 @@ xcodebuild \
 4. Use the **Port Scan** tab to scan a destination over a custom range or all ports.
 5. Use copy controls/context menus in output/info areas to copy relevant values.
 
+## Testing And Coverage
+
+Run unit tests with coverage enabled:
+
+```bash
+xcodebuild \
+  -project NetworkTools.xcodeproj \
+  -scheme NetworkTools \
+  -destination 'platform=macOS' \
+  -enableCodeCoverage YES \
+  -resultBundlePath TestResults.xcresult \
+  CODE_SIGNING_ALLOWED=NO \
+  CODE_SIGNING_REQUIRED=NO \
+  test
+```
+
+Generate the SonarCloud-compatible coverage report used by CI:
+
+```bash
+curl -sSLo xccov-to-sonarqube-generic.sh \
+  https://raw.githubusercontent.com/SonarSource/sonar-scanning-examples/master/swift-coverage/swift-coverage-example/xccov-to-sonarqube-generic.sh
+chmod +x xccov-to-sonarqube-generic.sh
+./xccov-to-sonarqube-generic.sh TestResults.xcresult > sonar-generic-coverage.xml
+```
+
+Quality target:
+
+- Keep **overall coverage** above **80%**.
+- Keep **new code coverage** above **80%**.
+- PRs are validated in GitHub Actions and SonarCloud.
+
 ## Roadmap
 
 - [ ] Add export options for Ping and Port Scan output.

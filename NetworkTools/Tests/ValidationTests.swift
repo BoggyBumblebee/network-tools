@@ -70,6 +70,12 @@ final class ValidationTests: XCTestCase {
         XCTAssertNotEqual(rowA, rowB)
     }
 
+    func testLinkStatusDisplayValue() {
+        XCTAssertEqual(LinkStatus.up.displayValue, "Up")
+        XCTAssertEqual(LinkStatus.down.displayValue, "Down")
+        XCTAssertEqual(LinkStatus.unknown.displayValue, "Unavailable")
+    }
+
     func testNetworkInterfaceParserParseVendorAndDeviceID() {
         let parsedPCI = NetworkInterfaceParser.parseVendorAndDeviceID(fromIOName: "pci14E4,16B4")
         XCTAssertEqual(parsedPCI.vendorID, "14e4")

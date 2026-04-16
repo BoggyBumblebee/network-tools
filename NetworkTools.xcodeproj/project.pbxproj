@@ -39,6 +39,7 @@
 		BE27D57951032A96F72E2E09 /* help.css in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A9A5533E53D338C554B58 /* help.css */; };
 		C797BCC25A3F2EB95D26BCF9 /* NetworkInterfaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE4BC7907015FCEA16243 /* NetworkInterfaceService.swift */; };
 		E3C3535A6BD088218844EFE8 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F446EEF6A0A209E6AB270C08 /* AppIcon.png */; };
+		F1E6DB4E70FFA3B74C543A06 /* PortScanViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC11218E74BF007C37C796C /* PortScanViewModelTests.swift */; };
 		F26917DF329A8E69D8DF0309 /* PortScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C6394151B38528118F061 /* PortScanService.swift */; };
 		F4E3DAB73C5D8C51361F186D /* OutputBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF93BFFA00554F987631E63 /* OutputBufferTests.swift */; };
 		F8822A881E354D12C00C7916 /* PortScanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A74104957A622DB775BDE /* PortScanTabView.swift */; };
@@ -74,6 +75,7 @@
 		68BAB55ECD75338997EA8BCD /* SocketUtilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketUtilitiesTests.swift; sourceTree = "<group>"; };
 		68E783E40C032B399170CFA8 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		717DB216824DAAA93E152FC7 /* PingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingServiceTests.swift; sourceTree = "<group>"; };
+		7EC11218E74BF007C37C796C /* PortScanViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanViewModelTests.swift; sourceTree = "<group>"; };
 		7ED0C5327C5E37E99B862A86 /* ViewSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSmokeTests.swift; sourceTree = "<group>"; };
 		810C6394151B38528118F061 /* PortScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanService.swift; sourceTree = "<group>"; };
 		825ABADDCD087579EA0930C1 /* PingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingTabView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				CAF93BFFA00554F987631E63 /* OutputBufferTests.swift */,
 				717DB216824DAAA93E152FC7 /* PingServiceTests.swift */,
 				429C3264C01A255A5163C92D /* PortScanServiceTests.swift */,
+				7EC11218E74BF007C37C796C /* PortScanViewModelTests.swift */,
 				68BAB55ECD75338997EA8BCD /* SocketUtilitiesTests.swift */,
 				DC2546ECA2679BCEF621BC5F /* ValidationTests.swift */,
 				DD9C5C43E49BD398C6E37CE0 /* ViewModelStateTests.swift */,
@@ -336,6 +339,7 @@
 				F4E3DAB73C5D8C51361F186D /* OutputBufferTests.swift in Sources */,
 				9067FC875C5EDB405055B8DD /* PingServiceTests.swift in Sources */,
 				3B3DD8C482D1A187A833E9B9 /* PortScanServiceTests.swift in Sources */,
+				F1E6DB4E70FFA3B74C543A06 /* PortScanViewModelTests.swift in Sources */,
 				BC1DA079FDD5FC788CE4329B /* SocketUtilitiesTests.swift in Sources */,
 				8FB305A93633112500641EA9 /* ValidationTests.swift in Sources */,
 				822D1F810F9C13B0DCEDA9F8 /* ViewModelStateTests.swift in Sources */,

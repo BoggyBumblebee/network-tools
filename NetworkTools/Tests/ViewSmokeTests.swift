@@ -19,10 +19,36 @@ final class ViewSmokeTests: XCTestCase {
     }
 
     @MainActor
+    func testPingTabViewRendersWhenUnlimitedModeEnabled() {
+        let viewModel = PingViewModel(service: InstantPingService())
+        viewModel.destination = "127.0.0.1"
+        viewModel.isUnlimited = true
+        assertViewRenders(PingTabView(viewModel: viewModel))
+    }
+
+    @MainActor
+    func testPingTabViewRendersWithInvalidCount() {
+        let viewModel = PingViewModel(service: InstantPingService())
+        viewModel.destination = "127.0.0.1"
+        viewModel.pingCountText = "0"
+        assertViewRenders(PingTabView(viewModel: viewModel))
+    }
+
+    @MainActor
     func testPortScanTabViewRendersInHostingView() {
         let viewModel = PortScanViewModel(service: InstantPortScanService())
         viewModel.destination = "127.0.0.1"
         viewModel.scanAllPorts = true
+        assertViewRenders(PortScanTabView(viewModel: viewModel))
+    }
+
+    @MainActor
+    func testPortScanTabViewRendersWithInvalidFiniteRange() {
+        let viewModel = PortScanViewModel(service: InstantPortScanService())
+        viewModel.destination = "127.0.0.1"
+        viewModel.scanAllPorts = false
+        viewModel.fromPortText = "9000"
+        viewModel.toPortText = "1000"
         assertViewRenders(PortScanTabView(viewModel: viewModel))
     }
 
