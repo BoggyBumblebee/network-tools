@@ -3,6 +3,29 @@ import Darwin
 @testable import NetworkTools
 
 final class SocketUtilitiesTests: XCTestCase {
+    func testSystemIPv4AddressResolverResolvesLoopbackHost() throws {
+        let resolver = SystemIPv4AddressResolver()
+
+        let addresses = try resolver.resolveIPv4Addresses(host: "localhost")
+
+        XCTAssertFalse(addresses.isEmpty)
+        XCTAssertTrue(addresses.allSatisfy { $0.sin_family == sa_family_t(AF_INET) })
+    }
+
+    func testSystemTCPConnectProberReturnsRoundTripForLoopbackListener() throws {
+        let listener = try LoopbackTCPListener()
+        defer { listener.close() }
+
+        let prober = SystemTCPConnectProber()
+        let roundTrip = try prober.probe(
+            addresses: [loopbackAddress()],
+            port: listener.port,
+            timeoutMilliseconds: 750
+        )
+
+        XCTAssertGreaterThanOrEqual(roundTrip, 0)
+    }
+
     func testResolveIPv4AddressesForLoopbackHostReturnsAddresses() throws {
         let addresses = try SocketResolver.resolveIPv4Addresses(host: "localhost")
 

@@ -482,7 +482,7 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
             }
 
             if vendor == nil, let vendorID = identifiers.vendorID {
-                vendor = vendorName(for: vendorID) ?? "0x\(vendorID)"
+                vendor = NetworkInterfaceParser.vendorName(for: vendorID) ?? "0x\(vendorID)"
             }
 
             if model == nil {
@@ -528,14 +528,6 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
 
     private func parseVendorAndDeviceID(fromIOName ioName: String) -> (vendorID: String?, deviceID: String?) {
         NetworkInterfaceParser.parseVendorAndDeviceID(fromIOName: ioName)
-    }
-
-    private func isHexString(_ value: String) -> Bool {
-        NetworkInterfaceParser.isHexString(value)
-    }
-
-    private func vendorName(for vendorID: String) -> String? {
-        NetworkInterfaceParser.vendorName(for: vendorID)
     }
 
     private func isHostModel(_ model: String) -> Bool {
@@ -586,9 +578,6 @@ final class SystemNetworkInterfaceService: NetworkInterfaceService {
         NetworkInterfaceParser.registryHexID(from: value)
     }
 
-    private func normalized(_ text: String) -> String? {
-        NetworkInterfaceParser.normalized(text)
-    }
 }
 
 enum NetworkInterfaceParser {

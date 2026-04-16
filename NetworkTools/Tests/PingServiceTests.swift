@@ -60,6 +60,24 @@ final class PingServiceTests: XCTestCase {
         XCTAssertEqual(reason, .permissionOrNetworkingError("permission denied"))
     }
 
+    func testRunReportsTimeoutAndStillCompletesRequestedCount() async {
+        let resolver = StubResolver(result: .success([localhostAddress()]))
+        let service = NativePingService(
+            resolver: resolver,
+            prober: SequencedProber([{ throw SocketOperationError.timeout }]),
+            sleeper: { _ in }
+        )
+        let lines = LockedLines()
+
+        let reason = await service.run(
+            configuration: PingConfiguration(destination: "example.com", count: 1, intervalSeconds: 0, timeoutSeconds: 1),
+            onLine: { lines.append($0) }
+        )
+
+        XCTAssertEqual(reason, .completedRequestedCount)
+        XCTAssertTrue(lines.snapshot().contains(where: { $0.contains("timeout") }))
+    }
+
     func testRunReportsConnectFailureAndStillCompletesRequestedCount() async {
         let resolver = StubResolver(result: .success([localhostAddress()]))
         let service = NativePingService(

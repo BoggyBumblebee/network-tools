@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00931134169EC81409C5FE01 /* PingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2E64133D4631695CA25D9 /* PingService.swift */; };
+		0735D0019609DB142B3E0871 /* NetworkToolsAppSupportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B46DDA84AA7E9FAFCDF523F /* NetworkToolsAppSupportTests.swift */; };
 		1B57A423C5B1DF870062CC43 /* InfoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AA3689C72FE6316FB020 /* InfoTabView.swift */; };
 		27B90E6EF96F9D902FF0405A /* OutputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D52AC238D0E41B213B15F /* OutputTextView.swift */; };
 		292970C27AC01BFB51CDEBB9 /* SocketUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F286367C6EE1FC89FA008F /* SocketUtilities.swift */; };
@@ -74,6 +75,7 @@
 		663AEA5DC8D0B886700BF254 /* PingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingViewModel.swift; sourceTree = "<group>"; };
 		68BAB55ECD75338997EA8BCD /* SocketUtilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketUtilitiesTests.swift; sourceTree = "<group>"; };
 		68E783E40C032B399170CFA8 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		6B46DDA84AA7E9FAFCDF523F /* NetworkToolsAppSupportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkToolsAppSupportTests.swift; sourceTree = "<group>"; };
 		717DB216824DAAA93E152FC7 /* PingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingServiceTests.swift; sourceTree = "<group>"; };
 		7EC11218E74BF007C37C796C /* PortScanViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanViewModelTests.swift; sourceTree = "<group>"; };
 		7ED0C5327C5E37E99B862A86 /* ViewSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSmokeTests.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				A771563931520134F40BD4EB /* FormattersTests.swift */,
 				3E81314882342D31926E6282 /* InfoViewModelTests.swift */,
+				6B46DDA84AA7E9FAFCDF523F /* NetworkToolsAppSupportTests.swift */,
 				CAF93BFFA00554F987631E63 /* OutputBufferTests.swift */,
 				717DB216824DAAA93E152FC7 /* PingServiceTests.swift */,
 				429C3264C01A255A5163C92D /* PortScanServiceTests.swift */,
@@ -336,6 +339,7 @@
 			files = (
 				519A694B3ECB6975F7482E69 /* FormattersTests.swift in Sources */,
 				748CB5505BD7211BC4B7E28D /* InfoViewModelTests.swift in Sources */,
+				0735D0019609DB142B3E0871 /* NetworkToolsAppSupportTests.swift in Sources */,
 				F4E3DAB73C5D8C51361F186D /* OutputBufferTests.swift in Sources */,
 				9067FC875C5EDB405055B8DD /* PingServiceTests.swift in Sources */,
 				3B3DD8C482D1A187A833E9B9 /* PortScanServiceTests.swift in Sources */,

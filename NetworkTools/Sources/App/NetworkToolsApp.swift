@@ -2,6 +2,162 @@ import SwiftUI
 import AppKit
 import Darwin
 
+enum NetworkToolsAppSupport {
+    enum SingleInstanceLockOutcome: Equatable {
+        case skippedForTests
+        case lockUnavailable
+        case existingInstanceDetected(bundleIdentifier: String)
+        case lockAcquired(fileDescriptor: Int32)
+    }
+
+    struct RunningApplicationProxy {
+        let processIdentifier: Int32
+        let bundleURL: URL?
+        let unhide: () -> Void
+        let activateAllWindows: () -> Void
+    }
+
+    static func helpURL(baseURL: URL?, anchor: String?) -> URL? {
+        guard var helpURL = baseURL else {
+            return nil
+        }
+
+        if let anchor, !anchor.isEmpty,
+           var components = URLComponents(url: helpURL, resolvingAgainstBaseURL: false) {
+            components.fragment = anchor
+            if let anchoredURL = components.url {
+                helpURL = anchoredURL
+            }
+        }
+
+        return helpURL
+    }
+
+    static func openHelpPage(
+        anchor: String?,
+        baseHelpURL: URL?,
+        openURL: (URL) -> Bool,
+        beep: () -> Void
+    ) {
+        guard let helpURL = helpURL(baseURL: baseHelpURL, anchor: anchor) else {
+            beep()
+            return
+        }
+
+        if !openURL(helpURL) {
+            beep()
+        }
+    }
+
+    static func showAboutWindow(
+        applicationName: String,
+        icon: NSImage,
+        orderFront: ([NSApplication.AboutPanelOptionKey: Any]) -> Void,
+        activate: () -> Void
+    ) {
+        orderFront(aboutPanelOptions(applicationName: applicationName, icon: icon))
+        activate()
+    }
+
+    static func aboutPanelOptions(
+        applicationName: String,
+        icon: NSImage
+    ) -> [NSApplication.AboutPanelOptionKey: Any] {
+        [
+            .applicationName: applicationName,
+            .applicationIcon: icon
+        ]
+    }
+
+    static func resolveApplicationIcon(
+        bundledIcon: NSImage?,
+        applicationIcon: NSImage?,
+        namedIcon: NSImage?,
+        fallbackIcon: @autoclosure () -> NSImage
+    ) -> NSImage {
+        if let bundledIcon {
+            return bundledIcon
+        }
+        if let applicationIcon {
+            return applicationIcon
+        }
+        if let namedIcon {
+            return namedIcon
+        }
+        return fallbackIcon()
+    }
+
+    static func bundledAppIcon(
+        icnsURL: URL?,
+        pngURL: URL?,
+        imageLoader: (URL) -> NSImage?
+    ) -> NSImage? {
+        if let icnsURL, let icon = imageLoader(icnsURL) {
+            return icon
+        }
+        if let pngURL, let icon = imageLoader(pngURL) {
+            return icon
+        }
+        return nil
+    }
+
+    static func acquireSingleInstanceLock(
+        environment: [String: String],
+        bundleIdentifier: String?,
+        temporaryDirectory: String,
+        processIdentifier: Int32,
+        openLockFile: (String, Int32, mode_t) -> Int32,
+        lockFile: (Int32, Int32) -> Int32,
+        closeFile: (Int32) -> Int32,
+        truncateFile: (Int32, off_t) -> Int32,
+        seekFile: (Int32, off_t, Int32) -> off_t,
+        writeString: (Int32, String) -> Void
+    ) -> SingleInstanceLockOutcome {
+        if environment["XCTestConfigurationFilePath"] != nil {
+            return .skippedForTests
+        }
+
+        let resolvedBundleIdentifier = bundleIdentifier ?? "NetworkTools"
+        let lockPath = (temporaryDirectory as NSString).appendingPathComponent(
+            "\(resolvedBundleIdentifier).single-instance.lock"
+        )
+        let fd = openLockFile(lockPath, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR)
+        guard fd >= 0 else {
+            return .lockUnavailable
+        }
+
+        if lockFile(fd, LOCK_EX | LOCK_NB) != 0 {
+            _ = closeFile(fd)
+            return .existingInstanceDetected(bundleIdentifier: resolvedBundleIdentifier)
+        }
+
+        _ = truncateFile(fd, 0)
+        _ = seekFile(fd, 0, SEEK_SET)
+        writeString(fd, "\(processIdentifier)\n")
+
+        return .lockAcquired(fileDescriptor: fd)
+    }
+
+    static func activateExistingApplication(
+        currentProcessIdentifier: Int32,
+        runningApplications: [RunningApplicationProxy],
+        openApplication: (URL) -> Void
+    ) -> Bool {
+        guard let existingApplication = runningApplications.first(
+            where: { $0.processIdentifier != currentProcessIdentifier }
+        ) else {
+            return false
+        }
+
+        existingApplication.unhide()
+        existingApplication.activateAllWindows()
+        if let bundleURL = existingApplication.bundleURL {
+            openApplication(bundleURL)
+        }
+        return true
+    }
+}
+
 @main
 struct NetworkToolsApp: App {
     private static var singleInstanceLockFD: Int32 = -1
@@ -43,98 +199,106 @@ struct NetworkToolsApp: App {
     }
 
     private static func enforceSingleInstance() {
-        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
-            return
-        }
+        let processIdentifier = ProcessInfo.processInfo.processIdentifier
+        let outcome = NetworkToolsAppSupport.acquireSingleInstanceLock(
+            environment: ProcessInfo.processInfo.environment,
+            bundleIdentifier: Bundle.main.bundleIdentifier,
+            temporaryDirectory: NSTemporaryDirectory(),
+            processIdentifier: processIdentifier,
+            openLockFile: { open($0, $1, $2) },
+            lockFile: { flock($0, $1) },
+            closeFile: { close($0) },
+            truncateFile: { ftruncate($0, $1) },
+            seekFile: { lseek($0, $1, $2) },
+            writeString: { fd, value in
+                _ = value.withCString { cString in
+                    write(fd, cString, strlen(cString))
+                }
+            }
+        )
 
-        let bundleIdentifier = Bundle.main.bundleIdentifier ?? "NetworkTools"
-        let lockPath = (NSTemporaryDirectory() as NSString).appendingPathComponent("\(bundleIdentifier).single-instance.lock")
-        let fd = open(lockPath, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR)
-
-        guard fd >= 0 else {
-            return
-        }
-
-        if flock(fd, LOCK_EX | LOCK_NB) != 0 {
-            close(fd)
-
-            if let existingApp = NSRunningApplication
-                .runningApplications(withBundleIdentifier: bundleIdentifier)
-                .first(where: { $0.processIdentifier != ProcessInfo.processInfo.processIdentifier }) {
-                existingApp.unhide()
-                _ = existingApp.activate(options: [.activateAllWindows])
-                if let bundleURL = existingApp.bundleURL {
+        switch outcome {
+        case .lockAcquired(let fileDescriptor):
+            singleInstanceLockFD = fileDescriptor
+        case .existingInstanceDetected(let bundleIdentifier):
+            let runningApplications = NSRunningApplication.runningApplications(
+                withBundleIdentifier: bundleIdentifier
+            ).map { application in
+                NetworkToolsAppSupport.RunningApplicationProxy(
+                    processIdentifier: application.processIdentifier,
+                    bundleURL: application.bundleURL,
+                    unhide: { application.unhide() },
+                    activateAllWindows: { _ = application.activate(options: [.activateAllWindows]) }
+                )
+            }
+            _ = NetworkToolsAppSupport.activateExistingApplication(
+                currentProcessIdentifier: processIdentifier,
+                runningApplications: runningApplications,
+                openApplication: { bundleURL in
                     NSWorkspace.shared.openApplication(
                         at: bundleURL,
                         configuration: NSWorkspace.OpenConfiguration()
                     ) { _, _ in }
                 }
-            }
-
+            )
             exit(EXIT_SUCCESS)
-        }
-
-        singleInstanceLockFD = fd
-
-        let pidString = "\(ProcessInfo.processInfo.processIdentifier)\n"
-        _ = ftruncate(fd, 0)
-        _ = lseek(fd, 0, SEEK_SET)
-        _ = pidString.withCString { cString in
-            write(fd, cString, strlen(cString))
-        }
-    }
-
-    private static func openHelpPage(anchor: String? = nil) {
-        guard var helpURL = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Help")
-            ?? Bundle.main.url(forResource: "index", withExtension: "html") else {
-            NSSound.beep()
+        case .skippedForTests, .lockUnavailable:
             return
         }
-
-        if let anchor, !anchor.isEmpty,
-           var components = URLComponents(url: helpURL, resolvingAgainstBaseURL: false) {
-            components.fragment = anchor
-            if let anchoredURL = components.url {
-                helpURL = anchoredURL
-            }
-        }
-
-        if !NSWorkspace.shared.open(helpURL) {
-            NSSound.beep()
-        }
     }
 
-    private static func showAboutWindow() {
-        NSApp.orderFrontStandardAboutPanel(options: [
-            .applicationName: "Network Tools",
-            .applicationIcon: resolvedApplicationIcon()
-        ])
-        NSApp.activate(ignoringOtherApps: true)
+    static func openHelpPage(
+        anchor: String? = nil,
+        baseHelpURL: URL? = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Help")
+            ?? Bundle.main.url(forResource: "index", withExtension: "html"),
+        openURL: (URL) -> Bool = { NSWorkspace.shared.open($0) },
+        beep: () -> Void = { NSSound.beep() }
+    ) {
+        NetworkToolsAppSupport.openHelpPage(
+            anchor: anchor,
+            baseHelpURL: baseHelpURL,
+            openURL: openURL,
+            beep: beep
+        )
     }
 
-    private static func resolvedApplicationIcon() -> NSImage {
-        if let icon = bundledAppIcon() {
-            return icon
+    static func showAboutWindow(
+        applicationName: String = "Network Tools",
+        icon: NSImage? = nil,
+        orderFront: ([NSApplication.AboutPanelOptionKey: Any]) -> Void = {
+            NSApp.orderFrontStandardAboutPanel(options: $0)
+        },
+        activate: () -> Void = {
+            NSApp.activate(ignoringOtherApps: true)
         }
-        if let icon = NSApplication.shared.applicationIconImage {
-            return icon
-        }
-        if let icon = NSImage(named: NSImage.applicationIconName) {
-            return icon
-        }
-        // `icon(forFile:)` resolves the same icon representation shown in Finder and Dock.
-        return NSWorkspace.shared.icon(forFile: Bundle.main.bundlePath)
+    ) {
+        NetworkToolsAppSupport.showAboutWindow(
+            applicationName: applicationName,
+            icon: icon ?? resolvedApplicationIcon(),
+            orderFront: orderFront,
+            activate: activate
+        )
+    }
+
+    static func resolvedApplicationIcon(
+        bundledIcon: NSImage? = bundledAppIcon(),
+        applicationIcon: NSImage? = NSApplication.shared.applicationIconImage,
+        namedIcon: NSImage? = NSImage(named: NSImage.applicationIconName),
+        fallbackIcon: @autoclosure () -> NSImage = NSWorkspace.shared.icon(forFile: Bundle.main.bundlePath)
+    ) -> NSImage {
+        NetworkToolsAppSupport.resolveApplicationIcon(
+            bundledIcon: bundledIcon,
+            applicationIcon: applicationIcon,
+            namedIcon: namedIcon,
+            fallbackIcon: fallbackIcon()
+        )
     }
 
     private static func bundledAppIcon() -> NSImage? {
-        if let icnsURL = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
-           let icon = NSImage(contentsOf: icnsURL) {
-            return icon
-        }
-        if let pngURL = Bundle.main.url(forResource: "AppIcon", withExtension: "png"),
-           let icon = NSImage(contentsOf: pngURL) {
-            return icon
-        }
-        return nil
+        NetworkToolsAppSupport.bundledAppIcon(
+            icnsURL: Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+            pngURL: Bundle.main.url(forResource: "AppIcon", withExtension: "png"),
+            imageLoader: { NSImage(contentsOf: $0) }
+        )
     }
 }

@@ -100,8 +100,12 @@ final class ValidationTests: XCTestCase {
 
     func testNetworkInterfaceParserVendorNameAndHostModel() {
         XCTAssertEqual(NetworkInterfaceParser.vendorName(for: "14e4"), "Broadcom")
+        XCTAssertEqual(NetworkInterfaceParser.vendorName(for: "1d6a"), "Aquantia/Marvell")
         XCTAssertEqual(NetworkInterfaceParser.vendorName(for: "8086"), "Intel")
         XCTAssertEqual(NetworkInterfaceParser.vendorName(for: "0bda"), "Realtek")
+        XCTAssertEqual(NetworkInterfaceParser.vendorName(for: "0b95"), "ASIX")
+        XCTAssertEqual(NetworkInterfaceParser.vendorName(for: "05ac"), "Apple")
+        XCTAssertEqual(NetworkInterfaceParser.vendorName(for: "168c"), "Qualcomm Atheros")
         XCTAssertNil(NetworkInterfaceParser.vendorName(for: "ffff"))
 
         XCTAssertTrue(NetworkInterfaceParser.isHostModel("Mac14,2"))
