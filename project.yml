@@ -88,3 +88,16 @@ schemes:
         - NetworkTools
       targets:
         - NetworkToolsUITests
+  NetworkToolsCoverage:
+    build:
+      targets:
+        NetworkTools: all
+        NetworkToolsTests: [test]
+        NetworkToolsUITests: [test]
+    test:
+      gatherCoverageData: true
+      coverageTargets:
+        - NetworkTools
+      targets:
+        - NetworkToolsTests
+        - NetworkToolsUITests

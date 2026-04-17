@@ -26,7 +26,7 @@ jobs:
           build-wrapper-macosx-x86 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} \
             xcodebuild \
             -project NetworkTools.xcodeproj \
-            -scheme NetworkTools \
+            -scheme NetworkToolsCoverage \
             -destination 'platform=macOS' \
             -enableCodeCoverage YES \
             -resultBundlePath TestResults.xcresult \

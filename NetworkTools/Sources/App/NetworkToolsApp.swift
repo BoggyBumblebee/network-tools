@@ -200,17 +200,69 @@ struct NetworkToolsApp: App {
 
     private static func enforceSingleInstance() {
         let processIdentifier = ProcessInfo.processInfo.processIdentifier
-        let outcome = NetworkToolsAppSupport.acquireSingleInstanceLock(
+        enforceSingleInstance(
             environment: ProcessInfo.processInfo.environment,
             bundleIdentifier: Bundle.main.bundleIdentifier,
             temporaryDirectory: NSTemporaryDirectory(),
             processIdentifier: processIdentifier,
-            openLockFile: { open($0, $1, $2) },
-            lockFile: { flock($0, $1) },
-            closeFile: { close($0) },
-            truncateFile: { ftruncate($0, $1) },
-            seekFile: { lseek($0, $1, $2) },
-            writeString: { fd, value in
+            acquireSingleInstanceLock: NetworkToolsAppSupport.acquireSingleInstanceLock,
+            runningApplicationsProvider: { bundleIdentifier in
+                NSRunningApplication.runningApplications(withBundleIdentifier: bundleIdentifier).map { application in
+                    NetworkToolsAppSupport.RunningApplicationProxy(
+                        processIdentifier: application.processIdentifier,
+                        bundleURL: application.bundleURL,
+                        unhide: { application.unhide() },
+                        activateAllWindows: { _ = application.activate(options: [.activateAllWindows]) }
+                    )
+                }
+            },
+            openApplication: { bundleURL in
+                NSWorkspace.shared.openApplication(
+                    at: bundleURL,
+                    configuration: NSWorkspace.OpenConfiguration()
+                ) { _, _ in
+                    // We only need to nudge the already-running app to the front before exiting.
+                    // There is no recovery path here because this helper does not own any UI.
+                }
+            },
+            exitProcess: { exit($0) },
+            setLockFileDescriptor: { singleInstanceLockFD = $0 }
+        )
+    }
+
+    static func enforceSingleInstance(
+        environment: [String: String],
+        bundleIdentifier: String?,
+        temporaryDirectory: String,
+        processIdentifier: Int32,
+        acquireSingleInstanceLock: (
+            [String: String],
+            String?,
+            String,
+            Int32,
+            (String, Int32, mode_t) -> Int32,
+            (Int32, Int32) -> Int32,
+            (Int32) -> Int32,
+            (Int32, off_t) -> Int32,
+            (Int32, off_t, Int32) -> off_t,
+            (Int32, String) -> Void
+        ) -> NetworkToolsAppSupport.SingleInstanceLockOutcome,
+        runningApplicationsProvider: (String) -> [NetworkToolsAppSupport.RunningApplicationProxy],
+        openApplication: (URL) -> Void,
+        exitProcess: (Int32) -> Void,
+        setLockFileDescriptor: (Int32) -> Void
+    ) {
+        let outcome = acquireSingleInstanceLock(
+            environment,
+            bundleIdentifier,
+            temporaryDirectory,
+            processIdentifier,
+            { open($0, $1, $2) },
+            { flock($0, $1) },
+            { close($0) },
+            { ftruncate($0, $1) },
+            { lseek($0, $1, $2) },
+            { fd, value in
                 _ = value.withCString { cString in
                     write(fd, cString, strlen(cString))
                 }
@@ -219,32 +271,15 @@ struct NetworkToolsApp: App {
 
         switch outcome {
         case .lockAcquired(let fileDescriptor):
-            singleInstanceLockFD = fileDescriptor
+            setLockFileDescriptor(fileDescriptor)
         case .existingInstanceDetected(let bundleIdentifier):
-            let runningApplications = NSRunningApplication.runningApplications(
-                withBundleIdentifier: bundleIdentifier
-            ).map { application in
-                NetworkToolsAppSupport.RunningApplicationProxy(
-                    processIdentifier: application.processIdentifier,
-                    bundleURL: application.bundleURL,
-                    unhide: { application.unhide() },
-                    activateAllWindows: { _ = application.activate(options: [.activateAllWindows]) }
-                )
-            }
+            let runningApplications = runningApplicationsProvider(bundleIdentifier)
             _ = NetworkToolsAppSupport.activateExistingApplication(
                 currentProcessIdentifier: processIdentifier,
                 runningApplications: runningApplications,
-                openApplication: { bundleURL in
-                    NSWorkspace.shared.openApplication(
-                        at: bundleURL,
-                        configuration: NSWorkspace.OpenConfiguration()
-                    ) { _, _ in
-                        // We only need to nudge the already-running app to the front before exiting.
-                        // There is no recovery path here because this helper does not own any UI.
-                    }
-                }
+                openApplication: openApplication
             )
-            exit(EXIT_SUCCESS)
+            exitProcess(EXIT_SUCCESS)
         case .skippedForTests, .lockUnavailable:
             return
         }

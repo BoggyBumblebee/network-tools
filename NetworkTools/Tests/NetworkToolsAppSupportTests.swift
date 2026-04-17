@@ -188,6 +188,24 @@ final class NetworkToolsAppSupportTests: XCTestCase {
         XCTAssertEqual(beepCount, 0)
     }
 
+    func testNetworkToolsAppOpenHelpPageUsesDefaultHelpResource() {
+        var openedURL: URL?
+        var beepCount = 0
+
+        NetworkToolsApp.openHelpPage(
+            anchor: "quick-start",
+            openURL: {
+                openedURL = $0
+                return true
+            },
+            beep: { beepCount += 1 }
+        )
+
+        XCTAssertEqual(openedURL?.lastPathComponent, "index.html")
+        XCTAssertEqual(openedURL?.fragment, "quick-start")
+        XCTAssertEqual(beepCount, 0)
+    }
+
     func testNetworkToolsAppShowAboutWindowUsesInjectedDependencies() {
         let icon = NSImage(size: NSSize(width: 16, height: 16))
         var capturedOptions: [NSApplication.AboutPanelOptionKey: Any]?
@@ -205,6 +223,22 @@ final class NetworkToolsAppSupportTests: XCTestCase {
         XCTAssertTrue(didActivate)
     }
 
+    func testNetworkToolsAppShowAboutWindowFallsBackToResolvedIcon() {
+        var capturedOptions: [NSApplication.AboutPanelOptionKey: Any]?
+        var didActivate = false
+
+        NetworkToolsApp.showAboutWindow(
+            applicationName: "Network Tools",
+            icon: nil,
+            orderFront: { capturedOptions = $0 },
+            activate: { didActivate = true }
+        )
+
+        XCTAssertEqual(capturedOptions?[.applicationName] as? String, "Network Tools")
+        XCTAssertNotNil(capturedOptions?[.applicationIcon] as? NSImage)
+        XCTAssertTrue(didActivate)
+    }
+
     func testNetworkToolsAppResolvedApplicationIconUsesInjectedInputs() {
         let bundledIcon = NSImage(size: NSSize(width: 16, height: 16))
         let fallbackIcon = NSImage(size: NSSize(width: 16, height: 16))
@@ -217,6 +251,52 @@ final class NetworkToolsAppSupportTests: XCTestCase {
         )
 
         XCTAssertTrue(resolved === bundledIcon)
+    }
+
+    func testNetworkToolsAppResolvedApplicationIconUsesApplicationIconWhenBundledMissing() {
+        let applicationIcon = NSImage(size: NSSize(width: 16, height: 16))
+        let fallbackIcon = NSImage(size: NSSize(width: 16, height: 16))
+
+        let resolved = NetworkToolsApp.resolvedApplicationIcon(
+            bundledIcon: nil,
+            applicationIcon: applicationIcon,
+            namedIcon: nil,
+            fallbackIcon: fallbackIcon
+        )
+
+        XCTAssertTrue(resolved === applicationIcon)
+    }
+
+    func testNetworkToolsAppResolvedApplicationIconUsesNamedIconWhenHigherPriorityIconsMissing() {
+        let namedIcon = NSImage(size: NSSize(width: 16, height: 16))
+        let fallbackIcon = NSImage(size: NSSize(width: 16, height: 16))
+
+        let resolved = NetworkToolsApp.resolvedApplicationIcon(
+            bundledIcon: nil,
+            applicationIcon: nil,
+            namedIcon: namedIcon,
+            fallbackIcon: fallbackIcon
+        )
+
+        XCTAssertTrue(resolved === namedIcon)
+    }
+
+    func testNetworkToolsAppResolvedApplicationIconUsesFallbackWhenNoPreferredIconExists() {
+        var fallbackEvaluations = 0
+        let fallbackIcon = NSImage(size: NSSize(width: 16, height: 16))
+
+        let resolved = NetworkToolsApp.resolvedApplicationIcon(
+            bundledIcon: nil,
+            applicationIcon: nil,
+            namedIcon: nil,
+            fallbackIcon: {
+                fallbackEvaluations += 1
+                return fallbackIcon
+            }()
+        )
+
+        XCTAssertTrue(resolved === fallbackIcon)
+        XCTAssertEqual(fallbackEvaluations, 1)
     }
 
     func testAcquireSingleInstanceLockSkipsWhenRunningUnderTests() {
@@ -320,6 +400,32 @@ final class NetworkToolsAppSupportTests: XCTestCase {
         XCTAssertEqual(capturedWrite?.value, "987\n")
     }
 
+    func testActivateExistingApplicationSkipsOpenWhenBundleURLMissing() {
+        var unhideCalls = 0
+        var activateCalls = 0
+        var didOpen = false
+
+        let apps: [NetworkToolsAppSupport.RunningApplicationProxy] = [
+            .init(
+                processIdentifier: 200,
+                bundleURL: nil,
+                unhide: { unhideCalls += 1 },
+                activateAllWindows: { activateCalls += 1 }
+            )
+        ]
+
+        let didActivate = NetworkToolsAppSupport.activateExistingApplication(
+            currentProcessIdentifier: 100,
+            runningApplications: apps,
+            openApplication: { _ in didOpen = true }
+        )
+
+        XCTAssertTrue(didActivate)
+        XCTAssertEqual(unhideCalls, 1)
+        XCTAssertEqual(activateCalls, 1)
+        XCTAssertFalse(didOpen)
+    }
+
     func testActivateExistingApplicationSelectsNonCurrentProcess() {
         var openedURL: URL?
         var unhideCalls = 0
@@ -369,5 +475,126 @@ final class NetworkToolsAppSupportTests: XCTestCase {
         )
 
         XCTAssertFalse(didActivate)
+    }
+
+    func testNetworkToolsAppEnforceSingleInstanceStoresLockFileDescriptor() {
+        var storedFileDescriptor: Int32?
+        var didExit = false
+        var requestedBundleIdentifiers: [String] = []
+
+        NetworkToolsApp.enforceSingleInstance(
+            environment: [:],
+            bundleIdentifier: "com.example.NetworkTools",
+            temporaryDirectory: "/tmp",
+            processIdentifier: 111,
+            acquireSingleInstanceLock: { _, _, _, _, _, _, _, _, _, _ in
+                .lockAcquired(fileDescriptor: 72)
+            },
+            runningApplicationsProvider: {
+                requestedBundleIdentifiers.append($0)
+                return []
+            },
+            openApplication: { _ in XCTFail("No existing app should be opened") },
+            exitProcess: { _ in didExit = true },
+            setLockFileDescriptor: { storedFileDescriptor = $0 }
+        )
+
+        XCTAssertEqual(storedFileDescriptor, 72)
+        XCTAssertFalse(didExit)
+        XCTAssertTrue(requestedBundleIdentifiers.isEmpty)
+    }
+
+    func testNetworkToolsAppEnforceSingleInstanceActivatesExistingInstanceAndExits() {
+        var requestedBundleIdentifiers: [String] = []
+        var openedURL: URL?
+        var unhideCalls = 0
+        var activateCalls = 0
+        var exitCode: Int32?
+        var storedFileDescriptor: Int32?
+
+        NetworkToolsApp.enforceSingleInstance(
+            environment: [:],
+            bundleIdentifier: "com.example.NetworkTools",
+            temporaryDirectory: "/tmp",
+            processIdentifier: 111,
+            acquireSingleInstanceLock: { _, _, _, _, _, _, _, _, _, _ in
+                .existingInstanceDetected(bundleIdentifier: "com.example.NetworkTools")
+            },
+            runningApplicationsProvider: { bundleIdentifier in
+                requestedBundleIdentifiers.append(bundleIdentifier)
+                return [
+                    .init(
+                        processIdentifier: 222,
+                        bundleURL: URL(fileURLWithPath: "/tmp/existing.app"),
+                        unhide: { unhideCalls += 1 },
+                        activateAllWindows: { activateCalls += 1 }
+                    )
+                ]
+            },
+            openApplication: { openedURL = $0 },
+            exitProcess: { exitCode = $0 },
+            setLockFileDescriptor: { storedFileDescriptor = $0 }
+        )
+
+        XCTAssertEqual(requestedBundleIdentifiers, ["com.example.NetworkTools"])
+        XCTAssertEqual(unhideCalls, 1)
+        XCTAssertEqual(activateCalls, 1)
+        XCTAssertEqual(openedURL?.path, "/tmp/existing.app")
+        XCTAssertEqual(exitCode, EXIT_SUCCESS)
+        XCTAssertNil(storedFileDescriptor)
+    }
+
+    func testNetworkToolsAppEnforceSingleInstanceReturnsWhenLockUnavailable() {
+        var didExit = false
+        var didStoreFileDescriptor = false
+        var didRequestRunningApplications = false
+
+        NetworkToolsApp.enforceSingleInstance(
+            environment: [:],
+            bundleIdentifier: "com.example.NetworkTools",
+            temporaryDirectory: "/tmp",
+            processIdentifier: 111,
+            acquireSingleInstanceLock: { _, _, _, _, _, _, _, _, _, _ in
+                .lockUnavailable
+            },
+            runningApplicationsProvider: { _ in
+                didRequestRunningApplications = true
+                return []
+            },
+            openApplication: { _ in XCTFail("No app should be opened when lock is unavailable") },
+            exitProcess: { _ in didExit = true },
+            setLockFileDescriptor: { _ in didStoreFileDescriptor = true }
+        )
+
+        XCTAssertFalse(didExit)
+        XCTAssertFalse(didStoreFileDescriptor)
+        XCTAssertFalse(didRequestRunningApplications)
+    }
+
+    func testNetworkToolsAppEnforceSingleInstanceReturnsWhenSkippedForTests() {
+        var didExit = false
+        var didStoreFileDescriptor = false
+        var didRequestRunningApplications = false
+
+        NetworkToolsApp.enforceSingleInstance(
+            environment: ["XCTestConfigurationFilePath": "/tmp/xctest"],
+            bundleIdentifier: "com.example.NetworkTools",
+            temporaryDirectory: "/tmp",
+            processIdentifier: 111,
+            acquireSingleInstanceLock: { _, _, _, _, _, _, _, _, _, _ in
+                .skippedForTests
+            },
+            runningApplicationsProvider: { _ in
+                didRequestRunningApplications = true
+                return []
+            },
+            openApplication: { _ in XCTFail("No app should be opened when skipping for tests") },
+            exitProcess: { _ in didExit = true },
+            setLockFileDescriptor: { _ in didStoreFileDescriptor = true }
+        )
+
+        XCTAssertFalse(didExit)
+        XCTAssertFalse(didStoreFileDescriptor)
+        XCTAssertFalse(didRequestRunningApplications)
     }
 }
