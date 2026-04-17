@@ -29,9 +29,9 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C8AFA227F89C8124FB7F1785"
-               BuildableName = "NetworkToolsTests.xctest"
-               BlueprintName = "NetworkToolsTests"
+               BlueprintIdentifier = "7ACE99206B597F523F426B7B"
+               BuildableName = "NetworkToolsUITests.xctest"
+               BlueprintName = "NetworkToolsUITests"
                ReferencedContainer = "container:NetworkTools.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -59,9 +59,9 @@
             parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C8AFA227F89C8124FB7F1785"
-               BuildableName = "NetworkToolsTests.xctest"
-               BlueprintName = "NetworkToolsTests"
+               BlueprintIdentifier = "7ACE99206B597F523F426B7B"
+               BuildableName = "NetworkToolsUITests.xctest"
+               BlueprintName = "NetworkToolsUITests"
                ReferencedContainer = "container:NetworkTools.xcodeproj">
             </BuildableReference>
          </TestableReference>

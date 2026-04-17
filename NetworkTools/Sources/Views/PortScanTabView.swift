@@ -11,6 +11,7 @@ struct PortScanTabView: View {
                     TextField("IPv4 address or internet hostname", text: $viewModel.destination)
                         .textFieldStyle(.roundedBorder)
                         .overlay(validationBorder(isValid: viewModel.isDestinationValid))
+                        .accessibilityIdentifier("portscan.destination")
                         .accessibilityLabel("Scan Destination")
                         .accessibilityValue(viewModel.isDestinationValid ? "Valid" : "Invalid")
                         .accessibilityHint("Enter an IPv4 address or internet hostname.")
@@ -21,6 +22,7 @@ struct PortScanTabView: View {
                     Text("Scan Mode")
                     Toggle("Scan all ports (1-65535)", isOn: $viewModel.scanAllPorts)
                         .toggleStyle(.checkbox)
+                        .accessibilityIdentifier("portscan.scanAll")
                         .accessibilityLabel("Scan all ports")
                 }
                 .frame(maxWidth: 220)
@@ -30,6 +32,7 @@ struct PortScanTabView: View {
                     TextField("1", text: $viewModel.fromPortText)
                         .textFieldStyle(.roundedBorder)
                         .disabled(viewModel.scanAllPorts)
+                        .accessibilityIdentifier("portscan.fromPort")
                         .accessibilityLabel("From port")
                         .accessibilityValue(viewModel.scanAllPorts ? "Disabled" : viewModel.fromPortText)
                         .accessibilityHint("Enter the first port in range.")
@@ -41,6 +44,7 @@ struct PortScanTabView: View {
                     TextField("1024", text: $viewModel.toPortText)
                         .textFieldStyle(.roundedBorder)
                         .disabled(viewModel.scanAllPorts)
+                        .accessibilityIdentifier("portscan.toPort")
                         .accessibilityLabel("To port")
                         .accessibilityValue(viewModel.scanAllPorts ? "Disabled" : viewModel.toPortText)
                         .accessibilityHint("Enter the last port in range.")
@@ -53,6 +57,7 @@ struct PortScanTabView: View {
                 }
                 .keyboardShortcut(.defaultAction)
                 .disabled(!viewModel.isRunning && !viewModel.canStart)
+                .accessibilityIdentifier("portscan.primaryAction")
                 .accessibilityLabel(viewModel.isRunning ? "Stop scan" : "Start scan")
                 .accessibilityHint(
                     viewModel.isRunning

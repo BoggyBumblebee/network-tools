@@ -23,6 +23,7 @@ struct InfoTabView: View {
                     }
                 }
                 .disabled(viewModel.interfaces.isEmpty)
+                .accessibilityIdentifier("info.interfacePicker")
                 .accessibilityLabel("Network Interface Picker")
                 .accessibilityHint("Select a network interface to view details.")
             }

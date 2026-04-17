@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00931134169EC81409C5FE01 /* PingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2E64133D4631695CA25D9 /* PingService.swift */; };
+		0481EE9F88C8E53BD8AA36B5 /* RootTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB40831717EC506DF3B74C /* RootTabViewTests.swift */; };
 		0735D0019609DB142B3E0871 /* NetworkToolsAppSupportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B46DDA84AA7E9FAFCDF523F /* NetworkToolsAppSupportTests.swift */; };
 		1B57A423C5B1DF870062CC43 /* InfoTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AA3689C72FE6316FB020 /* InfoTabView.swift */; };
 		27B90E6EF96F9D902FF0405A /* OutputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D52AC238D0E41B213B15F /* OutputTextView.swift */; };
 		292970C27AC01BFB51CDEBB9 /* SocketUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F286367C6EE1FC89FA008F /* SocketUtilities.swift */; };
+		2AC9C1B1D827334418ACD48C /* NetworkToolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED0E3A2C9CD7C46F3408BE6 /* NetworkToolsUITests.swift */; };
 		2C14395C074FC96EAC66EB2B /* ViewSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED0C5327C5E37E99B862A86 /* ViewSmokeTests.swift */; };
 		3B3DD8C482D1A187A833E9B9 /* PortScanServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429C3264C01A255A5163C92D /* PortScanServiceTests.swift */; };
 		3C6D8C509FFC71F9BC0B247D /* NetworkInterfaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4112C0B62CFC4DAD7EF2842A /* NetworkInterfaceModels.swift */; };
@@ -54,6 +56,13 @@
 			remoteGlobalIDString = EEEB7B8EE9A8D9BDEADE61C1;
 			remoteInfo = NetworkTools;
 		};
+		B6862CBDBE25D9F8132C1910 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F7137651B7A1F34B0EF6A54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEEB7B8EE9A8D9BDEADE61C1;
+			remoteInfo = NetworkTools;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +70,7 @@
 		0F2C44B5A18505B138E6177D /* PingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingModels.swift; sourceTree = "<group>"; };
 		131A74104957A622DB775BDE /* PortScanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanTabView.swift; sourceTree = "<group>"; };
 		15C2E64133D4631695CA25D9 /* PingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingService.swift; sourceTree = "<group>"; };
+		1C2D790FE6BA3590B864D982 /* NetworkToolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkToolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC7AA3689C72FE6316FB020 /* InfoTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTabView.swift; sourceTree = "<group>"; };
 		343D95AAFADD0455BA970317 /* PortScanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanModels.swift; sourceTree = "<group>"; };
 		3E81314882342D31926E6282 /* InfoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelTests.swift; sourceTree = "<group>"; };
@@ -69,6 +79,7 @@
 		429C3264C01A255A5163C92D /* PortScanServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanServiceTests.swift; sourceTree = "<group>"; };
 		46F286367C6EE1FC89FA008F /* SocketUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketUtilities.swift; sourceTree = "<group>"; };
 		4C431D7F78A444E140C2ADB3 /* PortScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanViewModel.swift; sourceTree = "<group>"; };
+		4CDB40831717EC506DF3B74C /* RootTabViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabViewTests.swift; sourceTree = "<group>"; };
 		602481EF346A84E3874F3F23 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		64F5F92C37ACBA982D235B7C /* NetworkToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkToolsApp.swift; sourceTree = "<group>"; };
 		659BE4BC7907015FCEA16243 /* NetworkInterfaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterfaceService.swift; sourceTree = "<group>"; };
@@ -82,6 +93,7 @@
 		810C6394151B38528118F061 /* PortScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanService.swift; sourceTree = "<group>"; };
 		825ABADDCD087579EA0930C1 /* PingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingTabView.swift; sourceTree = "<group>"; };
 		8DED217DD1AA04B60465F642 /* OutputBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputBuffer.swift; sourceTree = "<group>"; };
+		8ED0E3A2C9CD7C46F3408BE6 /* NetworkToolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkToolsUITests.swift; sourceTree = "<group>"; };
 		A266C48817B41ACB727B1F62 /* Logger+NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+NetworkTools.swift"; sourceTree = "<group>"; };
 		A771563931520134F40BD4EB /* FormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattersTests.swift; sourceTree = "<group>"; };
 		AEA10B4D683C41D748D4F477 /* DisplayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
@@ -120,6 +132,14 @@
 				5FAAC31F7AEA3280F7F5215D /* Views */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		41423CAC3CFEC15244FFEC67 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				8ED0E3A2C9CD7C46F3408BE6 /* NetworkToolsUITests.swift */,
+			);
+			path = UITests;
 			sourceTree = "<group>";
 		};
 		4FAC9EE9D0398E1A98559921 /* Assets */ = {
@@ -195,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				19C72A54CE04CF63B04BCA59 /* NetworkTools */,
+				41423CAC3CFEC15244FFEC67 /* UITests */,
 				9F4F791E1107DBB6A3B7D08D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -204,6 +225,7 @@
 			children = (
 				D6608B5F60AFD257390413BD /* NetworkTools.app */,
 				D66D0D2CFF607DE9DA8DC97D /* NetworkToolsTests.xctest */,
+				1C2D790FE6BA3590B864D982 /* NetworkToolsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,6 +240,7 @@
 				717DB216824DAAA93E152FC7 /* PingServiceTests.swift */,
 				429C3264C01A255A5163C92D /* PortScanServiceTests.swift */,
 				7EC11218E74BF007C37C796C /* PortScanViewModelTests.swift */,
+				4CDB40831717EC506DF3B74C /* RootTabViewTests.swift */,
 				68BAB55ECD75338997EA8BCD /* SocketUtilitiesTests.swift */,
 				DC2546ECA2679BCEF621BC5F /* ValidationTests.swift */,
 				DD9C5C43E49BD398C6E37CE0 /* ViewModelStateTests.swift */,
@@ -251,6 +274,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7ACE99206B597F523F426B7B /* NetworkToolsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EA402C8FF5F63866D050CCC /* Build configuration list for PBXNativeTarget "NetworkToolsUITests" */;
+			buildPhases = (
+				8292C682FD682E016A29B76D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CBCF1AB8A185C887A4210AF /* PBXTargetDependency */,
+			);
+			name = NetworkToolsUITests;
+			packageProductDependencies = (
+			);
+			productName = NetworkToolsUITests;
+			productReference = 1C2D790FE6BA3590B864D982 /* NetworkToolsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C8AFA227F89C8124FB7F1785 /* NetworkToolsTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B1B4E004684A2CB63B3CCCA /* Build configuration list for PBXNativeTarget "NetworkToolsTests" */;
@@ -296,6 +337,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					7ACE99206B597F523F426B7B = {
+						TestTargetID = EEEB7B8EE9A8D9BDEADE61C1;
+					};
 				};
 			};
 			buildConfigurationList = 358E8D0B4915B533ABA83E21 /* Build configuration list for PBXProject "NetworkTools" */;
@@ -314,6 +358,7 @@
 			targets = (
 				EEEB7B8EE9A8D9BDEADE61C1 /* NetworkTools */,
 				C8AFA227F89C8124FB7F1785 /* NetworkToolsTests */,
+				7ACE99206B597F523F426B7B /* NetworkToolsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -333,6 +378,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8292C682FD682E016A29B76D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AC9C1B1D827334418ACD48C /* NetworkToolsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88C0775FD9A220F223ED4EDB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,6 +397,7 @@
 				9067FC875C5EDB405055B8DD /* PingServiceTests.swift in Sources */,
 				3B3DD8C482D1A187A833E9B9 /* PortScanServiceTests.swift in Sources */,
 				F1E6DB4E70FFA3B74C543A06 /* PortScanViewModelTests.swift in Sources */,
+				0481EE9F88C8E53BD8AA36B5 /* RootTabViewTests.swift in Sources */,
 				BC1DA079FDD5FC788CE4329B /* SocketUtilitiesTests.swift in Sources */,
 				8FB305A93633112500641EA9 /* ValidationTests.swift in Sources */,
 				822D1F810F9C13B0DCEDA9F8 /* ViewModelStateTests.swift in Sources */,
@@ -383,6 +437,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6CBCF1AB8A185C887A4210AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEEB7B8EE9A8D9BDEADE61C1 /* NetworkTools */;
+			targetProxy = B6862CBDBE25D9F8132C1910 /* PBXContainerItemProxy */;
+		};
 		9E1ED00D04C8DC5B19EB11A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EEEB7B8EE9A8D9BDEADE61C1 /* NetworkTools */;
@@ -444,6 +503,24 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.1;
+			};
+			name = Release;
+		};
+		617CF54C8355C6E5532FF692 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boggybumblebee.NetworkToolsUITests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = NetworkTools;
 			};
 			name = Release;
 		};
@@ -580,9 +657,36 @@
 			};
 			name = Release;
 		};
+		F072D6A0DAE8945A4617C16B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boggybumblebee.NetworkToolsUITests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = NetworkTools;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0EA402C8FF5F63866D050CCC /* Build configuration list for PBXNativeTarget "NetworkToolsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F072D6A0DAE8945A4617C16B /* Debug */,
+				617CF54C8355C6E5532FF692 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		358E8D0B4915B533ABA83E21 /* Build configuration list for PBXProject "NetworkTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

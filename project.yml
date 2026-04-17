@@ -50,6 +50,18 @@ targets:
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/NetworkTools.app/Contents/MacOS/NetworkTools"
         BUNDLE_LOADER: "$(TEST_HOST)"
         GENERATE_INFOPLIST_FILE: YES
+  NetworkToolsUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    deploymentTarget: 15.0
+    sources:
+      - path: UITests
+    dependencies:
+      - target: NetworkTools
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.boggybumblebee.NetworkToolsUITests
+        GENERATE_INFOPLIST_FILE: YES
 schemes:
   NetworkTools:
     build:
@@ -57,5 +69,19 @@ schemes:
         NetworkTools: all
         NetworkToolsTests: [test]
     test:
+      gatherCoverageData: true
+      coverageTargets:
+        - NetworkTools
       targets:
         - NetworkToolsTests
+  NetworkToolsUI:
+    build:
+      targets:
+        NetworkTools: all
+        NetworkToolsUITests: [test]
+    test:
+      gatherCoverageData: true
+      coverageTargets:
+        - NetworkTools
+      targets:
+        - NetworkToolsUITests

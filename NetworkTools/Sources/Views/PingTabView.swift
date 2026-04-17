@@ -17,6 +17,7 @@ struct PingTabView: View {
                     TextField("IPv4 address or internet hostname", text: $viewModel.destination)
                         .textFieldStyle(.roundedBorder)
                         .overlay(validationBorder(isValid: viewModel.isDestinationValid))
+                        .accessibilityIdentifier("ping.destination")
                         .accessibilityLabel("Ping Destination")
                         .accessibilityValue(viewModel.isDestinationValid ? "Valid" : "Invalid")
                         .accessibilityHint("Enter an IPv4 address or internet hostname.")
@@ -27,6 +28,7 @@ struct PingTabView: View {
                     Text("Mode")
                     Toggle("Send an unlimited number of pings", isOn: $viewModel.isUnlimited)
                         .toggleStyle(.checkbox)
+                        .accessibilityIdentifier("ping.unlimited")
                         .accessibilityLabel("Send an unlimited number of pings")
                 }
                 .frame(maxWidth: 320)
@@ -37,6 +39,7 @@ struct PingTabView: View {
                         .textFieldStyle(.roundedBorder)
                         .disabled(viewModel.isUnlimited)
                         .overlay(validationBorder(isValid: viewModel.isCountValid))
+                        .accessibilityIdentifier("ping.count")
                         .accessibilityLabel("Number of pings to send")
                         .accessibilityValue(pingCountAccessibilityValue)
                         .accessibilityHint("Enter a number from 1 to 100.")
@@ -48,6 +51,7 @@ struct PingTabView: View {
                 }
                 .keyboardShortcut(.defaultAction)
                 .disabled(!viewModel.isRunning && !viewModel.canStart)
+                .accessibilityIdentifier("ping.primaryAction")
                 .accessibilityLabel(viewModel.isRunning ? "Stop ping" : "Start ping")
                 .accessibilityHint(
                     viewModel.isRunning
