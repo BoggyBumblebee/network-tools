@@ -15,7 +15,7 @@ final class ViewModelStateTests: XCTestCase {
         XCTAssertFalse(viewModel.isRunning)
         XCTAssertTrue(viewModel.isCancelling)
 
-        try? await Task.sleep(nanoseconds: 200_000_000)
+        await assertEventuallyCancellingCompletes { viewModel.isCancelling }
         XCTAssertFalse(viewModel.isCancelling)
     }
 
@@ -32,8 +32,29 @@ final class ViewModelStateTests: XCTestCase {
         XCTAssertFalse(viewModel.isRunning)
         XCTAssertTrue(viewModel.isCancelling)
 
-        try? await Task.sleep(nanoseconds: 200_000_000)
+        await assertEventuallyCancellingCompletes { viewModel.isCancelling }
         XCTAssertFalse(viewModel.isCancelling)
+    }
+
+    @MainActor
+    private func assertEventuallyCancellingCompletes(
+        isCancelling: @MainActor () -> Bool,
+        timeoutNanoseconds: UInt64 = 2_000_000_000,
+        pollIntervalNanoseconds: UInt64 = 10_000_000,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) async {
+        let deadline = ContinuousClock.now.advanced(by: .nanoseconds(Int64(timeoutNanoseconds)))
+
+        while isCancelling() {
+            guard ContinuousClock.now < deadline else {
+                XCTFail("Expected cancellation to finish before timeout.", file: file, line: line)
+                return
+            }
+
+            await Task.yield()
+            try? await Task.sleep(nanoseconds: pollIntervalNanoseconds)
+        }
     }
 }
 
