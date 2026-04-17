@@ -238,7 +238,10 @@ struct NetworkToolsApp: App {
                     NSWorkspace.shared.openApplication(
                         at: bundleURL,
                         configuration: NSWorkspace.OpenConfiguration()
-                    ) { _, _ in }
+                    ) { _, _ in
+                        // We only need to nudge the already-running app to the front before exiting.
+                        // There is no recovery path here because this helper does not own any UI.
+                    }
                 }
             )
             exit(EXIT_SUCCESS)
