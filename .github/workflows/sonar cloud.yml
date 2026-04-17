@@ -20,22 +20,22 @@ jobs:
         run: brew install xcodegen
 
       - name: Generate Xcode project
-        run: xcodegen generate --project-root Sources --project .
+        run: xcodegen generate --project .
 
       - name: Run tests and produce coverage report
         run: |
           xcodebuild \
             -project NetworkTools.xcodeproj \
-            -scheme NetworkTools \
+            -scheme NetworkToolsCoverage \
             -destination 'platform=macOS' \
             -enableCodeCoverage YES \
             -resultBundlePath TestResults.xcresult \
             test CODE_SIGNING_ALLOWED=NO
 
-          swift Scripts/coverage_report.swift \
+          swift scripts/coverage_report.swift \
             --xcresult TestResults.xcresult \
             --repo-root "$PWD" \
-            --exclusions-file Scripts/coverage-exclusions.txt \
+            --exclusions-file scripts/coverage-exclusions.txt \
             --overall-threshold 80 \
             --changed-threshold 80 \
             --sonar-xml sonar-generic-coverage.xml
