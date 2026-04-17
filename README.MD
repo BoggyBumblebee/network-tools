@@ -69,6 +69,67 @@ xcodebuild \
   test
 ```
 
+## Developer ID Release
+
+Release notarization is wired for the day a `Developer ID Application` certificate is available.
+
+Local release flow:
+
+1. Store notary credentials in a keychain profile, or prepare Apple ID notary environment variables:
+
+```bash
+xcrun notarytool store-credentials "NetworkTools-Notary" \
+  --apple-id "you@example.com" \
+  --team-id "YOUR_TEAM_ID" \
+  --password "app-specific-password"
+```
+
+2. Export the signing inputs and run the release script:
+
+```bash
+export APPLE_TEAM_ID="YOUR_TEAM_ID"
+export DEVELOPER_ID_IDENTITY="Developer ID Application: Your Name (YOUR_TEAM_ID)"
+export NOTARY_KEYCHAIN_PROFILE="NetworkTools-Notary"
+scripts/release-developer-id.sh
+```
+
+If you prefer direct notary credentials instead of a keychain profile, set:
+
+```bash
+export NOTARY_APPLE_ID="you@example.com"
+export NOTARY_TEAM_ID="YOUR_TEAM_ID"
+export NOTARY_PASSWORD="app-specific-password"
+```
+
+Optional:
+
+```bash
+export INSTALL_TO_APPLICATIONS=1
+```
+
+The script will:
+
+- archive a signed Release build with `Developer ID Application`
+- export the app with Developer ID settings
+- submit it to Apple notarization
+- staple the notarization ticket
+- verify both `codesign` and `spctl`
+
+GitHub Actions release workflow:
+
+- Use the manual `Release` workflow in `.github/workflows/release.yml`
+- Provide these repository secrets before running it:
+- `APPLE_TEAM_ID`
+- `DEVELOPER_ID_IDENTITY`
+- `DEVELOPER_ID_CERTIFICATE_P12_BASE64`
+- `DEVELOPER_ID_CERTIFICATE_PASSWORD`
+- `KEYCHAIN_PASSWORD`
+- `NOTARY_APPLE_ID`
+- `NOTARY_TEAM_ID`
+- `NOTARY_PASSWORD`
+
+Release builds now enable hardened runtime in the `Release` configuration, which is required for notarization.
+
 ## Usage
 
 1. Launch **Network Tools**.

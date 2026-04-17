@@ -36,6 +36,9 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.boggybumblebee.NetworkTools
         PRODUCT_NAME: NetworkTools
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      configs:
+        Release:
+          ENABLE_HARDENED_RUNTIME: YES
   NetworkToolsTests:
     type: bundle.unit-test
     platform: macOS
