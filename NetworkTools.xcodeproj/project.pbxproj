@@ -117,6 +117,7 @@
 				53274A9DC511DA358A6F1E78 /* Resources */,
 				30B9483B18B0B8D3CB738972 /* Sources */,
 				BC80D728BA829DDF76B5EABD /* Tests */,
+				41423CAC3CFEC15244FFEC67 /* UITests */,
 			);
 			path = NetworkTools;
 			sourceTree = "<group>";
@@ -215,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				19C72A54CE04CF63B04BCA59 /* NetworkTools */,
-				41423CAC3CFEC15244FFEC67 /* UITests */,
 				9F4F791E1107DBB6A3B7D08D /* Products */,
 			);
 			sourceTree = "<group>";
