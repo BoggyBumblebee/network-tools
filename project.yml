@@ -11,15 +11,15 @@ targets:
     platform: macOS
     deploymentTarget: 15.0
     sources:
-      - path: NetworkTools/Sources
-      - path: NetworkTools/Resources/Assets.xcassets
+      - path: Sources
+      - path: Resources/Assets.xcassets
         buildPhase: resources
-      - path: NetworkTools/Resources/Assets
+      - path: Resources/Assets
         buildPhase: resources
-      - path: NetworkTools/Resources/Help
+      - path: Resources/Help
         buildPhase: resources
     info:
-      path: NetworkTools/Resources/Info.plist
+      path: Resources/Info.plist
       properties:
         CFBundleDisplayName: Network Tools
         CFBundleName: Network Tools
@@ -44,7 +44,7 @@ targets:
     platform: macOS
     deploymentTarget: 15.0
     sources:
-      - path: NetworkTools/Tests
+      - path: Tests
     dependencies:
       - target: NetworkTools
     settings:
