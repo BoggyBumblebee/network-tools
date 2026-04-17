@@ -157,10 +157,13 @@ xcodebuild \
 Generate the SonarCloud-compatible coverage report used by CI:
 
 ```bash
-curl -sSLo xccov-to-sonarqube-generic.sh \
-  https://raw.githubusercontent.com/SonarSource/sonar-scanning-examples/master/swift-coverage/swift-coverage-example/xccov-to-sonarqube-generic.sh
-chmod +x xccov-to-sonarqube-generic.sh
-./xccov-to-sonarqube-generic.sh TestResults.xcresult > sonar-generic-coverage.xml
+swift scripts/coverage_report.swift \
+  --xcresult TestResults.xcresult \
+  --repo-root "$PWD" \
+  --exclusions-file scripts/coverage-exclusions.txt \
+  --overall-threshold 80 \
+  --changed-threshold 80 \
+  --sonar-xml sonar-generic-coverage.xml
 ```
 
 Quality target:

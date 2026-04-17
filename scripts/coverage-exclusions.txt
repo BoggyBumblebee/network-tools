@@ -1,0 +1,6 @@
+# Relative repo paths to exclude from coverage threshold calculations.
+# Blank lines and lines starting with # are ignored.
+#
+# Examples:
+# Sources/Generated/*
+# Sources/SomeLegacyFile.swift
