@@ -1,6 +1,6 @@
 # Network Tools
 
-[![Build](https://github.com/BoggyBumblebee/network-tools/actions/workflows/build.yml/badge.svg)](https://github.com/BoggyBumblebee/network-tools/actions/workflows/build.yml)
+[![Build](https://github.com/BoggyBumblebee/network-tools/actions/workflows/ci.yml/badge.svg)](https://github.com/BoggyBumblebee/network-tools/actions/workflows/ci.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=BoggyBumblebee_network-tools&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=BoggyBumblebee_network-tools)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=BoggyBumblebee_network-tools&metric=coverage)](https://sonarcloud.io/summary/new_code?id=BoggyBumblebee_network-tools)
 
